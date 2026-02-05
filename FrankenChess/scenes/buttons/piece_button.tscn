@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlurvy3i04quh"]
+
+[ext_resource type="Script" uid="uid://cjqjqynkqxaxt" path="res://scripts/piece_button.gd" id="1_p6var"]
+
+[node name="PieceButton" type="Button"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -648.0
+offset_right = -480.0
+offset_bottom = -552.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_p6var")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
