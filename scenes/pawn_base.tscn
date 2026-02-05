@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b7ucc42pelblw"]
-
-[ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="1_ymmno"]
-
-[node name="PawnBase" type="Node3D"]
-
-[node name="Pawn-BottomFlip" parent="." instance=ExtResource("1_ymmno")]
-
-[node name="Marker3D" type="Marker3D" parent="Pawn-BottomFlip"]
