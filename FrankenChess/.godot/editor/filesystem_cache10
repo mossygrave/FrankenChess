@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770744174
+::res://::1770911624
 icon.svg::CompressedTexture2D::6750483687177341372::1770740060::1770744174::1::::<><><>0<>0<>792d10401a5f89d25a72ba9a8b64e01c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 new_script.gd::GDScript::1459514196885081353::1770740060::0::1::::<>Node<><>0<>0<><>::
 ::res://assets/::1770740060
@@ -82,12 +82,12 @@ Queen-Middle.glb::PackedScene::1133596256453349398::1770740060::1770744179::1:::
 Queen-Top.glb::PackedScene::3639591138290334139::1770740060::1770744180::1::::<><><>0<>0<>c1bac0e41ad5b6e9dfa47fd8a2c04422<>res://.godot/imported/Queen-Top.glb-416b2730afe6a709647847be119d09aa.scn::
 ::res://assets/KayKit_Holiday_Bits_1.0_FREE/::1770740060
 text.txt::TextFile::-1::1770740060::0::1::::<><><>0<>0<><>::
-::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/::1770744174
+::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/::1770746174
 Chess_board.png::CompressedTexture2D::3021309002964700696::1770740060::1770746174::1::::<><><>0<>0<>86badf8b28fd4cd0f1c53840ae92daa4<>res://.godot/imported/Chess_board.png-651887b2fd3f79aeca4a324d0e093cc3.s3tc.ctex::
 text.txt::TextFile::-1::1770740060::0::1::::<><><>0<>0<><>::
-::res://scenes/::1770740060
+::res://scenes/::1770746242
 assembly.tscn::PackedScene::4830637442164550190::1770740060::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd<>uid://bq6jc7hmtodf8::::res://scenes/piece.tscn<>uid://b7ucc42pelblw::::res://scenes/pawn_base.tscn<>uid://dlurvy3i04quh::::res://scenes/buttons/piece_button.tscn<>uid://det4n8y08fyv0::::res://assets/2d pieces/white-pawn.png
-board.tscn::PackedScene::1011947757416667246::1770740060::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://nx00y34j14h0::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Assets/gltf/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
+board.tscn::PackedScene::1011947757416667246::1770746242::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://bjbsruv8bl50g::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
 chess.gd::GDScript::3824173889552152558::1770740060::0::1::::<>Sprite3D<><>0<>0<><>::
 game_over.tscn::PackedScene::5246631391523414497::1770740060::0::1::::<><><>0<>0<><>::
 main.tscn::PackedScene::5225931386856378786::1770740060::0::1::::<><><>0<>0<><>::uid://oogvqjaqobq1::::res://scenes/board.tscn<>uid://bq6jc7hmtodf8::::res://scenes/piece.tscn
