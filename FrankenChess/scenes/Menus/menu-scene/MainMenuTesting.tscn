@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://dbbii5sc3jcym"]
+
+[ext_resource type="Script" uid="uid://yr71gjiuiunv" path="res://main_menu_testing.gd" id="1_5td3f"]
+[ext_resource type="Texture2D" uid="uid://cjacadrtu6jom" path="res://Haunted House Background.jpg" id="2_vkruw"]
+[ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="3_1x30l"]
+[ext_resource type="Script" uid="uid://cu6wr5up8t4sf" path="res://exit_button.gd" id="4_gborv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gborv"]
+font = ExtResource("3_1x30l")
+font_size = 100
+font_color = Color(0.28627452, 0.49803922, 0.050980393, 1)
+outline_size = 7
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5td3f"]
+bg_color = Color(0.28627452, 0.5019608, 0.05490196, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1x30l"]
+bg_color = Color(0.10598173, 0.20702565, 0.010335357, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gborv"]
+bg_color = Color(0.35630217, 0.617791, 0.07224395, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 10
+
+[node name="Menu" type="Control" unique_id=908118062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5td3f")
+
+[node name="HauntedHouseBackground" type="Sprite2D" parent="." unique_id=1088825499]
+position = Vector2(573.7399, 326.5)
+scale = Vector2(0.66428566, 0.66428566)
+texture = ExtResource("2_vkruw")
+
+[node name="Label" type="Label" parent="." unique_id=2073309653]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 549.0
+offset_right = 850.0
+offset_bottom = 649.0
+text = "FrankenChess"
+label_settings = SubResource("LabelSettings_gborv")
+
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1385381118]
+layout_mode = 0
+offset_left = 796.0001
+offset_top = 76.0
+offset_right = 1305.0001
+offset_bottom = 322.0
+scale = Vector2(0.5892314, 0.7476208)
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainButtons" unique_id=541206905]
+layout_mode = 2
+theme_override_constants/separation = 26
+
+[node name="StartButton" type="Button" parent="MainButtons/VBoxContainer" unique_id=37913796]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Start Da Game Baybee"
+
+[node name="OptionsButton" type="Button" parent="MainButtons/VBoxContainer" unique_id=151626084]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Options Menu"
+
+[node name="CreditsButton" type="Button" parent="MainButtons/VBoxContainer" unique_id=1866235322]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Credits"
+
+[node name="ExitButton" type="Button" parent="MainButtons/VBoxContainer" unique_id=1236051893]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Exit to Desktop
+"
+script = ExtResource("4_gborv")
+
+[node name="Options" type="Panel" parent="." unique_id=190859037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -214.0
+offset_right = 269.5
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options" unique_id=761325277]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 22.0
+
+[node name="BackButton" type="Button" parent="Options" unique_id=426105586]
+layout_mode = 0
+offset_left = 153.5
+offset_top = 341.0
+offset_right = 373.5
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Exit
+"
+script = ExtResource("4_gborv")
+
+[node name="Credits" type="Panel" parent="." unique_id=2126217515]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = -214.0
+offset_right = 269.5
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Credits" unique_id=1515700810]
+layout_mode = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 22.0
+
+[node name="BackButton" type="Button" parent="Credits" unique_id=2107573638]
+layout_mode = 0
+offset_left = 153.5
+offset_top = 341.0
+offset_right = 373.5
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
+text = "Exit
+"
+script = ExtResource("4_gborv")
+
+[connection signal="pressed" from="MainButtons/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Options/BackButton" to="." method="_on_back_options_pressed"]
+[connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_credits_pressed"]
