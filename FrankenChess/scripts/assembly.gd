@@ -1,51 +1,40 @@
 extends Node3D
 
-@onready var camera_3d: Camera3D = $Camera3D
-@onready var marker_3d: Marker3D = $Marker3D
-@onready var piece: Node3D = $Piece
+@onready var base_location: Marker3D = $BaseLocation
+@onready var v_box_container: VBoxContainer = $Control/VBoxContainer
+@onready var spawn_points = {
+	"bottom" : $BaseLocation,
+	"middle" : $TopLocation,
+	"top" : $TopLocation
+}
 
-var draggingCollider
-var mousePosition
-var doDrag = false
+@export var base_piece: PackedScene
 
-func _input(event):
-	var intersect = get_mouse_intersect(event.position)
-	
-	if event is InputEventMouse:
-		if intersect: mousePosition = intersect.position
-		
-	if event is InputEventMouseButton:
-		var leftButtonPressed = event.button_index == MOUSE_BUTTON_LEFT && event.pressed
-		var leftButtonReleased = event.button_index == MOUSE_BUTTON_LEFT && !event.pressed
-		
-		if leftButtonReleased:
-			doDrag = false
-			drag_and_drop(intersect)
-		elif leftButtonPressed:
-			doDrag = true
-			drag_and_drop(intersect)
-	
-func process(delta):
-	if draggingCollider:
-		draggingCollider.global_position = mousePosition
+@export var parts = [
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb", "type": "bottom"},
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb", "type": "middle"},
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
+	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"}
+]
 
-func drag_and_drop(intersect):
-	if !draggingCollider && doDrag:
-		draggingCollider = intersect.collider
-		draggingCollider.set_collision_layer(false)
-	elif draggingCollider:
-		draggingCollider.set_collision_layer(true)
-		draggingCollider = null
+func _on_piece_button_pressed() -> void:
+	var new_object = base_piece.instantiate()
+	new_object.position = base_location.position
+	add_child(new_object)
+
+func _ready():
+	for part in parts:
+		var button = Button.new()
+		button.text = part["path"].get_file().get_basename()
+		button.pressed.connect(_on_part_selected.bind(part))
+		v_box_container.add_child(button)
 		
+func _on_part_selected(part : Dictionary):
+	var scene = load(part["path"])
+	var instance = scene.instantiate()
+	
+	var spawn_node = spawn_points.get(part["type"])
+	if spawn_node:
+		instance.position = spawn_node.position
 		
-func get_mouse_intersect(mousePosition):
-	var currentCamera = get_viewport().get_camera_3d()
-	var params = PhysicsRayQueryParameters3D.new()
-	
-	params.from = currentCamera.project_ray_origin(mousePosition)
-	params.to = currentCamera.project_position(mousePosition, 1000)
-	
-	var worldspace = get_world_3d().direct_space_state
-	var result = worldspace.intersect_ray(params)
-	
-	return result
+	add_child(instance)
