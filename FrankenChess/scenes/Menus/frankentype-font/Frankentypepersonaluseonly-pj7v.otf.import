@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cl2ulon2y5j7a"
-path="res://.godot/imported/Frankentypepersonaluseonly-pj7v.otf-338579d0c19e9c89eb2dfbc862189081.fontdata"
+path="res://.godot/imported/Frankentypepersonaluseonly-pj7v.otf-cab73a02fe8c45332483bf9e60ba8855.fontdata"
 
 [deps]
 
-source_file="res://frankentype-font/Frankentypepersonaluseonly-pj7v.otf"
-dest_files=["res://.godot/imported/Frankentypepersonaluseonly-pj7v.otf-338579d0c19e9c89eb2dfbc862189081.fontdata"]
+source_file="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf"
+dest_files=["res://.godot/imported/Frankentypepersonaluseonly-pj7v.otf-cab73a02fe8c45332483bf9e60ba8855.fontdata"]
 
 [params]
 
