@@ -1,2 +1,6 @@
+res://scenes/middle parts/bishop_mid.tscn
 res://scripts/assembly.gd
 res://scenes/assembly.tscn
+res://scripts/part.gd
+res://scenes/middle parts/pawn_mid.tscn
+res://scripts/flip_base.gd

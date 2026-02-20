@@ -2,19 +2,22 @@ extends Node3D
 
 @onready var base_location: Marker3D = $BaseLocation
 @onready var v_box_container: VBoxContainer = $Control/VBoxContainer
-@onready var spawn_points = {
-	"bottom" : $BaseLocation,
-	"middle" : $TopLocation,
-	"top" : $TopLocation
+@onready var current_parts = {
+	"base" : null,
+	"middle" : null,
+	"top" : null
 }
+@onready var spawn_point = $TopLocation
 
 @export var base_piece: PackedScene
 
 @export var parts = [
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb", "type": "bottom"},
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb", "type": "middle"},
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
-	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"}
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb", "type": "base"},
+	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb", "type": "base"},
+	{ "path": "res://scenes/middle parts/pawn_mid.tscn", "type": "middle"},
+	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"},
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"}
+	
 ]
 
 func _on_piece_button_pressed() -> void:
@@ -28,13 +31,56 @@ func _ready():
 		button.text = part["path"].get_file().get_basename()
 		button.pressed.connect(_on_part_selected.bind(part))
 		v_box_container.add_child(button)
-		
+	
+	var clear = Button.new()
+	clear.text = "Clear"
+	clear.pressed.connect(_clear_pieces.bind())
+	v_box_container.add_child(clear)
+
+func _clear_pieces():
+	var active: Node = $CurrentParts
+	for child in active.get_children():
+		child.queue_free()
+
+# adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
 	var scene = load(part["path"])
 	var instance = scene.instantiate()
 	
-	var spawn_node = spawn_points.get(part["type"])
-	if spawn_node:
-		instance.position = spawn_node.position
+	$CurrentParts.add_child(instance)
+	
+	if part["type"] != "middle":
+		var mid = current_parts["middle"]
 		
-	add_child(instance)
+		if mid == null:
+			instance.global_transform = spawn_point.global_transform
+		else:
+			if part["type"] == "top":
+				var socket = mid.top_socket
+				instance.global_transform = socket.global_transform
+			if part["type"] == "base":
+				var socket = mid.base_socket
+				instance.global_transform = socket.global_transform
+				
+	elif part["type"] == "middle":
+		var top = current_parts["top"]
+		var base = current_parts["base"]
+		
+		instance.global_transform = spawn_point.global_transform
+		
+		print(top)
+		print(instance.top_socket)
+		
+		if top:
+			var socket = instance.top_socket
+			top.global_transform = socket.global_transform
+		if base:
+			var socket = instance.base_socket
+			base.global_transform = socket.global_transform
+		
+	if current_parts[part["type"]]:
+		var active_part = current_parts[part["type"]]
+		active_part.queue_free()
+	current_parts[part["type"]] = instance
+	#print(current_parts)
+	# check 

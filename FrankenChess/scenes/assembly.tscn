@@ -35,11 +35,8 @@ spot_range = 5.2436213
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015280962, 2.0612435, 0.22305417)
 light_color = Color(1, 0.7921569, 0.6627451, 1)
-light_energy = 1.04
-omni_range = 12.198168
-
-[node name="BaseLocation" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6339985, -3.255)
+light_energy = 1.865
+omni_range = 6.143
 
 [node name="TopLocation" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92502403, -3.255)
@@ -64,3 +61,5 @@ offset_left = -549.0
 offset_top = -602.0
 offset_right = -509.0
 offset_bottom = -562.0
+
+[node name="CurrentParts" type="Node" parent="."]
