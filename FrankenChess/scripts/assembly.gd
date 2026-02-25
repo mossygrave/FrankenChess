@@ -12,11 +12,14 @@ extends Node3D
 @export var base_piece: PackedScene
 
 @export var parts = [
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb", "type": "base"},
+	{ "path": "res://scenes/Base Parts/pawn_base.tscn", "type": "base"},
 	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb", "type": "base"},
+	{ "path": "res://assets/Chess Pieces/Knight Piece/Knight-Bottom.glb", "type": "base"},
 	{ "path": "res://scenes/middle parts/pawn_mid.tscn", "type": "middle"},
 	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"},
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"}
+	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
+	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Top.glb", "type": "top"},
+	{ "path": "res://assets/Chess Pieces/King Piece/King-Top.glb", "type": "top"}
 	
 ]
 
@@ -54,6 +57,7 @@ func _on_part_selected(part : Dictionary):
 		
 		if mid == null:
 			instance.global_transform = spawn_point.global_transform
+			instance.rotation.x += PI
 		else:
 			if part["type"] == "top":
 				var socket = mid.top_socket
@@ -61,6 +65,7 @@ func _on_part_selected(part : Dictionary):
 			if part["type"] == "base":
 				var socket = mid.base_socket
 				instance.global_transform = socket.global_transform
+				instance.rotation.x += PI
 				
 	elif part["type"] == "middle":
 		var top = current_parts["top"]
@@ -77,6 +82,7 @@ func _on_part_selected(part : Dictionary):
 		if base:
 			var socket = instance.base_socket
 			base.global_transform = socket.global_transform
+			base.rotation.x += PI
 		
 	if current_parts[part["type"]]:
 		var active_part = current_parts[part["type"]]

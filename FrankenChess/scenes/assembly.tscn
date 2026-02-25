@@ -1,12 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ca285mg3ojj4i"]
+[gd_scene load_steps=3 format=3 uid="uid://ca285mg3ojj4i"]
 
 [ext_resource type="Material" uid="uid://br4rhr4oc1wl4" path="res://scenes/test_mat.tres" id="1_fy5lp"]
 [ext_resource type="Script" uid="uid://bfvlhed26v30g" path="res://scripts/assembly.gd" id="1_mbfbq"]
-[ext_resource type="PackedScene" uid="uid://b7ucc42pelblw" path="res://scenes/pawn_base.tscn" id="3_apbyu"]
 
 [node name="Assembly" type="Node3D"]
 script = ExtResource("1_mbfbq")
-base_piece = ExtResource("3_apbyu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9851873, 0.17148207, 0, -0.17148207, 0.9851873, 0, 1.4885876, 0.32301152)

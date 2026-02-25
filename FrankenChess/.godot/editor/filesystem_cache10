@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1771602677
+::res://::1771944574
 icon.svg::CompressedTexture2D::6750483687177341372::1770307518::1770909061::1::::<><><>0<>0<>792d10401a5f89d25a72ba9a8b64e01c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 new_script.gd::GDScript::1459514196885081353::1770307518::0::1::::<>Node<><>0<>0<><>::
 ::res://assets/::1770307939
@@ -18,20 +18,21 @@ white-pawn.png::CompressedTexture2D::7481026382595629979::1770307518::1770909061
 white-queen.png::CompressedTexture2D::5963483417185187936::1770307518::1770909061::1::::<><><>0<>0<>20a2f7ad5ac944d5eb52f79433a6b2de<>res://.godot/imported/white-queen.png-940737432d44cfdc80e0d9dcc61b8ec8.ctex::
 white-rook.png::CompressedTexture2D::3768916121352785262::1770307518::1770909061::1::::<><><>0<>0<>1653498c56fdafa5119ff40373835059<>res://.godot/imported/white-rook.png-421a1b911bffe6a443fafead53f3ade9.ctex::
 ::res://assets/Chess Pieces/::1770307550
-::res://assets/Chess Pieces/Bishop Piece/::1770909065
-Bishop-Bottom.glb::PackedScene::7994794251721350311::1770307518::1771612309::1::::<><><>0<>0<>64c5c65989da77fbb1006bab659364b9<>res://.godot/imported/Bishop-Bottom.glb-da3fb65b48691355f05958abc2538696.scn::
+::res://assets/Chess Pieces/Bishop Piece/::1771948051
+Bishop-Bottom.glb::PackedScene::7994794251721350311::1770307518::1771948051::1::::<><><>0<>0<>64c5c65989da77fbb1006bab659364b9<>res://.godot/imported/Bishop-Bottom.glb-da3fb65b48691355f05958abc2538696.scn::
 Bishop-Middle.glb::PackedScene::2725209362904864569::1770307518::1770909065::1::::<><><>0<>0<>799bfef4d3b6c49a61e5fe5399970298<>res://.godot/imported/Bishop-Middle.glb-2bab0198e02fe7cf007a8723bfbae63c.scn::
 Bishop-Top.glb::PackedScene::6935114510545778889::1770307518::1770909065::1::::<><><>0<>0<>82af28de0c101cf7f5b5efd6ba8cd53f<>res://.godot/imported/Bishop-Top.glb-4997fdf41ab002306f4527428583debe.scn::
-::res://assets/Chess Pieces/Castle Piece/::1770909066
-Castle-Bottom.glb::PackedScene::3537550977365408322::1770307518::1770909065::1::::<><><>0<>0<>67f890d0ed7a63100ea7c091de0c6d93<>res://.godot/imported/Castle-Bottom.glb-0289a8f8e283467c01a33640920a7f9f.scn::
+::res://assets/Chess Pieces/Castle Piece/::1771948062
+Bishop-Bottom.glb::PackedScene::7938249474205191124::1771948062::1771948063::1::::<><><>0<>0<>0ea3c411cc1c1aaef55975d7a1683a63<>res://.godot/imported/Bishop-Bottom.glb-2340c6542b193d7359fdef60ec2da271.scn::
+Castle-Bottom.glb::PackedScene::3537550977365408322::1770307518::1771944577::1::::<><><>0<>0<>d4173e9177249a5e357d976d56c8b374<>res://.godot/imported/Castle-Bottom.glb-0289a8f8e283467c01a33640920a7f9f.scn::
 Castle-Middle.glb::PackedScene::3603181684702685520::1770307518::1770909065::1::::<><><>0<>0<>9cd29fc033e0172e2ec03d662f30826f<>res://.godot/imported/Castle-Middle.glb-fd3dc54ef9a738a5bdcc66c6403338ca.scn::
 Castle-Top.glb::PackedScene::2971178869736706218::1770307518::1770909066::1::::<><><>0<>0<>be36fb22ca6afbc3eb11a5b9bfe7c330<>res://.godot/imported/Castle-Top.glb-6f508a0ff035e98e277479a4ac910694.scn::
-::res://assets/Chess Pieces/King Piece/::1770909067
-King-Bottom.glb::PackedScene::8874754815746013675::1770307518::1770909066::1::::<><><>0<>0<>977dcda4e8fb5f455a14fef4d0c2a645<>res://.godot/imported/King-Bottom.glb-a29c671d8f6b688c1b9de8a4c056ef7f.scn::
+::res://assets/Chess Pieces/King Piece/::1771944577
+King-Bottom.glb::PackedScene::8874754815746013675::1770307518::1771944577::1::::<><><>0<>0<>315ef9db9ff6e62412d86e59107bef0b<>res://.godot/imported/King-Bottom.glb-a29c671d8f6b688c1b9de8a4c056ef7f.scn::
 King-Middle.glb::PackedScene::1124782057524100927::1770307518::1770909066::1::::<><><>0<>0<>1012bda4b06567a015352ea4b70c27a1<>res://.godot/imported/King-Middle.glb-96b0973a9efab5d30134b42fcbefd475.scn::
 King-Top.glb::PackedScene::3836772261427681086::1770307518::1770909066::1::::<><><>0<>0<>3e1dc75f80b535f5473c496638040885<>res://.godot/imported/King-Top.glb-acf0e0a72085678fa880309a6e9087b9.scn::
-::res://assets/Chess Pieces/Knight Piece/::1770909067
-Knight-Bottom.glb::PackedScene::293394139802232732::1770307518::1770909067::1::::<><><>0<>0<>cbbaab9aeabc5634004ad84836515202<>res://.godot/imported/Knight-Bottom.glb-d8a087d6f01378c757a9667b74659b51.scn::
+::res://assets/Chess Pieces/Knight Piece/::1771944577
+Knight-Bottom.glb::PackedScene::293394139802232732::1770307518::1771944577::1::::<><><>0<>0<>ac1d6b5a65910cae6e1cb949de320f36<>res://.godot/imported/Knight-Bottom.glb-d8a087d6f01378c757a9667b74659b51.scn::
 Knight-Middle.glb::PackedScene::1984177363577876035::1770307518::1770909067::1::::<><><>0<>0<>4b9baa5fb51fd1cbd31cdd0827a664e9<>res://.godot/imported/Knight-Middle.glb-42ae31e6069980dd80a96fc619b999a3.scn::
 Knight-Top.glb::PackedScene::4308927327213017663::1770307518::1770909067::1::::<><><>0<>0<>b5c574e9f8e286b551e9bfbb03deeba1<>res://.godot/imported/Knight-Top.glb-9a82ddf9a7634d222a5ca175311df1e6.scn::
 ::res://assets/Chess Pieces/Pawn Piece/::1770909068
@@ -42,14 +43,14 @@ Pawn-Top.glb::PackedScene::760544110459450136::1770307518::1770909068::1::::<><>
 Pawn-BottomFlip_Vert_001.res::ArrayMesh::6531160945208454943::1771520214::0::1::::<><><>0<>0<><>::
 Pawn-Middle_Vert_001.res::ArrayMesh::7499486943598353124::1770909068::0::1::::<><><>0<>0<><>::
 Pawn-Top_Vert_008.res::ArrayMesh::1346859181600409643::1770909068::0::1::::<><><>0<>0<><>::
-::res://assets/Chess Pieces/Queen Piece/::1770909069
-Queen-Bottom.glb::PackedScene::5611639834189937838::1770307518::1770909069::1::::<><><>0<>0<>dac008300a0bd6ef3e8da145cd65c9a6<>res://.godot/imported/Queen-Bottom.glb-5546c5d800c7a519ac8cd834eab98777.scn::
+::res://assets/Chess Pieces/Queen Piece/::1771947493
+Queen-Bottom.glb::PackedScene::5611639834189937838::1770307518::1771947493::1::::<><><>0<>0<>3778d3eea202d8b39ea8479563d4f89b<>res://.godot/imported/Queen-Bottom.glb-5546c5d800c7a519ac8cd834eab98777.scn::
 Queen-Middle.glb::PackedScene::500990139125648731::1770307518::1770909069::1::::<><><>0<>0<>eb3ba975c52e4f4993967a079cfb5839<>res://.godot/imported/Queen-Middle.glb-24114f8eb3a739b9757c86b8a8508df4.scn::
 Queen-Top.glb::PackedScene::6022184721631239::1770307518::1770909069::1::::<><><>0<>0<>4f875d041f648fbb94bd24bf5835b02d<>res://.godot/imported/Queen-Top.glb-8468509a44701eab25ade830c04bcd4a.scn::
 ::res://assets/Chess Pieces Inside Out/::1770909061
 chess-set-silicone-black-ivory-both-pieces-1500x1160__95842.jpg::CompressedTexture2D::8939240414038541870::1770307518::1770909061::1::::<><><>0<>0<>8f43532e29572de66a428d9f37e26405<>res://.godot/imported/chess-set-silicone-black-ivory-both-pieces-1500x1160__95842.jpg-eadc4c3e46215042ac0ee5bbf48df587.s3tc.ctex::
-::res://assets/Chess Pieces Inside Out/Bishop Piece/::1770909070
-Bishop-Bottom.glb::PackedScene::7989203207154010330::1770307518::1770909070::1::::<><><>0<>0<>93075c077782a8abce4579c6a671b643<>res://.godot/imported/Bishop-Bottom.glb-f0c72fb28b4a45073d49233ac8a14ff4.scn::
+::res://assets/Chess Pieces Inside Out/Bishop Piece/::1771947970
+Bishop-Bottom.glb::PackedScene::7989203207154010330::1771947970::1770909070::1::::<><><>0<>0<>93075c077782a8abce4579c6a671b643<>res://.godot/imported/Bishop-Bottom.glb-f0c72fb28b4a45073d49233ac8a14ff4.scn::
 Bishop-Middle.glb::PackedScene::1402922229196667689::1770307518::1770909070::1::::<><><>0<>0<>dff7bb33e3a6e1bba023fd15e3b7cb44<>res://.godot/imported/Bishop-Middle.glb-922bb826eefeda0d01b1bd431eff5689.scn::
 Bishop-Top.glb::PackedScene::576979511549212197::1770307518::1770909070::1::::<><><>0<>0<>305990913a895923d99926077f9062ac<>res://.godot/imported/Bishop-Top.glb-7c7a7533a515d5aaaa9ac9625a5a3230.scn::
 ::res://assets/Chess Pieces Inside Out/Castle Piece/::1770909070
@@ -85,8 +86,8 @@ text.txt::TextFile::-1::1770307940::0::1::::<><><>0<>0<><>::
 ::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/::1770909061
 Chess_board.png::CompressedTexture2D::3021309002964700696::1770307939::1770909061::1::::<><><>0<>0<>86badf8b28fd4cd0f1c53840ae92daa4<>res://.godot/imported/Chess_board.png-651887b2fd3f79aeca4a324d0e093cc3.s3tc.ctex::
 text.txt::TextFile::-1::1770307940::0::1::::<><><>0<>0<><>::
-::res://scenes/::1771611825
-assembly.tscn::PackedScene::4830637442164550190::1771612291::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd<>uid://b7ucc42pelblw::::res://scenes/pawn_base.tscn
+::res://scenes/::1771947405
+assembly.tscn::PackedScene::4830637442164550190::1771947405::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd
 board.tscn::PackedScene::1011947757416667246::1771520207::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://bjbsruv8bl50g::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
 chess.gd::GDScript::3824173889552152558::1770909043::0::1::::<>Sprite3D<><>0<>0<><>::
 game_over.tscn::PackedScene::5246631391523414497::1770307518::0::1::::<><><>0<>0<><>::
@@ -100,12 +101,13 @@ texture_holder.tscn::PackedScene::861622597429217938::1770307518::0::1::::<><><>
 ::res://scenes/buttons/::1770307550
 piece_button.tscn::PackedScene::7973697880940865511::1770307518::0::1::::<><><>0<>0<><>::uid://cjqjqynkqxaxt::::res://scripts/piece_button.gd
 ::res://scenes/Menus/::1771520292
-::res://scenes/middle parts/::1771611504
-bishop_mid.tscn::PackedScene::7166123211584037607::1771611504::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://be3d2g4eijl1r::::res://assets/Chess Pieces/Bishop Piece/Bishop-Middle.glb
-pawn_mid.tscn::PackedScene::7742291918143999715::1771610884::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://klwg2a7a35k2::::res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb
-::res://scripts/::1771611825
-assembly.gd::GDScript::2781397438193138944::1771612291::0::1::::<>Node3D<><>0<>0<><>::
+::res://scenes/middle parts/::1771945081
+bishop_mid.tscn::PackedScene::7166123211584037607::1771612544::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://be3d2g4eijl1r::::res://assets/Chess Pieces/Bishop Piece/Bishop-Middle.glb
+pawn_mid.tscn::PackedScene::7742291918143999715::1771945081::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://klwg2a7a35k2::::res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb
+::res://scripts/::1771947405
+assembly.gd::GDScript::2781397438193138944::1771947405::0::1::::<>Node3D<><>0<>0<><>::
+flip_base.gd::GDScript::6010356089853444217::1771613483::0::1::::<>EditorScenePostImport<><>0<>1<><>::
+part.gd::GDScript::8056239109891855068::1771608945::0::1::::<>Node3D<><>0<>0<><>::
 piece.gd::GDScript::413337992773817036::1770307518::0::1::::<>Node3D<><>0<>0<><>::
 piece_button.gd::GDScript::5438147310950327769::1771520207::0::1::::<>Button<><>0<>0<><>::
 player.gd::GDScript::6285787938965495595::1770307518::0::1::::<>Camera3D<><>0<>0<><>::
-part.gd::GDScript::8056239109891855068::1771608945::0::1::::<>Node3D<><>0<>0<><>::
