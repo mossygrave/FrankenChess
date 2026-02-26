@@ -1,92 +1,51 @@
 extends Node3D
 
-@onready var base_location: Marker3D = $BaseLocation
-@onready var v_box_container: VBoxContainer = $Control/VBoxContainer
-@onready var current_parts = {
-	"base" : null,
-	"middle" : null,
-	"top" : null
-}
-@onready var spawn_point = $TopLocation
+@onready var camera_3d: Camera3D = $Camera3D
+@onready var marker_3d: Marker3D = $Marker3D
+@onready var piece: Node3D = $Piece
 
-@export var base_piece: PackedScene
+var draggingCollider
+var mousePosition
+var doDrag = false
 
-@export var parts = [
-	{ "path": "res://scenes/Base Parts/pawn_base.tscn", "type": "base"},
-	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb", "type": "base"},
-	{ "path": "res://assets/Chess Pieces/Knight Piece/Knight-Bottom.glb", "type": "base"},
-	{ "path": "res://scenes/middle parts/pawn_mid.tscn", "type": "middle"},
-	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"},
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
-	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Top.glb", "type": "top"},
-	{ "path": "res://assets/Chess Pieces/King Piece/King-Top.glb", "type": "top"}
+func _input(event):
+	var intersect = get_mouse_intersect(event.position)
 	
-]
-
-func _on_piece_button_pressed() -> void:
-	var new_object = base_piece.instantiate()
-	new_object.position = base_location.position
-	add_child(new_object)
-
-func _ready():
-	for part in parts:
-		var button = Button.new()
-		button.text = part["path"].get_file().get_basename()
-		button.pressed.connect(_on_part_selected.bind(part))
-		v_box_container.add_child(button)
+	if event is InputEventMouse:
+		if intersect: mousePosition = intersect.position
+		
+	if event is InputEventMouseButton:
+		var leftButtonPressed = event.button_index == MOUSE_BUTTON_LEFT && event.pressed
+		var leftButtonReleased = event.button_index == MOUSE_BUTTON_LEFT && !event.pressed
+		
+		if leftButtonReleased:
+			doDrag = false
+			drag_and_drop(intersect)
+		elif leftButtonPressed:
+			doDrag = true
+			drag_and_drop(intersect)
 	
-	var clear = Button.new()
-	clear.text = "Clear"
-	clear.pressed.connect(_clear_pieces.bind())
-	v_box_container.add_child(clear)
+func process(delta):
+	if draggingCollider:
+		draggingCollider.global_position = mousePosition
 
-func _clear_pieces():
-	var active: Node = $CurrentParts
-	for child in active.get_children():
-		child.queue_free()
-
-# adds part to scene and moves it to the right position
-func _on_part_selected(part : Dictionary):
-	var scene = load(part["path"])
-	var instance = scene.instantiate()
+func drag_and_drop(intersect):
+	if !draggingCollider && doDrag:
+		draggingCollider = intersect.collider
+		draggingCollider.set_collision_layer(false)
+	elif draggingCollider:
+		draggingCollider.set_collision_layer(true)
+		draggingCollider = null
+		
+		
+func get_mouse_intersect(mousePosition):
+	var currentCamera = get_viewport().get_camera_3d()
+	var params = PhysicsRayQueryParameters3D.new()
 	
-	$CurrentParts.add_child(instance)
+	params.from = currentCamera.project_ray_origin(mousePosition)
+	params.to = currentCamera.project_position(mousePosition, 1000)
 	
-	if part["type"] != "middle":
-		var mid = current_parts["middle"]
-		
-		if mid == null:
-			instance.global_transform = spawn_point.global_transform
-			instance.rotation.x += PI
-		else:
-			if part["type"] == "top":
-				var socket = mid.top_socket
-				instance.global_transform = socket.global_transform
-			if part["type"] == "base":
-				var socket = mid.base_socket
-				instance.global_transform = socket.global_transform
-				instance.rotation.x += PI
-				
-	elif part["type"] == "middle":
-		var top = current_parts["top"]
-		var base = current_parts["base"]
-		
-		instance.global_transform = spawn_point.global_transform
-		
-		print(top)
-		print(instance.top_socket)
-		
-		if top:
-			var socket = instance.top_socket
-			top.global_transform = socket.global_transform
-		if base:
-			var socket = instance.base_socket
-			base.global_transform = socket.global_transform
-			base.rotation.x += PI
-		
-	if current_parts[part["type"]]:
-		var active_part = current_parts[part["type"]]
-		active_part.queue_free()
-	current_parts[part["type"]] = instance
-	#print(current_parts)
-	# check 
+	var worldspace = get_world_3d().direct_space_state
+	var result = worldspace.intersect_ray(params)
+	
+	return result
