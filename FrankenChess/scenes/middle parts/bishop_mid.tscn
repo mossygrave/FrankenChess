@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dadlacw3neeol"]
+
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_bfd37"]
+[ext_resource type="PackedScene" uid="uid://be3d2g4eijl1r" path="res://assets/Chess Pieces/Bishop Piece/Bishop-Middle.glb" id="1_wl5r3"]
+
+[node name="BishopMid" type="Node3D"]
+script = ExtResource("1_bfd37")
+
+[node name="Bishop-Middle" parent="." instance=ExtResource("1_wl5r3")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3948947, 0)

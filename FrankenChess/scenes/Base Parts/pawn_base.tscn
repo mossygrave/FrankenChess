@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lpg8k2x6oe7w"]
+
+[ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="1_ryiwf"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Pawn-BottomFlip" parent="." instance=ExtResource("1_ryiwf")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dikoof0dy5td8"]
+
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_f5osy"]
+[ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="2_3ikej"]
+
+[node name="PawnMid" type="Node3D"]
+script = ExtResource("1_f5osy")
+
+[node name="Pawn-Middle" parent="." instance=ExtResource("2_3ikej")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04944107, 0)
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.297, 0)
