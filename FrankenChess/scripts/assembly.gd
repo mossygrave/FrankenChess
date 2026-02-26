@@ -57,7 +57,8 @@ func _on_part_selected(part : Dictionary):
 		
 		if mid == null:
 			instance.global_transform = spawn_point.global_transform
-			instance.rotation.x += PI
+			if part["type"] == "base":
+				instance.rotation.x += PI
 		else:
 			if part["type"] == "top":
 				var socket = mid.top_socket
