@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cg0rit4kx5edl"]
+[gd_scene load_steps=2 format=3 uid="uid://cg0rit4kx5edl"]
+
+[ext_resource type="Script" uid="uid://dtr2lwj5ldsru" path="res://scenes/game_over.gd" id="1_xeevv"]
 
 [node name="Game Over" type="Node2D"]
+script = ExtResource("1_xeevv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -18,3 +21,5 @@ scale = Vector2(2.0800014, 2.0800014)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "play again"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

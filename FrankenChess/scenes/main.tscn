@@ -65,53 +65,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.587751, -0.022751898, -0.51
 [node name="Black" type="Node3D" parent="Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
 
-[node name="Piece17" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46177387, -0.022751894, -7.507284)
+[node name="BPawn1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.587751, -0.022751898, -6.4919367)
 
-[node name="Piece18" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46257937, -0.022751898, -6.4919367)
-
-[node name="Piece19" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4415423, -0.022751894, -7.507284)
-
-[node name="Piece20" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4423478, -0.022751898, -6.4919367)
-
-[node name="Piece21" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.530402, -0.022751894, -7.507284)
-
-[node name="Piece22" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5312076, -0.022751898, -6.4919367)
-
-[node name="Piece23" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5101705, -0.022751894, -7.507284)
-
-[node name="Piece24" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5109758, -0.022751898, -6.4919367)
-
-[node name="Piece25" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.538864, -0.022751894, -7.507284)
-
-[node name="Piece26" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53967, -0.022751898, -6.4919367)
-
-[node name="Piece27" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.518633, -0.022751894, -7.507284)
-
-[node name="Piece28" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5194383, -0.022751898, -6.4919367)
-
-[node name="Piece29" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.607177, -0.022751894, -7.507284)
-
-[node name="Piece30" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+[node name="BPawn2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6079826, -0.022751898, -6.4919367)
 
-[node name="Piece31" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+[node name="BPawn3" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5194383, -0.022751898, -6.4919367)
+
+[node name="BPawn4" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53967, -0.022751898, -6.4919367)
+
+[node name="BPawn5" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5109758, -0.022751898, -6.4919367)
+
+[node name="BPawn6" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5312076, -0.022751898, -6.4919367)
+
+[node name="BPawn7" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4423478, -0.022751898, -6.4919367)
+
+[node name="BPawn8" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46257925, -0.022751898, -6.4919367)
+
+[node name="BRook1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5869455, -0.022751894, -7.507284)
 
-[node name="Piece32" parent="Board/Black" instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.587751, -0.022751898, -6.4919367)
+[node name="BKnight1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.607177, -0.022751894, -7.507284)
+
+[node name="BBishop1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.518633, -0.022751894, -7.507284)
+
+[node name="BQueen" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.538864, -0.022751894, -7.507284)
+
+[node name="BKing" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5101702, -0.022751894, -7.507284)
+
+[node name="BBishop2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5304017, -0.022751894, -7.507284)
+
+[node name="BKnight2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4415417, -0.022751894, -7.507284)
+
+[node name="BRook2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46177363, -0.022751894, -7.507284)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.74726486, 0.6645264, 0, -0.6645264, 0.74726486, 0, 5.716467, 6.476)
@@ -134,19 +134,22 @@ spot_angle = 47.360477
 transform = Transform3D(1, 0, 0, 0, 0.6733352, 0.7393374, 0, -0.7393374, 0.6733352, 0, 0.7656381, 4.7257214)
 texture = SubResource("ViewportTexture_0wfyh")
 
-[node name="SubViewport" type="SubViewport" parent="UI"]
-transparent_bg = true
-
-[node name="Button" type="Button" parent="UI/SubViewport"]
+[node name="Button" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -378.0
+offset_top = -83.5
+offset_right = -262.0
+offset_bottom = -52.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "test"
+action_mode = 0
+text = "Change Scene"
+
+[node name="SubViewport" type="SubViewport" parent="UI"]
+transparent_bg = true
+
+[connection signal="pressed" from="UI/Button" to="Board" method="_on_button_pressed"]
