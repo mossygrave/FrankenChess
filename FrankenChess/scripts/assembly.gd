@@ -89,5 +89,3 @@ func _on_part_selected(part : Dictionary):
 		var active_part = current_parts[part["type"]]
 		active_part.queue_free()
 	current_parts[part["type"]] = instance
-	#print(current_parts)
-	# check 
