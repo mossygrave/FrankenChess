@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c55gcrkxaphim"]
+
+[ext_resource type="PackedScene" uid="uid://qa384s4np7kd" path="res://assets/Chess Pieces/King Piece/King-Middle.glb" id="2_lqxq5"]
+
+[node name="KingMid" type="Node3D"]
+
+[node name="King-Middle" parent="." instance=ExtResource("2_lqxq5")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04166159, 0)
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.667755, 0)

@@ -1,2 +1,5 @@
 res://scenes/assembly.tscn
 res://scripts/assembly.gd
+res://scenes/middle parts/knight_mid.tscn
+res://scenes/middle parts/king_mid.tscn
+res://scenes/middle parts/rook_mid.tscn
