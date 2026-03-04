@@ -1,14 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ca285mg3ojj4i"]
+[gd_scene load_steps=3 format=3 uid="uid://ca285mg3ojj4i"]
 
 [ext_resource type="Material" uid="uid://br4rhr4oc1wl4" path="res://scenes/test_mat.tres" id="1_fy5lp"]
 [ext_resource type="Script" uid="uid://bfvlhed26v30g" path="res://scripts/assembly.gd" id="1_mbfbq"]
-[ext_resource type="PackedScene" uid="uid://bq6jc7hmtodf8" path="res://scenes/piece.tscn" id="2_74mpl"]
-[ext_resource type="PackedScene" uid="uid://b7ucc42pelblw" path="res://scenes/pawn_base.tscn" id="3_apbyu"]
-[ext_resource type="PackedScene" uid="uid://dlurvy3i04quh" path="res://scenes/buttons/piece_button.tscn" id="5_ex8k7"]
-[ext_resource type="Texture2D" uid="uid://det4n8y08fyv0" path="res://assets/2d pieces/white-pawn.png" id="6_0t3c8"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_mbfbq"]
-radius = 1.1261663
 
 [node name="Assembly" type="Node3D"]
 script = ExtResource("1_mbfbq")
@@ -40,26 +33,11 @@ spot_range = 5.2436213
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.015280962, 2.0612435, 0.22305417)
 light_color = Color(1, 0.7921569, 0.6627451, 1)
-light_energy = 1.04
-omni_range = 12.198168
+light_energy = 1.865
+omni_range = 6.143
 
-[node name="Piece" parent="." instance=ExtResource("2_74mpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7642162, -0.026738524, -2.7259765)
-visible = false
-
-[node name="PawnBase" parent="." instance=ExtResource("3_apbyu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6527195, 0.25118268, -3.65801)
-visible = false
-
-[node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8325427, -3.4909325)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012277663, 0, 0.4122007)
-shape = SubResource("SphereShape3D_mbfbq")
-
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.852, -3.255)
+[node name="TopLocation" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92502403, -3.255)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -75,13 +53,11 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 0
 
-[node name="PieceButton" parent="Control" instance=ExtResource("5_ex8k7")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
-offset_left = -65.0
-offset_top = -130.0
-offset_right = 65.0
-offset_bottom = 0.0
-button_icon = ExtResource("6_0t3c8")
-button_draggable = ExtResource("2_74mpl")
+offset_left = -549.0
+offset_top = -602.0
+offset_right = -509.0
+offset_bottom = -562.0
 
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[node name="CurrentParts" type="Node" parent="."]
