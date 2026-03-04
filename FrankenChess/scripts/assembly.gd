@@ -40,12 +40,30 @@ func _ready():
 	clear.text = "Clear"
 	clear.pressed.connect(_clear_pieces.bind())
 	v_box_container.add_child(clear)
+	
+	var board = Button.new()
+	board.text = "Board"
+	board.pressed.connect(_change_to_board.bind())
+	v_box_container.add_child(board)
+	
+	var confirm = Button.new()
+	confirm.text = "Confirm"
+	confirm.pressed.connect(_confirm_pieces.bind())
+	v_box_container.add_child(confirm)
+	
 
 func _clear_pieces():
 	var active: Node = $CurrentParts
 	for child in active.get_children():
 		child.queue_free()
 
+func _change_to_board():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func _confirm_pieces():
+	var assembled_piece = $CurrentParts
+	Global.assembled_piece = assembled_piece.duplicate()#this adds the piece to the global script
+	
 # adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
 	var scene = load(part["path"])
