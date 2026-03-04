@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="3D Chess"
-run/main_scene="uid://cgpqldl0lj1ko"
+run/main_scene="uid://dbbii5sc3jcym"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://c55gcrkxaphim"]
+[gd_scene load_steps=3 format=3 uid="uid://c55gcrkxaphim"]
 
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_nkour"]
 [ext_resource type="PackedScene" uid="uid://qa384s4np7kd" path="res://assets/Chess Pieces/King Piece/King-Middle.glb" id="2_lqxq5"]
 
 [node name="KingMid" type="Node3D"]
+script = ExtResource("1_nkour")
 
 [node name="King-Middle" parent="." instance=ExtResource("2_lqxq5")]
 

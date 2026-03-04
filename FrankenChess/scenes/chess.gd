@@ -12,9 +12,9 @@ var selected_piece : Vector3 #only using x and z coords. y will stay the same
 #var move_generator
 var spaces = {}
 
-func _ready() -> void:
-	for marker in dots.get_children():
-		spaces[marker.marker_id] = null
+#func _ready() -> void:
+#	for marker in dots.get_children():
+#		spaces[marker.marker_id] = null
 
 	
 
