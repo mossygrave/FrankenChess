@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq21c2d5v6mf3"]
+
+[ext_resource type="PackedScene" uid="uid://3jfd1v80c2rv" path="res://assets/Chess Pieces/Knight Piece/Knight-Middle.glb" id="1_eiunh"]
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_pevk7"]
+
+[node name="KnightMid" type="Node3D"]
+script = ExtResource("1_pevk7")
+
+[node name="Knight-Middle" parent="." instance=ExtResource("1_eiunh")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.015948236, 0)
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.416, -0.099)

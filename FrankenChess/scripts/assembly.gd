@@ -17,6 +17,7 @@ extends Node3D
 	{ "path": "res://assets/Chess Pieces/Knight Piece/Knight-Bottom.glb", "type": "base"},
 	{ "path": "res://scenes/middle parts/pawn_mid.tscn", "type": "middle"},
 	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"},
+	{ "path": "res://scenes/middle parts/knight_mid.tscn", "type": "middle"},
 	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
 	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Top.glb", "type": "top"},
 	{ "path": "res://assets/Chess Pieces/King Piece/King-Top.glb", "type": "top"}
@@ -89,5 +90,3 @@ func _on_part_selected(part : Dictionary):
 		var active_part = current_parts[part["type"]]
 		active_part.queue_free()
 	current_parts[part["type"]] = instance
-	#print(current_parts)
-	# check 

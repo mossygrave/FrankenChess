@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6siti864247"]
+
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_oev5v"]
+[ext_resource type="PackedScene" uid="uid://brln41s8tvccm" path="res://assets/Chess Pieces/Castle Piece/Castle-Middle.glb" id="1_vgyfn"]
+
+[node name="RookMid" type="Node3D"]
+script = ExtResource("1_oev5v")
+
+[node name="Castle-Middle" parent="." instance=ExtResource("1_vgyfn")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019813955, 0)
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.548, 0)
