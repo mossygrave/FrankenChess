@@ -62,8 +62,11 @@ func _change_to_board():
 
 func _confirm_pieces():
 	var assembled_piece = $CurrentParts
-	Global.assembled_piece = assembled_piece.duplicate()#this adds the piece to the global script
 	
+	assembled_piece.get_parent().remove_child(assembled_piece)
+	Global.assembled_piece = assembled_piece #this adds the piece to the global script
+	
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
 # adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
 	var scene = load(part["path"])
