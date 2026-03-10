@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4m2ahvefauod"]
+
+[ext_resource type="PackedScene" uid="uid://dsg8kqoj1f6db" path="res://assets/Chess Pieces/Queen Piece/Queen-Middle-ver.2.glb" id="1_4fv8q"]
+
+[node name="QueenMid" type="Node3D"]
+
+[node name="Queen-Middle-ver_2" parent="." instance=ExtResource("1_4fv8q")]
+transform = Transform3D(0.9999541, 0, -0.009581711, 0, 1, 0, 0.009581711, 0, 0.9999541, -0.040540814, 0, 0.70043635)
