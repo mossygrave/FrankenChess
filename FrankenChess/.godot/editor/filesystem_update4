@@ -1,5 +1,4 @@
-res://scenes/game_over.tscn
+res://scenes/MainMenuTesting.tscn
 res://scripts/global.gd
 res://scripts/part_database.gd
-res://scenes/assembly.tscn
-res://scenes/middle parts/queen_mid.tscn
+res://scenes/main.tscn

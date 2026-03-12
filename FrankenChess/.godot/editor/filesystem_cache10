@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773153588
+::res://::1773274827
 assembled_result.tscn::PackedScene::-1::1772599470::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6750483687177341372::1771518091::1772592716::1::::<><><>0<>0<>792d10401a5f89d25a72ba9a8b64e01c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 new_script.gd::GDScript::1459514196885081353::1771518091::0::1::::<>Node<><>0<>0<><>::
@@ -43,7 +43,7 @@ Pawn-Top.glb::PackedScene::760544110459450136::1771518091::1772592720::1::::<><>
 Pawn-BottomFlip_Vert_001.res::ArrayMesh::6531160945208454943::1772595608::0::1::::<><><>0<>0<><>::
 Pawn-Middle_Vert_001.res::ArrayMesh::7499486943598353124::1772592720::0::1::::<><><>0<>0<><>::
 Pawn-Top_Vert_008.res::ArrayMesh::1346859181600409643::1772592720::0::1::::<><><>0<>0<><>::
-::res://assets/Chess Pieces/Queen Piece/::1773154637
+::res://assets/Chess Pieces/Queen Piece/::1773154643
 Queen-Bottom.glb::PackedScene::5611639834189937838::1771518091::1772595778::1::::<><><>0<>0<>dac008300a0bd6ef3e8da145cd65c9a6<>res://.godot/imported/Queen-Bottom.glb-5546c5d800c7a519ac8cd834eab98777.scn::
 Queen-Middle-ver.2.glb::PackedScene::8437069884233347147::1773154623::1773154643::1::::<><><>0<>0<>33bd2d84e58e351d60a217f11cb04100<>res://.godot/imported/Queen-Middle-ver.2.glb-84d6a6b15750368502745eb59587b848.scn::
 Queen-Middle.glb::PackedScene::500990139125648731::1771518091::1772592720::1::::<><><>0<>0<>eb3ba975c52e4f4993967a079cfb5839<>res://.godot/imported/Queen-Middle.glb-24114f8eb3a739b9757c86b8a8508df4.scn::
@@ -114,18 +114,19 @@ Frankentypepersonaluseonly-pj7v.otf::FontFile::5601891587021833972::1772595608::
 info.txt::TextFile::-1::1772595608::0::1::::<><><>0<>0<><>::
 ::res://scenes/Menus/frankentype-font/misc/::1772595608
 License - READ THIS.txt::TextFile::-1::1772595608::0::1::::<><><>0<>0<><>::
-::res://scenes/middle parts/::1772595987
+::res://scenes/middle parts/::1773156137
 bishop_mid.tscn::PackedScene::7166123211584037607::1772595987::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://be3d2g4eijl1r::::res://assets/Chess Pieces/Bishop Piece/Bishop-Middle.glb
 king_mid.tscn::PackedScene::6940806792083984784::1772595987::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://qa384s4np7kd::::res://assets/Chess Pieces/King Piece/King-Middle.glb
 knight_mid.tscn::PackedScene::5953184702511297470::1772595987::0::1::::<><><>0<>0<><>::uid://3jfd1v80c2rv::::res://assets/Chess Pieces/Knight Piece/Knight-Middle.glb<>uid://dm1rc005odn6s::::res://scripts/part.gd
 pawn_mid.tscn::PackedScene::7742291918143999715::1772595987::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://klwg2a7a35k2::::res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb
+queen_mid.tscn::PackedScene::6834730125035343807::1773156137::0::1::::<><><>0<>0<><>::uid://dsg8kqoj1f6db::::res://assets/Chess Pieces/Queen Piece/Queen-Middle-ver.2.glb
 rook_mid.tscn::PackedScene::7645499027348441566::1772595987::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://brln41s8tvccm::::res://assets/Chess Pieces/Castle Piece/Castle-Middle.glb
-::res://scripts/::1773154320
+::res://scripts/::1773156137
 assembly.gd::GDScript::2781397438193138944::1772679632::0::1::::<>Node3D<><>0<>0<><>::
-global.gd::GDScript::2793304751498608475::1773153897::0::1::::<>Node<><>0<>0<><>::
+global.gd::GDScript::2793304751498608475::1773156137::0::1::::<>Node<><>0<>0<><>::
 main.gd::GDScript::8972787782403671272::1772600647::0::1::::<>Node3D<><>0<>0<><>::
 part.gd::GDScript::8056239109891855068::1772595987::0::1::::<>Node3D<><>0<>0<><>::
-part_database.gd::GDScript::4490961385608269943::1773154320::0::1::::<>Node<><>0<>0<><>::
+part_database.gd::GDScript::4490961385608269943::1773156137::0::1::::<>Node<><>0<>0<><>::
 piece.gd::GDScript::413337992773817036::1772595987::0::1::::<>Node3D<><>0<>0<><>::
 piece_button.gd::GDScript::5438147310950327769::1771518091::0::1::::<>Button<><>0<>0<><>::
 player.gd::GDScript::6285787938965495595::1771518091::0::1::::<>Camera3D<><>0<>0<><>::

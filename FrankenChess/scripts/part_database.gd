@@ -3,7 +3,6 @@ extends Node
 # i think it would probably be best to include all the movement functions
 # in this database so we can access them easily
 
-
 var top_parts = {
 	"Pawn Top": {
 		"slot" : "top",
@@ -29,6 +28,11 @@ var top_parts = {
 		"slot" : "top",
 		"script" : "",
 		"model" : "res://assets/Chess Pieces/Queen Piece/Queen-Top.glb"
+	},
+	"King Top": {
+		"slot" : "top",
+		"script" : "",
+		"model" : "res://assets/Chess Pieces/King Piece/King-Top.glb"
 	}
 }
 
@@ -97,3 +101,24 @@ var base_parts = {
 		"model" : "res://assets/Chess Pieces/King Piece/King-Bottom.glb"
 	}
 }
+
+	
+func get_random_top():
+	var key = top_parts.keys().pick_random()
+	
+	while key == "King Top":
+		key = top_parts.keys().pick_random()
+		
+	return top_parts[key]
+	
+func get_random_mid():
+	var key = mid_parts.keys().pick_random()
+	return mid_parts[key]
+	
+func get_random_base():
+	var key = base_parts.keys().pick_random()
+	return base_parts[key]
+	
+func get_king_top():
+	var king = top_parts["King Top"]
+	return king
