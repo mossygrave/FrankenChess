@@ -43,7 +43,7 @@ theme_override_constants/shadow_offset_x = 8
 theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 15
 theme_override_fonts/font = ExtResource("2_wqhvx")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 110
 text = "CHECKMATE"
 horizontal_alignment = 1
 
@@ -57,13 +57,19 @@ theme_override_constants/separation = 40
 [node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_wqhvx")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 text = " PLAY AGAIN "
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_wqhvx")
+theme_override_font_sizes/font_size = 50
+text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_wqhvx")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 text = "QUIT"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -83,4 +89,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "play again"
 
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
