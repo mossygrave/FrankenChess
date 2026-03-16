@@ -96,9 +96,6 @@ func _on_part_selected(part : Dictionary):
 		
 		instance.global_transform = spawn_point.global_transform
 		
-		print(top)
-		print(instance.top_socket)
-		
 		if top:
 			var socket = instance.top_socket
 			top.global_transform = socket.global_transform

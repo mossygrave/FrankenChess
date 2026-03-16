@@ -1,1 +1,2 @@
-res://scripts/global.gd
+res://scenes/main.tscn
+res://scripts/assembly.gd
