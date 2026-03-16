@@ -7,28 +7,14 @@ This script will hold:
 	Player's parts
 	Created pieces
 """
-const STARTING_PIECES = 8
 
 @onready var assembled_piece = null
 
 #on ready this should fill with a bunch of random parts
 #pulls part options from the 
-@export var black_parts = [
-	{ "path": "res://scenes/Base Parts/pawn_base.tscn", "type": "base"},
-	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb", "type": "base"},
-	{ "path": "res://assets/Chess Pieces/Knight Piece/Knight-Bottom.glb", "type": "base"},
-	{ "path": "res://scenes/middle parts/pawn_mid.tscn", "type": "middle"},
-	{ "path": "res://scenes/middle parts/bishop_mid.tscn", "type": "middle"},
-	{ "path": "res://scenes/middle parts/knight_mid.tscn", "type": "middle"},
-	{ "path": "res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb", "type": "top"},
-	{ "path": "res://assets/Chess Pieces/Bishop Piece/Bishop-Top.glb", "type": "top"},
-	{ "path": "res://assets/Chess Pieces/King Piece/King-Top.glb", "type": "top"}
-	
-]
+@export var black_parts = []
 
-@export var white_parts = [
-	
-]
+@export var white_parts = []
 
 func _ready() -> void:
 	var top
