@@ -1,2 +1,1 @@
-res://scenes/game_over.tscn
-res://scenes/game_over.gd
+res://scripts/global.gd

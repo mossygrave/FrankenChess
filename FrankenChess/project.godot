@@ -15,6 +15,16 @@ run/main_scene="uid://dbbii5sc3jcym"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+PartDatabase="*res://scripts/part_database.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [filesystem]
 
 import/blender/enabled=false
