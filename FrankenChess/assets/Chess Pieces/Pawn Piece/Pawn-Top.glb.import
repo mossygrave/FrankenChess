@@ -38,6 +38,12 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "uid://b0kb5rxpqjvaq"
+}
+},
 "meshes": {
 "Pawn-Top_Vert_008": {
 "generate/lightmap_uv": 0,

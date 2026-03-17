@@ -1,2 +1,7 @@
 res://scenes/main.tscn
-res://scenes/Menus/main_menu_testing.gd
+res://assets/Chess Pieces/Pawn Piece/meshes/Pawn-BottomFlip_Vert_001.res
+res://assets/black-piece.tres
+res://assets/Chess Pieces/Pawn Piece/meshes/Pawn-Middle_Vert_001.res
+res://assets/Chess Pieces/Pawn Piece/meshes/Pawn-Top_Vert_008.res
+res://assets/Chess Pieces/Pawn Piece/black-piece.tres
+res://assets/black_testing.tscn
