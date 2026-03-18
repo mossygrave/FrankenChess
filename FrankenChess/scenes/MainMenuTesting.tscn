@@ -80,7 +80,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_5td3f")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_1x30l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
-text = "Start Da Game Baybee"
+text = "Start Game"
 
 [node name="OptionsButton" type="Button" parent="MainButtons/VBoxContainer"]
 layout_mode = 2

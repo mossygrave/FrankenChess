@@ -931,12 +931,6 @@ transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e
 modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_kx1m2")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.74726486, 0.6645264, 0, -0.6645264, 0.74726486, 0, 5.716467, 6.476)
-
-[node name="ClickRay" type="RayCast3D" parent="Camera3D"]
-target_position = Vector3(0, -20, -200)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0917926, 0.6016612, -3.7477126)
 visible = false
@@ -988,6 +982,14 @@ offset_right = 86.0
 offset_bottom = 102.0
 scale = Vector2(1.3312278, 1.3312278)
 text = "Assembly"
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.68490326, 0.72863406, 0, -0.72863406, 0.68490326, 0, 7.023198, 5.58967)
+
+[node name="ClickRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
+target_position = Vector3(0, -20, -200)
 
 [connection signal="pressed" from="UI/Button" to="Board" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/AddPiece" to="." method="_on_add_piece_pressed"]

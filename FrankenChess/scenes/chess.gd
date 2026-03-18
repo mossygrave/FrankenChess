@@ -6,20 +6,34 @@ enum PartTypes {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING}
 # Variables 
 var selected_piece = null
 var spaces = {}
+@onready var cam_pivot: Node3D = get_node("../CameraPivot")
+var camera_flipped := false
+var is_flipping := false #Stops the user from pressing f while already flipping
 
-#use the f key to flip the board
+# use the f key to flip the camera 180 degrees
 func _process(delta: float) -> void:
-		
-	if (Input.is_action_just_released("Flip")): #f to flip
-		rotate_y(PI)
+	if Input.is_action_just_released("Flip") and not is_flipping:
+		flip_camera_smooth()
 
+func flip_camera_smooth():
+	is_flipping=true
+	
+	var tween = create_tween()
+	tween.tween_property(
+		cam_pivot,
+		"rotation:y",
+		cam_pivot.rotation.y + PI,
+		0.5
+	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.finished.connect(func():
+		is_flipping=false
+		camera_flipped = !camera_flipped
+	)
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn");
 
-
 #  Ready builds the board grid, debugs and auto-places pieces
-
 func _ready():
 	var markers = dots.get_children()
 
@@ -61,12 +75,10 @@ func _ready():
 	for piece in $Black.get_children():
 		print(piece.name, " | pos:", piece.board_pos, " | color:", piece.color, " | type:", piece.piece_type)
 
-
 func get_type_from_name(name: String) -> String:
 	var raw = name.substr(1).to_lower()  # remove W/B
 	raw = raw.rstrip("0123456789")       # remove trailing numbers
 	return raw
-
 
 func place_piece(piece: Node3D, pos: Vector2i):
 	piece.board_pos = pos
@@ -76,7 +88,6 @@ func place_piece(piece: Node3D, pos: Vector2i):
 	if marker:
 		piece.global_transform.origin = marker.global_transform.origin
 
-
 func get_marker_at(pos: Vector2i):
 	for marker in dots.get_children():
 		if marker.get_meta("board_pos") == pos:
@@ -84,7 +95,6 @@ func get_marker_at(pos: Vector2i):
 	return null
 
 #  Automatically place all 32 pieces
-
 func auto_place_pieces():
 	var back_rank = {
 		"rook":   [0, 7],
@@ -130,7 +140,7 @@ func auto_place_pieces():
 func _input(event):
 	#print("INPUT FIRED")
 	if event.is_action_pressed("click"):
-		var camera = get_node("../Camera3D")
+		var camera = get_node("../CameraPivot/Camera3D")
 		var mouse_pos = get_viewport().get_mouse_position()
 
 		# Builds a ray from the camera through the mouse cursor
@@ -183,10 +193,6 @@ func _input(event):
 				handle_square_click(pos)
 				return
 
-
-
-
-
 func handle_square_click(pos: Vector2i):
 	print("Clicked square:", pos)
 
@@ -216,7 +222,6 @@ func handle_square_click(pos: Vector2i):
 	else:
 		print("Square is empty.")
 
-
 func select_piece(piece):
 	if selected_piece:
 		deselect_piece()
@@ -243,26 +248,49 @@ func deselect_piece():
 	selected_piece = null
 
 func move_piece(piece, pos):
-	# Check if there's a piece on the target square
-	var target_piece = spaces.get(pos)
+	var marker = get_marker_at(pos)
+	if marker == null:
+		return
 
-	# If it's an enemy piece, capture it
+	# Remove from old position in board state
+	spaces[piece.board_pos] = null
+
+	# Capture if needed
+	var target_piece = spaces.get(pos)
 	if target_piece and target_piece.color != piece.color:
 		capture_piece(target_piece)
 
-	# Remove the piece from its old position
-	spaces[piece.board_pos] = null
-
-	# Update the piece's internal board position
+	# Update internal board position
 	piece.board_pos = pos
-
-	# Place it in the new position
 	spaces[pos] = piece
 
-	# Move the piece visually
-	var marker = get_marker_at(pos)
-	piece.global_transform.origin = marker.global_transform.origin
+	# --- Smooth movement animation ---
+	var start = piece.global_transform.origin
+	var end = marker.global_transform.origin
 
+	var lift_height = 0.5  # how high the piece lifts
+	var lift_pos = start + Vector3(0, lift_height, 0)
+	var drop_pos = end + Vector3(0, lift_height, 0)
+
+	var tween = create_tween()
+
+	# Lift up
+	tween.tween_property(piece, "global_transform:origin", lift_pos, 0.15)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+
+	# Move across
+	tween.tween_property(piece, "global_transform:origin", drop_pos, 0.25)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# Drop down
+	tween.tween_property(piece, "global_transform:origin", end, 0.15)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+	# When animation finishes → clear highlights
+	tween.finished.connect(func():
+		highlight_moves([])
+	)
+	
 func capture_piece(piece):
 	# Remove from board state
 	spaces[piece.board_pos] = null
@@ -275,26 +303,51 @@ func highlight_moves(moves: Array):
 	for marker in dots.get_children():
 		var sprite = marker.get_node("Sprite3D")
 		if sprite:
-			sprite.modulate = Color(1, 1, 1, 0)  # invisible
+			sprite.modulate = Color(1, 1, 1, 0)  # fully invisible
 
-	# Highlight new moves
-	for pos in moves:
-		if spaces.has(pos):
-			var marker = get_marker_at(pos)
-			if marker:
-				var sprite = marker.get_node("Sprite3D")
-				if sprite:
-					var piece_at_pos = spaces[pos]
+	if moves.is_empty():
+		return
 
-					# If there's an enemy piece → RED
-					if piece_at_pos and piece_at_pos.color != selected_piece.color:
-						sprite.modulate = Color(0.9, 0.2, 0.2, 0.7)  # red
-					else:
-						# Otherwise → GREEN
-						sprite.modulate = Color(0.2, 0.8, 0.2, 0.6)
+	# --- Ripple effect setup ---
+	# Sort moves by distance from selected piece
+	moves.sort_custom(func(a, b):
+		var da = selected_piece.board_pos.distance_to(a)
+		var db = selected_piece.board_pos.distance_to(b)
+		return da < db
+	)
 
-#King safety checks: (Prevents the king from entering check)
+	# Fade-in timing
+	var base_delay := 0.03  # delay between each ripple step
+	var fade_time := 0.15   # how long each fade takes
 
+	# Apply fade-in ripple
+	for i in range(moves.size()):
+		var pos = moves[i]
+		var marker = get_marker_at(pos)
+		if marker:
+			var sprite = marker.get_node("Sprite3D")
+			if sprite:
+				var target_color: Color
+
+				# Enemy piece → red
+				var piece_at_pos = spaces[pos]
+				if piece_at_pos and piece_at_pos.color != selected_piece.color:
+					target_color = Color(0.9, 0.2, 0.2, 0.7)
+				else:
+					target_color = Color(0.2, 0.8, 0.2, 0.6)
+
+				# Tween fade-in with ripple delay
+				var tween = create_tween()
+				tween.tween_property(
+					sprite,
+					"modulate",
+					target_color,
+					fade_time
+				).set_delay(i * base_delay)
+
+"""
+Three King safety checks: (Prevents the king from entering check)
+"""
 func find_king(color: String) -> Vector2i:
 	for pos in spaces.keys():
 		var piece = spaces[pos]

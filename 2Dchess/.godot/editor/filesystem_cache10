@@ -1,0 +1,30 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1773843796
+::res://assets/::1773842821
+black_bishop.png::CompressedTexture2D::5351751414441485538::1773796318::1773842819::1::::<><><>0<>0<>dce04f44790ed9d46aeb719edc02f205<>res://.godot/imported/black_bishop.png-c92d69837d4f7724209585b6f83be630.ctex::
+black_king.png::CompressedTexture2D::4964937738699762779::1773796318::1773842819::1::::<><><>0<>0<>f57034cc5648c5067d56baec0e06af33<>res://.godot/imported/black_king.png-f9f26212e74683492a5333f844867d87.ctex::
+black_knight.png::CompressedTexture2D::2200557217218048675::1773796318::1773842815::1::::<><><>0<>0<>e3254b9cf62537e778d8ad34fbc324e1<>res://.godot/imported/black_knight.png-1688edb482b213d3fa6b96ec054b4e60.ctex::
+black_pawn.png::CompressedTexture2D::843309458057050080::1773796318::1773842815::1::::<><><>0<>0<>2c8d931d7ba5043c53ca87012543efd0<>res://.godot/imported/black_pawn.png-2a5b2453fe8571713a0c4b99251f1b20.ctex::
+black_queen.png::CompressedTexture2D::6692601051652783524::1773796318::1773842815::1::::<><><>0<>0<>9b0e63d4514cb5e779c8c870405e469a<>res://.godot/imported/black_queen.png-b3a23f2261e9a9a70ccab4b6669dff8e.ctex::
+black_rook.png::CompressedTexture2D::7830151231430410531::1773796318::1773842815::1::::<><><>0<>0<>9a8a0d8eaad8717b4ac5a47f6fb7a54a<>res://.godot/imported/black_rook.png-ae06f639629e67dac62ae3b2b38943c9.ctex::
+Chess_board.png::CompressedTexture2D::6002384445323869358::1773796318::1773842816::1::::<><><>0<>0<>afa7df07e44e1e16d9cb50712af1bb00<>res://.godot/imported/Chess_board.png-37dd1d086b8f80f838430c9ae0faa5f0.ctex::
+icon.svg::CompressedTexture2D::5598945132295214413::1773796318::1773842813::1::::<><><>0<>0<>bfe33b7aabceb23c47d56050c0a3ddda<>res://.godot/imported/icon.svg-56083ea2a1f1a4f1e49773bdc6d7826c.ctex::
+Piece_move.png::CompressedTexture2D::3490910912258633033::1773796318::1773842816::1::::<><><>0<>0<>81f2b18c2a39b353143ede99c19cb375<>res://.godot/imported/Piece_move.png-436359dce412367031b6c40a94513059.ctex::
+The Platformer v1-0 Alpha.png::CompressedTexture2D::4917921960996417069::1773796318::1773842813::1::::<><><>0<>0<>be40dfef35195f18ee67e05834ae2c36<>res://.godot/imported/The Platformer v1-0 Alpha.png-aaf4b581f93cc66066181af25827f0a7.ctex::
+The Platformer v1-0.png::CompressedTexture2D::2897003611980426236::1773796318::1773842813::1::::<><><>0<>0<>d2145af16b358c09d974fdff196ddbca<>res://.godot/imported/The Platformer v1-0.png-e7e8474cfad3056428197c86b6dc4628.ctex::
+The Symbols v1-0 Alpha.png::CompressedTexture2D::1912272181692682083::1773796318::1773842813::1::::<><><>0<>0<>068f3d2bf23adcb8f54d6c27e5008c3f<>res://.godot/imported/The Symbols v1-0 Alpha.png-73ea61e8123e170207e6e169c17f8d32.ctex::
+The Symbols v1-0.png::CompressedTexture2D::5899568782914374943::1773796318::1773842813::1::::<><><>0<>0<>76502b4c7d80c72337205eb78068e009<>res://.godot/imported/The Symbols v1-0.png-a05b6dcacc22f5eecabde898f66e38c5.ctex::
+turn-black.png::CompressedTexture2D::5279333535284467144::1773796318::1773842813::1::::<><><>0<>0<>38ce27b9d506f170d20ff8e180b22c7c<>res://.godot/imported/turn-black.png-127d69c8f18a8693fc033e230e0f0e74.ctex::
+turn-white.png::CompressedTexture2D::1377763640538158259::1773796318::1773842813::1::::<><><>0<>0<>c517eed7e16ffae9410aabc21da41a33<>res://.godot/imported/turn-white.png-0132a4675ab2d75120cb23e944f25dc0.ctex::
+white_bishop.png::CompressedTexture2D::4896711898314596802::1773796318::1773842809::1::::<><><>0<>0<>03b657d58747c23114652dde841bc511<>res://.godot/imported/white_bishop.png-04be8a84ddc0f0d8dd90729cb618c20e.ctex::
+white_king.png::CompressedTexture2D::7768408158338546466::1773796318::1773842810::1::::<><><>0<>0<>7c9c09f04c596cb3fa161bd1fa56c881<>res://.godot/imported/white_king.png-ccaed763062f50742c9b986ea1ee0dce.ctex::
+white_knight.png::CompressedTexture2D::8582431173752196324::1773796318::1773842809::1::::<><><>0<>0<>fabc12f396f2a6d82f0186c2cda3fde1<>res://.godot/imported/white_knight.png-404d03d22ab10549c22c094840ed9bd6.ctex::
+white_pawn.png::CompressedTexture2D::1670145932203361849::1773796318::1773842809::1::::<><><>0<>0<>14c817ffb06e09b4c7a6410a337e7e81<>res://.godot/imported/white_pawn.png-44b3c6bca65b9eea39387ec519e88065.ctex::
+white_queen.png::CompressedTexture2D::2658725638870509052::1773796318::1773842809::1::::<><><>0<>0<>b1d2bc74e7eccd6068082461d16e66b0<>res://.godot/imported/white_queen.png-008c5bd342ab5fcdc00e3acd66e0bbfd.ctex::
+white_rook.png::CompressedTexture2D::8074735935957201096::1773796318::1773842809::1::::<><><>0<>0<>685d60c9e209389966de2cf58246b0e6<>res://.godot/imported/white_rook.png-81c43f16ec6ed6babd3cb0d404cdc1fc.ctex::
+::res://Scenes/::1773842503
+board.tscn::PackedScene::3506437373973854720::1773796318::0::1::::<><><>0<>0<><>::uid://crrunopne1kaw::::res://assets/Chess_board.png<>res://Scripts/chess.gd
+main.tscn::PackedScene::5815819070500876551::1773796318::0::1::::<><><>0<>0<><>::uid://bp7srnajbjm0g::::res://Scenes/board.tscn<>uid://dujnnf8gxir4w::::res://assets/white_knight.png<>uid://cb1aen0x5kytm::::res://assets/white_bishop.png<>uid://dnbpyrvma32uu::::res://assets/white_rook.png<>uid://bd4528gobiueu::::res://assets/white_queen.png<>uid://6l74dm2nuacp::::res://assets/black_knight.png<>uid://ciiotf4lo1uni::::res://assets/black_bishop.png<>uid://djs8pgqlg23md::::res://assets/black_rook.png<>uid://c2l7fqymjvkyu::::res://assets/black_queen.png
+texture_holder.tscn::PackedScene::1061283700414064253::1773796318::0::1::::<><><>0<>0<><>::
+::res://Scripts/::1773842503
+chess.gd::GDScript::1557857578566463155::1773796318::0::1::::<>Sprite2D<><>0<>0<><>::
