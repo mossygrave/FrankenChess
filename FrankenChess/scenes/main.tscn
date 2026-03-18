@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgpqldl0lj1ko"]
+[gd_scene load_steps=6 format=3 uid="uid://bjroihhqc5i52"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
-[ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bq6jc7hmtodf8" path="res://scenes/piece.tscn" id="2_0wfyh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7u3wk"]
+size = Vector3(1, 0.48779297, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2h44n"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0wfyh"]
 viewport_path = NodePath("UI/SubViewport")
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_sugp2")
 
 [node name="Board" parent="." instance=ExtResource("1_0wfyh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -115,8 +118,719 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4415417, -0.022751894, -7.5
 [node name="BRook2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46177363, -0.022751894, -7.507284)
 
+[node name="Dots" type="Node" parent="Board"]
+
+[node name="Marker1" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker1"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker2" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker2"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker3" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker3"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker4" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker4"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker5" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker5"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker6" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker6"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker7" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker7"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker8" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, -3.4852471)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker8"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker9" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker9"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker10" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker10"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker11" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker11"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker12" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker12"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker13" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker13"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker14" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker14"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker15" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker15"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker16" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, -2.4355812)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker16"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker17" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, -1.4959669)
+physics_material_override = SubResource("PhysicsMaterial_2h44n")
+metadata/board_pos = Vector2i(0, 2)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker17"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker17"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker18" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker18"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker18"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker19" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker19"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker19"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker20" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker20"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker20"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker21" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker21"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker22" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker22"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker23" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker23"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker23"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker24" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, -1.4959669)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker24"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker24"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker25" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker25"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker25"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker26" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker26"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker26"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker27" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker27"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker27"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker28" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker28"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker28"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker29" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker29"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker29"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker30" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker30"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker30"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker31" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker31"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker31"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker32" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, -0.44630098)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker32"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker32"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker33" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker33"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker33"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker34" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker34"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker34"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker35" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker35"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker35"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker36" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker36"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker36"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker37" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker37"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker37"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker38" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker38"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker38"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker39" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker39"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker40" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, 0.51291466)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker40"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker41" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker41"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker42" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker42"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker42"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker43" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker43"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker43"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker44" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker44"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker44"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker45" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker45"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker45"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker46" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker46"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker46"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker47" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker47"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker47"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker48" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, 1.5625806)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker48"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker48"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker49" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker49"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker49"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker50" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker50"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker50"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker51" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker51"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker51"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker52" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker52"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker52"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker53" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker53"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker53"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker54" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker54"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker54"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker55" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker55"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker55"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker56" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, 2.502195)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker56"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker56"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker57" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.606338, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker57"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker57"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker58" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5782387, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker58"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker58"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker59" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.487793, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker59"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker59"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker60" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47812796, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker60"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker60"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker61" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47431374, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker61"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker61"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker62" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.502413, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker62"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker62"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker63" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5928588, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker63"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker63"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
+[node name="Marker64" type="StaticBody3D" parent="Board/Dots"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6025238, 0.1, 3.5518608)
+
+[node name="BoxShape3D" type="CollisionShape3D" parent="Board/Dots/Marker64"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25610352, 0)
+shape = SubResource("BoxShape3D_7u3wk")
+
+[node name="Sprite3D" type="Sprite3D" parent="Board/Dots/Marker64"]
+transform = Transform3D(0.08, 0, 0, 0, -3.496911e-09, -0.08, 0, 0.08, -3.496911e-09, 0, -0.11, 0)
+modulate = Color(1, 1, 1, 0)
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.74726486, 0.6645264, 0, -0.6645264, 0.74726486, 0, 5.716467, 6.476)
+
+[node name="ClickRay" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, -20, -200)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0917926, 0.6016612, -3.7477126)
