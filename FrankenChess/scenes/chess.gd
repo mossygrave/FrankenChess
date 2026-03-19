@@ -223,6 +223,7 @@ func handle_square_click(pos: Vector2i):
 		print("Square is empty.")
 
 func select_piece(piece):
+	$"../SFX/SelectPiece".play()
 	if selected_piece:
 		deselect_piece()
 
@@ -248,6 +249,7 @@ func deselect_piece():
 	selected_piece = null
 
 func move_piece(piece, pos):
+	$"../SFX/PlacePiece".play()
 	var marker = get_marker_at(pos)
 	if marker == null:
 		return
@@ -259,6 +261,7 @@ func move_piece(piece, pos):
 	var target_piece = spaces.get(pos)
 	if target_piece and target_piece.color != piece.color:
 		capture_piece(target_piece)
+		$"../SFX/CapturePiece".play()
 
 	# Update internal board position
 	piece.board_pos = pos
