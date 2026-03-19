@@ -1,1 +1,3 @@
-res://scenes/main.tscn
+res://assets/black_testing.tscn
+res://scripts/assembly.gd
+res://scenes/middle parts/knight_mid.tscn

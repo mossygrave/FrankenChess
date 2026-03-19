@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8gsjm480w404"]
+
+[ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="1_w6t6p"]
+[ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="2_wupj3"]
+[ext_resource type="PackedScene" uid="uid://k3obyih15fxg" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb" id="3_vhrkv"]
+
+[node name="Black Testing" type="Node3D"]
+
+[node name="Pawn-BottomFlip" parent="." instance=ExtResource("1_w6t6p")]
+
+[node name="Pawn-Middle" parent="." instance=ExtResource("2_wupj3")]
+
+[node name="Pawn-Top" parent="." instance=ExtResource("3_vhrkv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3212688, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pawn-Top"]

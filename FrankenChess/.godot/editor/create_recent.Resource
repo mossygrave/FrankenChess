@@ -1,2 +1,2 @@
-PartResource
+StandardMaterial3D
 Resource
