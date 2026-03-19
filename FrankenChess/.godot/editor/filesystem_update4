@@ -1,1 +1,3 @@
 res://scenes/game_over.tscn
+res://scripts/part_database.gd
+res://scripts/global.gd

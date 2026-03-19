@@ -39,14 +39,20 @@ func _ready() -> void:
 	for i in range(9):
 		top = PartDatabase.get_random_top()
 		black_parts[top] = PartDatabase.top_parts[top]
+		black_parts[top]["white"] = false
 		mid = PartDatabase.get_random_mid()
 		black_parts[mid] = PartDatabase.mid_parts[mid]
+		black_parts[mid]["white"] = false
 		base = PartDatabase.get_random_base()
 		black_parts[base] = PartDatabase.base_parts[base]
+		black_parts[base]["white"] = false
 		
 	base = PartDatabase.get_random_base()
 	black_parts[base] = PartDatabase.base_parts[base]
+	black_parts[base]["white"] = false
 	mid = PartDatabase.get_random_mid()
 	black_parts[mid] = PartDatabase.mid_parts[mid]
+	black_parts[mid]["white"] = false
 	top = PartDatabase.get_king_top()
 	black_parts["King Top"] = top
+	black_parts["King Top"]["white"] = false
