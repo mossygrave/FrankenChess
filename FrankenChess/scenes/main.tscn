@@ -998,6 +998,7 @@ target_position = Vector3(0, -20, -200)
 
 [node name="SelectPiece" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("11_trceg")
+volume_db = -3.107
 
 [node name="PlacePiece" type="AudioStreamPlayer3D" parent="SFX"]
 stream = ExtResource("11_eb6dy")
