@@ -108,16 +108,17 @@ func get_random_top():
 	
 	while key == "King Top":
 		key = top_parts.keys().pick_random()
-		
-	return top_parts[key]
+
+	return key
 	
 func get_random_mid():
 	var key = mid_parts.keys().pick_random()
-	return mid_parts[key]
+	return key
 	
 func get_random_base():
 	var key = base_parts.keys().pick_random()
-	return base_parts[key]
+	return key
+	
 	
 func get_king_top():
 	var king = top_parts["King Top"]

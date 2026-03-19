@@ -12,9 +12,9 @@ This script will hold:
 @onready var turn: bool = false #true for white's turn, false for black's turn
 #on ready this should fill with a bunch of random parts
 #pulls part options from the 
-@export var black_parts = []
+@export var black_parts = {}
 
-@export var white_parts = []
+@export var white_parts = {}
 
 func _ready() -> void:
 	var top
@@ -23,31 +23,30 @@ func _ready() -> void:
 	
 	for i in range(9):
 		top = PartDatabase.get_random_top()
-		white_parts.append(top)
+		white_parts[top] = PartDatabase.top_parts[top]
 		mid = PartDatabase.get_random_mid()
-		white_parts.append(mid)
+		white_parts[mid] = PartDatabase.mid_parts[mid]
 		base = PartDatabase.get_random_base()
-		white_parts.append(base)
+		white_parts[base] = PartDatabase.base_parts[base]
 		
 	base = PartDatabase.get_random_base()
-	white_parts.append(base)
+	white_parts[base] = PartDatabase.base_parts[base]
 	mid = PartDatabase.get_random_mid()
-	white_parts.append(mid)
+	white_parts[mid] = PartDatabase.mid_parts[mid]
 	top = PartDatabase.get_king_top()
-	white_parts.append(top)
+	white_parts["King Top"] = top
 	
 	for i in range(9):
 		top = PartDatabase.get_random_top()
-		black_parts.append(top)
+		black_parts[top] = PartDatabase.top_parts[top]
 		mid = PartDatabase.get_random_mid()
-		black_parts.append(mid)
+		black_parts[mid] = PartDatabase.mid_parts[mid]
 		base = PartDatabase.get_random_base()
-		black_parts.append(base)
+		black_parts[base] = PartDatabase.base_parts[base]
 		
 	base = PartDatabase.get_random_base()
-	black_parts.append(base)
+	black_parts[base] = PartDatabase.base_parts[base]
 	mid = PartDatabase.get_random_mid()
-	black_parts.append(mid)
+	black_parts[mid] = PartDatabase.mid_parts[mid]
 	top = PartDatabase.get_king_top()
-	black_parts.append(top)
-	
+	black_parts["King Top"] = top
