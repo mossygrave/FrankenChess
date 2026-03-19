@@ -24,10 +24,10 @@ extends Node3D
 	
 ]
 
-func _on_piece_button_pressed() -> void:
-	var new_object = base_piece.instantiate()
-	new_object.position = base_location.position
-	add_child(new_object)
+#func _on_piece_button_pressed() -> void:
+	#var new_object = base_piece.instantiate()
+	#new_object.position = base_location.position
+	#add_child(new_object)
 
 func _ready():
 	for part in parts:
@@ -74,6 +74,12 @@ func _on_part_selected(part : Dictionary):
 	
 	$CurrentParts.add_child(instance)
 	
+	if Global.turn == false:
+		var mesh = get_mesh3d(instance)
+		if mesh:
+			var mat = preload("res://assets/Chess Pieces/Pawn Piece/black-piece.tres")
+			mesh.set_surface_override_material(0, mat)
+		
 	if part["type"] != "middle":
 		var mid = current_parts["middle"]
 		
@@ -108,3 +114,14 @@ func _on_part_selected(part : Dictionary):
 		var active_part = current_parts[part["type"]]
 		active_part.queue_free()
 	current_parts[part["type"]] = instance
+	
+func get_mesh3d(node: Node) -> MeshInstance3D:
+	for child in node.get_children():
+		if child is MeshInstance3D:
+			return child
+	for child in node.get_children():
+		if child is Node3D:
+			for baby in child.get_children():
+				if baby is MeshInstance3D:
+					return baby
+	return null

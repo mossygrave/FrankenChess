@@ -9,7 +9,7 @@ This script will hold:
 """
 
 @onready var assembled_piece = null
-
+@onready var turn: bool = false #true for white's turn, false for black's turn
 #on ready this should fill with a bunch of random parts
 #pulls part options from the 
 @export var black_parts = []

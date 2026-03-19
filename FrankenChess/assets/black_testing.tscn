@@ -12,3 +12,5 @@
 
 [node name="Pawn-Top" parent="." instance=ExtResource("3_vhrkv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3212688, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pawn-Top"]
