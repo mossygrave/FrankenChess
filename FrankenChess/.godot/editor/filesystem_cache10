@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773957367
+::res://::1773973833
 assembled_result.tscn::PackedScene::-1::1773759159::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6750483687177341372::1773759159::1773760842::1::::<><><>0<>0<>792d10401a5f89d25a72ba9a8b64e01c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 new_script.gd::GDScript::1459514196885081353::1773759159::0::1::::<>Node<><>0<>0<><>::
@@ -90,16 +90,16 @@ text.txt::TextFile::-1::1773759159::0::1::::<><><>0<>0<><>::
 ::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/::1773759159
 Chess_board.png::CompressedTexture2D::3021309002964700696::1773759159::1773759159::1::::<><><>0<>0<>86badf8b28fd4cd0f1c53840ae92daa4<>res://.godot/imported/Chess_board.png-651887b2fd3f79aeca4a324d0e093cc3.s3tc.ctex::
 text.txt::TextFile::-1::1773759159::0::1::::<><><>0<>0<><>::
-::res://scenes/::1773956758
+::res://scenes/::1773973175
 assembly.tscn::PackedScene::4830637442164550190::1773759159::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd
 Bishop.gd::GDScript::63105928029120745::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
 board.tscn::PackedScene::1011947757416667246::1773935526::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://bjbsruv8bl50g::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
 chess.gd::GDScript::3824173889552152558::1773935526::0::1::::<>Sprite3D<><>0<>0<><>::
 game_over.gd::GDScript::8529604675353427686::1773759159::0::1::::<>CanvasLayer<><>0<>0<><>::
-game_over.tscn::PackedScene::5246631391523414497::1773956758::0::1::::<><><>0<>0<><>::uid://dtr2lwj5ldsru::::res://scenes/game_over.gd<>uid://cl2ulon2y5j7a::::res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf
+game_over.tscn::PackedScene::5246631391523414497::1773958266::0::1::::<><><>0<>0<><>::uid://dtr2lwj5ldsru::::res://scenes/game_over.gd<>uid://cl2ulon2y5j7a::::res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf
 King.gd::GDScript::6987192163985072554::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
 Knight.gd::GDScript::1251531405988814524::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
-main.tscn::PackedScene::2900997022581007317::1773935526::0::1::::<><><>0<>0<><>::uid://oogvqjaqobq1::::res://scenes/board.tscn<>uid://d03qreo0q8keq::::res://scripts/main.gd<>uid://bq6jc7hmtodf8::::res://scenes/piece.tscn<>uid://wddh3a6ql6jt::::res://scenes/Pawn.gd<>uid://ufu8dg3wmwws::::res://WhiteCircle.png<>uid://degp1pf6n581a::::res://scenes/Rook.gd<>uid://r3isls2es1bc::::res://scenes/Knight.gd<>uid://5tl0kgfsj2p::::res://scenes/Bishop.gd<>uid://c6swbfoidngsw::::res://scenes/King.gd<>uid://dusenpjywpfjv::::res://scenes/Queen.gd
+main.tscn::PackedScene::2900997022581007317::1773973175::0::1::::<><><>0<>0<><>::uid://oogvqjaqobq1::::res://scenes/board.tscn<>uid://d03qreo0q8keq::::res://scripts/main.gd<>uid://bq6jc7hmtodf8::::res://scenes/piece.tscn<>uid://wddh3a6ql6jt::::res://scenes/Pawn.gd<>uid://ufu8dg3wmwws::::res://WhiteCircle.png<>uid://degp1pf6n581a::::res://scenes/Rook.gd<>uid://r3isls2es1bc::::res://scenes/Knight.gd<>uid://5tl0kgfsj2p::::res://scenes/Bishop.gd<>uid://c6swbfoidngsw::::res://scenes/King.gd<>uid://dusenpjywpfjv::::res://scenes/Queen.gd
 MainMenuTesting.tscn::PackedScene::7232016898400395148::1773935526::0::1::::<><><>0<>0<><>::uid://b1bjcwngu1a7w::::res://scenes/Menus/main_menu_testing.gd<>uid://bjdaow24byopx::::res://scenes/Menus/Haunted House Background.jpg<>uid://cl2ulon2y5j7a::::res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf<>uid://d012t8uenyip4::::res://scenes/Menus/exit_button.gd
 Pawn.gd::GDScript::1550543816918677497::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
 pawn_base.tscn::PackedScene::4673877806338859592::1773759159::0::1::::<><><>0<>0<><>::uid://ddto1q8755ho::::res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb
@@ -131,12 +131,12 @@ knight_mid.tscn::PackedScene::5953184702511297470::1773953648::0::1::::<><><>0<>
 pawn_mid.tscn::PackedScene::7742291918143999715::1773759159::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://klwg2a7a35k2::::res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb
 queen_mid.tscn::PackedScene::6834730125035343807::1773759159::0::1::::<><><>0<>0<><>::uid://dsg8kqoj1f6db::::res://assets/Chess Pieces/Queen Piece/Queen-Middle-ver.2.glb
 rook_mid.tscn::PackedScene::7645499027348441566::1773759159::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://brln41s8tvccm::::res://assets/Chess Pieces/Castle Piece/Castle-Middle.glb
-::res://scripts/::1773957067
-assembly.gd::GDScript::2781397438193138944::1773957067::0::1::::<>Node3D<><>0<>0<><>::
-global.gd::GDScript::2793304751498608475::1773957067::0::1::::<>Node<><>0<>0<><>::
-main.gd::GDScript::8972787782403671272::1773759159::0::1::::<>Node3D<><>0<>0<><>::
+::res://scripts/::1773973587
+assembly.gd::GDScript::2781397438193138944::1773973587::0::1::::<>Node3D<><>0<>0<><>::
+global.gd::GDScript::2793304751498608475::1773972886::0::1::::<>Node<><>0<>0<><>::
+main.gd::GDScript::8972787782403671272::1773972754::0::1::::<>Node3D<><>0<>0<><>::
 part.gd::GDScript::8056239109891855068::1773759159::0::1::::<>Node3D<><>0<>0<><>::
-part_database.gd::GDScript::4490961385608269943::1773957067::0::1::::<>Node<><>0<>0<><>::
+part_database.gd::GDScript::4490961385608269943::1773973175::0::1::::<>Node<><>0<>0<><>::
 piece.gd::GDScript::413337992773817036::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
 piece_button.gd::GDScript::5438147310950327769::1773759159::0::1::::<>Button<><>0<>0<><>::
 player.gd::GDScript::6285787938965495595::1773759159::0::1::::<>Camera3D<><>0<>0<><>::

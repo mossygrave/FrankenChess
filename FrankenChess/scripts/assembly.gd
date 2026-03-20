@@ -53,6 +53,9 @@ func _change_to_board():
 func _confirm_pieces():
 	var assembled_piece = $CurrentParts
 	
+	for child in assembled_piece.get_children():
+		print(child)
+	
 	assembled_piece.get_parent().remove_child(assembled_piece)
 	Global.assembled_piece = assembled_piece #this adds the piece to the global script
 	

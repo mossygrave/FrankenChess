@@ -17,6 +17,7 @@ This script will hold:
 @export var white_parts = {}
 
 func _ready() -> void:
+	
 	var top
 	var mid
 	var base
@@ -56,3 +57,16 @@ func _ready() -> void:
 	top = PartDatabase.get_king_top()
 	black_parts["King Top"] = top
 	black_parts["King Top"]["white"] = false
+
+#func hide_board(): # BROKEN
+	#Main.visible = false
+	#var cam = Main.get_node("CameraPivot/Camera3D")
+	#cam.current = false
+	#Main.position.y = -50
+	#
+#func show_board(): #Broken
+	#Main.visible = true
+	#var cam = Main.get_node("CameraPivot/Camera3D")
+	#cam.current = true
+	#Main.position.y = 0
+	
