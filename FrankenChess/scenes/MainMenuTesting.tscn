@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbbii5sc3jcym"]
+[gd_scene load_steps=11 format=3 uid="uid://dbbii5sc3jcym"]
 
 [ext_resource type="Script" uid="uid://b1bjcwngu1a7w" path="res://scenes/Menus/main_menu_testing.gd" id="1_5td3f"]
 [ext_resource type="Texture2D" uid="uid://bjdaow24byopx" path="res://scenes/Menus/Haunted House Background.jpg" id="3_1x30l"]
 [ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="3_qtx5f"]
 [ext_resource type="Script" uid="uid://d012t8uenyip4" path="res://scenes/Menus/exit_button.gd" id="4_gborv"]
+[ext_resource type="AudioStream" uid="uid://clqqism4nctww" path="res://assets/SFX/pause_sound.mp3" id="5_kvhlf"]
+[ext_resource type="AudioStream" uid="uid://b8q13hqpp1adi" path="res://assets/SFX/unpause_sound.mp3" id="6_pa0ng"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gborv"]
 font = ExtResource("3_qtx5f")
@@ -175,6 +177,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
 text = "Exit
 "
 script = ExtResource("4_gborv")
+
+[node name="MenuSFX" type="Node" parent="."]
+
+[node name="OpenButtonSound" type="AudioStreamPlayer2D" parent="MenuSFX"]
+stream = ExtResource("5_kvhlf")
+
+[node name="CloseButtonSound" type="AudioStreamPlayer2D" parent="MenuSFX"]
+stream = ExtResource("6_pa0ng")
 
 [connection signal="pressed" from="MainButtons/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
