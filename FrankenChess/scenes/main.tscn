@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bhli85w3uxecj"]
+[gd_scene load_steps=18 format=3 uid="uid://bhli85w3uxecj"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_choun"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b5me6i02kffpk" path="res://assets/SFX/chess-pieces-one-tap.mp3" id="11_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="11_trceg"]
 [ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="13_trceg"]
+[ext_resource type="AudioStream" uid="uid://cauh00a34ov80" path="res://assets/SFX/indoor_ambience.mp3" id="14_a8y0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pyhd"]
 size = Vector3(1, 0.48779297, 1)
@@ -996,15 +997,24 @@ target_position = Vector3(0, -20, -200)
 
 [node name="SFX" type="Node3D" parent="."]
 
-[node name="SelectPiece" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="SelectPiece" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_trceg")
-volume_db = -3.107
+volume_db = -9.32
 
-[node name="PlacePiece" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="PlacePiece" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("11_eb6dy")
 
-[node name="CapturePiece" type="AudioStreamPlayer3D" parent="SFX"]
+[node name="CapturePiece" type="AudioStreamPlayer" parent="SFX"]
 stream = ExtResource("13_trceg")
+volume_db = -5.725
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Ambience" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("14_a8y0u")
+volume_db = -5.475
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="UI/Button" to="Board" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/AddPiece" to="." method="_on_add_piece_pressed"]
