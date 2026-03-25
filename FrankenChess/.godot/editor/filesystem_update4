@@ -1,0 +1,6 @@
+res://scenes/piece.tscn
+res://scripts/assembly.gd
+res://scenes/assembly.tscn
+res://scenes/chess.gd
+res://scripts/piece.gd
+res://scripts/global.gd

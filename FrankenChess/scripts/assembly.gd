@@ -2,16 +2,26 @@ extends Node3D
 
 @onready var base_location: Marker3D = $BaseLocation
 @onready var v_box_container: VBoxContainer = $Control/VBoxContainer
+@onready var constant: VBoxContainer = $Control/Constant
 @onready var current_parts = {
 	"base" : null,
 	"mid" : null,
 	"top" : null
+}
+@onready var current_dictionaries = {
+	"base": null,
+	"mid": null,
+	"top": null
 }
 @onready var spawn_point = $TopLocation
 
 @export var base_piece: PackedScene
 
 @onready var parts = {}
+
+func _process(delta: float) -> void:
+	if $Camera3D.current == true:
+		$Control.visible = true
 
 func _ready():
 	
@@ -29,40 +39,76 @@ func _ready():
 	var clear = Button.new()
 	clear.text = "Clear"
 	clear.pressed.connect(_clear_pieces.bind())
-	v_box_container.add_child(clear)
+	constant.add_child(clear)
 	
 	var board = Button.new()
 	board.text = "Board"
 	board.pressed.connect(_change_to_board.bind())
-	v_box_container.add_child(board)
+	constant.add_child(board)
 	
 	var confirm = Button.new()
 	confirm.text = "Confirm"
 	confirm.pressed.connect(_confirm_pieces.bind())
-	v_box_container.add_child(confirm)
+	constant.add_child(confirm)
 	
 
 func _clear_pieces():
 	var active: Node = $CurrentParts
 	for child in active.get_children():
 		child.queue_free()
+	current_parts = {
+	"base" : null,
+	"mid" : null,
+	"top" : null
+	}
+	current_dictionaries = {
+	"base": null,
+	"mid": null,
+	"top": null
+	}
 
 func _change_to_board():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-
-func _confirm_pieces():
-	var assembled_piece = $CurrentParts
+	#get_tree().change_scene_to_file("res://scenes/main.tscn")
+	var cam = $Camera3D
+	var ui = $Control
+	visible = false
+	Global.change_scene(cam, ui)
 	
-	for child in assembled_piece.get_children():
-		print(child)
+func _confirm_pieces():
+	var top_type = current_dictionaries["top"]["type"]
+	var mid_type = current_dictionaries["mid"]["type"]
+	var base_type = current_dictionaries["base"]["type"]
+	var piece_name = top_type.capitalize() + mid_type.capitalize() + base_type.capitalize()
+	
+	var assembled_piece = $CurrentParts
+	for part in current_parts:
+		if part == null:
+			return #cancels the function if the player doesnt have all the parts
+	
+	
 	
 	assembled_piece.get_parent().remove_child(assembled_piece)
 	Global.assembled_piece = assembled_piece #this adds the piece to the global script
+	Global.assembled_piece.name = piece_name 
 	
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	Global.global_top = top_type
+	Global.global_mid = mid_type
+	Global.global_base = base_type
+	
+	var cam = $Camera3D
+	var ui = $Control
+	visible = false
+
+	
+	var node = Node.new()
+	node.name = "CurrentParts"
+	add_child(node)
+	_clear_pieces()
+	Global.change_scene(cam, ui)
+	#get_tree().change_scene_to_file("res://scenes/main.tscn")
 # adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
-	print(part)
+	#print(part)
 	var scene = load(part["model"])
 	var instance = scene.instantiate()
 	
@@ -108,13 +154,13 @@ func _on_part_selected(part : Dictionary):
 		var active_part = current_parts[part["slot"]]
 		active_part.queue_free()
 	current_parts[part["slot"]] = instance
+	current_dictionaries[part["slot"]] = part
 	
 func get_mesh3d(node: Node) -> MeshInstance3D:
 	for child in node.get_children():
 		if child is MeshInstance3D:
 			return child
-	for child in node.get_children():
-		if child is Node3D:
+		elif child is Node3D:
 			for baby in child.get_children():
 				if baby is MeshInstance3D:
 					return baby

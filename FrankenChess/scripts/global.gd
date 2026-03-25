@@ -7,16 +7,20 @@ This script will hold:
 	Player's parts
 	Created pieces
 """
+var global_top = null
+var global_mid = null
+var global_base = null
 
 @onready var assembled_piece = null
-@onready var turn: bool = false #true for white's turn, false for black's turn
-#on ready this should fill with a bunch of random parts
-#pulls part options from the 
-@export var black_parts = {}
 
+@onready var turn: bool = true #true for white's turn, false for black's turn
+#on ready this should fill with a bunch of random parts
+#pulls part options from the db
+@export var black_parts = {}
 @export var white_parts = {}
 
 func _ready() -> void:
+	print("Global instance ID:", get_instance_id())
 	
 	var top
 	var mid
@@ -58,15 +62,6 @@ func _ready() -> void:
 	black_parts["King Top"] = top
 	black_parts["King Top"]["white"] = false
 
-#func hide_board(): # BROKEN
-	#Main.visible = false
-	#var cam = Main.get_node("CameraPivot/Camera3D")
-	#cam.current = false
-	#Main.position.y = -50
-	#
-#func show_board(): #Broken
-	#Main.visible = true
-	#var cam = Main.get_node("CameraPivot/Camera3D")
-	#cam.current = true
-	#Main.position.y = 0
-	
+func change_scene(cam : Camera3D, ui):
+	cam.current = false
+	ui.visible = false

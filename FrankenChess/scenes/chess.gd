@@ -66,7 +66,7 @@ func _ready():
 		print(marker.name, " -> ", marker.get_meta("board_pos"))
 
 	# Place all pieces automatically
-	auto_place_pieces()
+	#auto_place_pieces()
 	
 	print("=== Piece Debug ===")
 	for piece in $White.get_children():
@@ -95,47 +95,47 @@ func get_marker_at(pos: Vector2i):
 	return null
 
 #  Automatically place all 32 pieces
-func auto_place_pieces():
-	var back_rank = {
-		"rook":   [0, 7],
-		"knight": [1, 6],
-		"bishop": [2, 5],
-		"queen":  [3],
-		"king":   [4]
-	}
-
-	#  Place the white pieces
-	for piece in $White.get_children():
-		piece.color = "white"
-		piece.piece_type = String(get_type_from_name(piece.name))
-
-		if piece.piece_type == "pawn":
-			var file = int(piece.name.substr(piece.name.length() - 1)) - 1
-			place_piece(piece, Vector2i(file, 1))
-		else:
-			var type = String(piece.piece_type)
-			var name_str = String(piece.name)
-			var last_char = name_str[name_str.length() - 1]
-			var index = int(last_char) - 1 if last_char.is_valid_int() else 0
-			var file = back_rank[type][index]
-			place_piece(piece, Vector2i(file, 0))
-
-	# Black pieces
-	for piece in $Black.get_children():
-		piece.color = "black"
-		piece.piece_type = String(get_type_from_name(piece.name))
-
-		if piece.piece_type == "pawn":
-			var file = int(piece.name.substr(piece.name.length() - 1)) - 1
-			place_piece(piece, Vector2i(file, 6))
-		else:
-			var name_str = String(piece.name)
-			var last_char = name_str[name_str.length() - 1]
-			var index = int(last_char) - 1 if last_char.is_valid_int() else 0
-
-			var type = String(piece.piece_type)
-			var file = back_rank[type][index]
-			place_piece(piece, Vector2i(file, 7))
+#func auto_place_pieces():
+	#var back_rank = {
+		#"rook":   [0, 7],
+		#"knight": [1, 6],
+		#"bishop": [2, 5],
+		#"queen":  [3],
+		#"king":   [4]
+	#}
+#
+	##  Place the white pieces
+	#for piece in $White.get_children():
+		#piece.color = "white"
+		#piece.piece_type = String(get_type_from_name(piece.name))
+#
+		#if piece.piece_type == "pawn":
+			#var file = int(piece.name.substr(piece.name.length() - 1)) - 1
+			#place_piece(piece, Vector2i(file, 1))
+		#else:
+			#var type = String(piece.piece_type)
+			#var name_str = String(piece.name)
+			#var last_char = name_str[name_str.length() - 1]
+			#var index = int(last_char) - 1 if last_char.is_valid_int() else 0
+			#var file = back_rank[type][index]
+			#place_piece(piece, Vector2i(file, 0))
+#
+	## Black pieces
+	#for piece in $Black.get_children():
+		#piece.color = "black"
+		#piece.piece_type = String(get_type_from_name(piece.name))
+#
+		#if piece.piece_type == "pawn":
+			#var file = int(piece.name.substr(piece.name.length() - 1)) - 1
+			#place_piece(piece, Vector2i(file, 6))
+		#else:
+			#var name_str = String(piece.name)
+			#var last_char = name_str[name_str.length() - 1]
+			#var index = int(last_char) - 1 if last_char.is_valid_int() else 0
+#
+			#var type = String(piece.piece_type)
+			#var file = back_rank[type][index]
+			#place_piece(piece, Vector2i(file, 7))
 
 func _input(event):
 	#print("INPUT FIRED")
@@ -198,7 +198,11 @@ func handle_square_click(pos: Vector2i):
 
 	# If no piece is selected, do nothing
 	if selected_piece == null:
+		print("selected piece is null (chess, line:201)")
 		return
+		
+	if pos == Vector2i(-1,-1):
+		move_piece(selected_piece, pos)
 
 	# If a piece IS selected, check if this square is a valid move
 	var raw_moves = selected_piece.get_moves(spaces)
@@ -227,14 +231,19 @@ func select_piece(piece):
 		deselect_piece()
 
 	selected_piece = piece
-	print("Selected piece:", piece.name, "at", piece.board_pos)
+	print("Selected piece:", piece.name, " at ", piece.board_pos)
 
-	var raw_moves = piece.get_moves(spaces)
-	var legal_moves = []
+	var legal_moves
+	
+	if piece.board_pos == Vector2i(-1, -1):
+		legal_moves = piece.get_moves(spaces)
+	else:
+		var raw_moves = piece.get_moves(spaces)
+		legal_moves = []
 
-	for pos in raw_moves:
-		if move_is_legal(piece, pos):
-			legal_moves.append(pos)
+		for pos in raw_moves:
+			if move_is_legal(piece, pos):
+				legal_moves.append(pos)
 
 	highlight_moves(legal_moves)
 
@@ -252,6 +261,20 @@ func move_piece(piece, pos):
 	if marker == null:
 		return
 
+	
+	if piece.board_pos == Vector2i(-1, -1):
+		piece.board_pos = pos
+		spaces[pos] = piece
+		
+		print(piece.global_position)
+		print(marker.global_position)
+		piece.global_position = marker.global_position
+		print(piece.global_position)
+		print(marker.global_position)
+		
+		highlight_moves([])
+		return
+	
 	# Remove from old position in board state
 	spaces[piece.board_pos] = null
 
@@ -389,3 +412,59 @@ func move_is_legal(piece, target_pos: Vector2i) -> bool:
 	piece.board_pos = original_pos
 
 	return not in_check
+	
+
+
+func _on_add_piece_pressed() -> void:
+	var full_piece = RigidBody3D.new()
+	var piece = Global.assembled_piece
+	full_piece.name = piece.name
+	
+	full_piece.add_child(piece)
+	
+	for part in piece.get_children():
+		var collider = add_collider(part)
+		full_piece.add_child(collider)
+	
+	full_piece.set_script(load("res://scripts/piece.gd"))
+	
+	if Global.turn:
+		$White.add_child(full_piece)
+	else:
+		$Black.add_child(full_piece)
+	
+	full_piece._top = Global.global_top
+	full_piece._mid = Global.global_mid
+	full_piece._base = Global.global_base
+	
+	Global.assembled_piece = null
+	
+	print(full_piece._top)
+	select_piece(full_piece)
+
+func add_collider(part): #this is also broken
+	for item in part.get_children():
+		if item is MeshInstance3D:
+			var mesh = item.mesh
+			var shape = mesh.create_trimesh_shape()
+
+			var collider = CollisionShape3D.new()
+			collider.shape = shape
+
+			return collider
+		if item is Node3D:
+			print(item)
+			for child in item.get_children():
+				print(child)
+				if child is MeshInstance3D:
+					var mesh = child.mesh
+					var shape = mesh.create_trimesh_shape()
+
+					var collider = CollisionShape3D.new()
+					collider.shape = shape
+
+					return collider
+	print("adding the colliders didnt work")
+	print(part)
+	print("===")
+	return 

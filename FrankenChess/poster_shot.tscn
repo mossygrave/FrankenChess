@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv6n5a65rcnca"]
+
+[ext_resource type="Material" uid="uid://br4rhr4oc1wl4" path="res://scenes/test_mat.tres" id="1_yruvn"]
+[ext_resource type="PackedScene" uid="uid://bqnu7husrqcg5" path="res://assets/Chess Pieces/Castle Piece/Castle-Bottom.glb" id="2_xod4d"]
+[ext_resource type="PackedScene" uid="uid://buwtcw30wsv71" path="res://assets/Chess Pieces/King Piece/King-Top.glb" id="4_8catp"]
+[ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="5_hnucn"]
+[ext_resource type="PackedScene" uid="uid://d1jmtb8bff3ct" path="res://assets/Chess Pieces/Queen Piece/middle.glb" id="5_yruvn"]
+[ext_resource type="PackedScene" uid="uid://k3obyih15fxg" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb" id="6_8i70r"]
+[ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="7_pfq0k"]
+
+[sub_resource type="Environment" id="Environment_yruvn"]
+background_mode = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 2.9245362, -0.230896, -0.22374654)
+material_override = ExtResource("1_yruvn")
+size = Vector3(1, 0.538208, 2.029663)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 0.07174492, 8.833287, -2.5987704)
+material_override = ExtResource("1_yruvn")
+size = Vector3(1, 0.538208, 1.4306641)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 0.5241976, 4.20141, 9.184092)
+material_override = ExtResource("1_yruvn")
+size = Vector3(1, 9.828339, 0.1661377)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 0.5241976, 4.2872405, -10.639003)
+material_override = ExtResource("1_yruvn")
+size = Vector3(1, 10, 0.1661377)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.39095157, 0, 0, 0, 1.656794, 0, 0, 0, 16.329456, 0, 4.417903, 0.25640127)
+material_override = ExtResource("1_yruvn")
+size = Vector3(1, 6.3478394, 1.3692627)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Pawn-Middle2" parent="Node" instance=ExtResource("5_hnucn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.283, 0.78978896, 0.262)
+
+[node name="Castle-Bottom" parent="Node" instance=ExtResource("2_xod4d")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 8.283434, 0.7974199, 0.2618991)
+
+[node name="King-Top" parent="Node" instance=ExtResource("4_8catp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.283744, 1.1075207, 0.2586838)
+
+[node name="middle" parent="Node" instance=ExtResource("5_yruvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332285, 0.8322319, -5.0071197)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.022163808, 0, 0.99975437, 0, 1, 0, -0.99975437, 0, 0.022163808, 12.599952, 0.8153361, 0.23240781)
+light_energy = 7.398
+shadow_enabled = true
+spot_range = 30.915
+spot_angle = 33.15792
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.04311268, -0.16936482, 0.98461, 0.016212732, 0.98551524, 0.1688106, -0.9989387, 0.008685341, 0.045234066, 7.6220503, 2.0493789, 0.35704017)
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="Pawn-Middle" parent="Node2" instance=ExtResource("5_hnucn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.988986, 0.268228, 0.3062638)
+
+[node name="Pawn-Top" parent="Node2" instance=ExtResource("6_8i70r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.988986, 0.55732226, 0.3062638)
+
+[node name="Pawn-BottomFlip" parent="Node2" instance=ExtResource("7_pfq0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.988618, 0.31287932, 0.30626762)
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.03792566, 0.17352787, 0.9840985, 0.0066825403, 0.984829, -0.17339915, -0.9992582, 4.6600696e-10, -0.038509898, 6.007756, 0.27630985, 0.34533703)
+light_volumetric_fog_energy = 4.55
+spot_range = 2.9330394
+spot_angle = 18.82951
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yruvn")
