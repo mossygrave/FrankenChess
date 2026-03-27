@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpwbhd30aeylq"]
+
+[ext_resource type="PackedScene" uid="uid://bqnu7husrqcg5" path="res://assets/Chess Pieces/Castle Piece/Castle-Bottom.glb" id="1_wf0xg"]
+
+[node name="RookBase" type="Node3D"]
+
+[node name="Castle-Bottom" parent="." instance=ExtResource("1_wf0xg")]
+
+[node name="RockBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34806564, 0)

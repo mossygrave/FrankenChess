@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4m2ahvefauod"]
+[gd_scene load_steps=3 format=3 uid="uid://c4m2ahvefauod"]
 
-[ext_resource type="PackedScene" uid="uid://dsg8kqoj1f6db" path="res://assets/Chess Pieces/Queen Piece/Queen-Middle-ver.2.glb" id="1_4fv8q"]
+[ext_resource type="PackedScene" uid="uid://d3po1etoimk02" path="res://assets/Chess Pieces/Queen Piece/queenmiddleflip.glb" id="1_4fv8q"]
+[ext_resource type="Script" uid="uid://dm1rc005odn6s" path="res://scripts/part.gd" id="1_qxc5c"]
 
 [node name="QueenMid" type="Node3D"]
+script = ExtResource("1_qxc5c")
 
-[node name="Queen-Middle-ver_2" parent="." instance=ExtResource("1_4fv8q")]
-transform = Transform3D(0.9999541, 0, -0.009581711, 0, 1, 0, 0.009581711, 0, 0.9999541, -0.040540814, 0, 0.70043635)
+[node name="queenmiddleflip" parent="." instance=ExtResource("1_4fv8q")]
+
+[node name="BaseSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005643964, 0)
+
+[node name="TopSocket" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7787103, 0)

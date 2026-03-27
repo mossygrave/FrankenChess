@@ -1,2 +1,3 @@
-res://scenes/VFX/rain_particle_effect.tscn
-res://scenes/MainMenuTesting.tscn
+res://scenes/assembly.tscn
+res://scripts/piece.gd
+res://scenes/chess.gd
