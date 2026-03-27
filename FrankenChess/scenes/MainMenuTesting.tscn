@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbbii5sc3jcym"]
+[gd_scene load_steps=25 format=3 uid="uid://dbbii5sc3jcym"]
 
 [ext_resource type="Script" uid="uid://b1bjcwngu1a7w" path="res://scenes/Menus/main_menu_testing.gd" id="1_5td3f"]
-[ext_resource type="Texture2D" uid="uid://bjdaow24byopx" path="res://scenes/Menus/Haunted House Background.jpg" id="3_1x30l"]
+[ext_resource type="Texture2D" uid="uid://b6u5l74in6xco" path="res://assets/FrankenMenu.png" id="2_2wfy3"]
 [ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="3_qtx5f"]
 [ext_resource type="Script" uid="uid://d012t8uenyip4" path="res://scenes/Menus/exit_button.gd" id="4_gborv"]
+[ext_resource type="Script" uid="uid://b63vef4kdmeb1" path="res://scripts/credits.gd" id="5_0twbl"]
+[ext_resource type="Texture2D" uid="uid://vvooc7a8y75k" path="res://assets/RightArrow.png" id="5_2wfy3"]
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="5_kvhlf"]
+[ext_resource type="Texture2D" uid="uid://cu5w4y7tlpqr7" path="res://assets/kindpng_722362 (2).png" id="6_0twbl"]
 [ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="6_kvhlf"]
 [ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="7_pa0ng"]
 
@@ -41,6 +44,39 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 10
 
+[sub_resource type="LabelSettings" id="LabelSettings_k3576"]
+font = ExtResource("3_qtx5f")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_onyvc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6afij"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tclov"]
+font_size = 14
+
+[sub_resource type="LabelSettings" id="LabelSettings_wxecf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_15tvp"]
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd4nr"]
+font_size = 33
+
+[sub_resource type="LabelSettings" id="LabelSettings_xjjoo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts3kr"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rrev"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -51,9 +87,9 @@ grow_vertical = 2
 script = ExtResource("1_5td3f")
 
 [node name="HauntedHouseBackground" type="Sprite2D" parent="."]
-position = Vector2(573.7399, 326.5)
-scale = Vector2(0.66428566, 0.66428566)
-texture = ExtResource("3_1x30l")
+position = Vector2(460, 260)
+scale = Vector2(0.5742599, 0.57425994)
+texture = ExtResource("2_2wfy3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -158,6 +194,7 @@ offset_right = 269.5
 offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("5_0twbl")
 
 [node name="Label" type="Label" parent="Credits"]
 layout_mode = 0
@@ -178,6 +215,159 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_gborv")
 text = "Exit
 "
 script = ExtResource("4_gborv")
+
+[node name="CreditHeader" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 0.5
+offset_top = 32.0
+offset_right = 539.0
+offset_bottom = 76.0
+text = "FrankenChess Credits"
+label_settings = SubResource("LabelSettings_k3576")
+horizontal_alignment = 1
+
+[node name="Morgan" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 0.5
+offset_top = 91.0
+offset_right = 538.0
+offset_bottom = 305.0
+text = "Morgan is like the Master Chef of the project. 
+She has the vision of what she wants the project to be. 
+She doesn’t have time to get her hands dirty with coding or 
+game design when she has a vision to bring to life. 
+She worked on implementing the assembly menu 
+where pieces are built. 
+She is also the proud owner of Cinder the cat.
+"
+label_settings = SubResource("LabelSettings_onyvc")
+horizontal_alignment = 1
+
+[node name="Byron" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 99.0
+offset_right = 541.5
+offset_bottom = 330.0
+text = "Byron is like the Sous/Prep Chef of the project. 
+He was down in the trenches working on the logistics of the project. 
+Responsible for making the chess engine 
+and main menu from scratch. 
+He really is the most humble guy out there. 
+When asked about his contributions to the project he said 
+“I really am the backbone of the project.” 
+He’s just so humble.
+"
+label_settings = SubResource("LabelSettings_6afij")
+horizontal_alignment = 1
+
+[node name="Smedley" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 76.0
+offset_right = 538.5
+offset_bottom = 437.0
+text = "Smedley is like the janitor of the kitchen 
+that ended up as a chef by accident. 
+He doesn’t know what he’s doing, how he ended up in the class, 
+or what Godot is, but his contributions are undeniable. 
+He made the music and sound effects 
+to really bring the game together. 
+He also crafted the game over menu just for fun. 
+When asked what his favorite cheese is he said: 
+“All cheeses, except foot cheese. Feta up with everyone’s business.” 
+As someone who says puns and unfunny jokes constantly, 
+he is easily the most hated member of the team.
+"
+label_settings = SubResource("LabelSettings_tclov")
+horizontal_alignment = 1
+
+[node name="Joey" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 0.5
+offset_top = 89.0
+offset_right = 538.5
+offset_bottom = 302.0
+text = "Joey - “Whatever you think.”
+Joey is our resident narcissist and sarcastic comic relief. 
+He is not in any way helpful to the project in any way, shape, or form. 
+If you say anything positive in the slightest, 
+he will be sure to swat it down. 
+At least he’s consistent. 
+Get to know Joey, he will change your life."
+label_settings = SubResource("LabelSettings_wxecf")
+horizontal_alignment = 1
+
+[node name="Jonathan" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 150.0
+offset_right = 538.5
+offset_bottom = 319.0
+text = "Jonathan never really showed up to class, 
+but he was responsible for the 3D models of all the pieces. 
+I don’t know much about him, but he seems alright. 
+The pieces are pretty dope.
+"
+label_settings = SubResource("LabelSettings_15tvp")
+horizontal_alignment = 1
+
+[node name="Corben" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 150.0
+offset_right = 538.5
+offset_bottom = 319.0
+text = "Corben was there I think?"
+label_settings = SubResource("LabelSettings_wd4nr")
+horizontal_alignment = 1
+
+[node name="Cinder" type="Label" parent="Credits"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_top = 68.0
+offset_right = 538.5
+offset_bottom = 351.0
+text = "Cinder! I can’t say enough about Cinder. 
+Cinder was the true driving force of our team. 
+If there is anything that the team was stuck on, 
+she would immediately walk over and purr. 
+This immediately brought wisdom, courage, and joy to everyone. 
+She is a ball of sunshine that truly made the team better. 
+Every single wall the team ran into was solved by Cinder. 
+Cinder truly was the Queen to our King, 
+while our team is a bunch of narrow-minded pawns. 
+God bless Cinder. O7
+"
+label_settings = SubResource("LabelSettings_xjjoo")
+horizontal_alignment = 1
+
+[node name="RightButton" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 330.0
+offset_right = 1103.0
+offset_bottom = 796.0
+scale = Vector2(0.15, 0.15)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ts3kr")
+icon = ExtResource("5_2wfy3")
+
+[node name="LeftButton" type="Button" parent="Credits"]
+layout_mode = 0
+offset_left = 26.5
+offset_top = 330.0
+offset_right = 737.5
+offset_bottom = 796.0
+scale = Vector2(0.15, 0.15)
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6rrev")
+icon = ExtResource("6_0twbl")
 
 [node name="MenuSFX" type="Node" parent="."]
 
@@ -208,3 +398,5 @@ parameters/looping = true
 [connection signal="pressed" from="MainButtons/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="Options/BackButton" to="." method="_on_back_options_pressed"]
 [connection signal="pressed" from="Credits/BackButton" to="." method="_on_back_credits_pressed"]
+[connection signal="pressed" from="Credits/RightButton" to="Credits" method="_on_RightButton_pressed"]
+[connection signal="pressed" from="Credits/LeftButton" to="Credits" method="_on_LeftButton_pressed"]
