@@ -268,13 +268,10 @@ func move_piece(piece, pos):
 		piece.board_pos = pos
 		spaces[pos] = piece
 		
-		print(piece.global_position)
-		print(marker.global_position)
 		piece.global_position = marker.global_position
-		print(piece.global_position)
-		print(marker.global_position) 
 		
 		highlight_moves([])
+		Global.turn = !Global.turn
 		return
 	
 	# Remove from old position in board state
@@ -316,6 +313,8 @@ func move_piece(piece, pos):
 	tween.finished.connect(func():
 		highlight_moves([])
 	)
+	
+	Global.turn = !Global.turn
 	
 func capture_piece(piece):
 	# Remove from board state
