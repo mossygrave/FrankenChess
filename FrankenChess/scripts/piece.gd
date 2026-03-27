@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends StaticBody3D
 
 var piece_type : String
 var color : String
@@ -60,41 +60,41 @@ func get_moves(board_state: Dictionary) -> Array:
 
 # All piece attack functions
 func pawn_attacks(board_state: Dictionary):
-	print("works!")
+	print("pawn attacks works!")
 	
 func rook_attacks(board_state: Dictionary):
-	print("works!")
+	print("rook attacks works!")
 	
 func knight_attacks(board_state: Dictionary):
-	print("works!")
+	print("knight attacks works!")
 	
 func bishop_attacks(board_state: Dictionary):
-	print("works!")
+	print("bishop attacks works!")
 
 func queen_attacks(board_state: Dictionary):
-	print("works!")
+	print("queen attacks works!")
 
 func king_attacks(board_state: Dictionary):
-	print("works!")
+	print("king attacks works!")
 	
 # All Piece move functions
 func pawn_move(board_state: Dictionary):
-	print("works!")
+	print("pawn move works!")
 	
 func rook_move(board_state: Dictionary):
-	print("works!")
+	print("rook move works!")
 	
 func knight_move(board_state: Dictionary):
-	print("works!")
+	print("knight move works!")
 	
 func bishop_move(board_state: Dictionary):
-	print("works!")
+	print("bishop move works!")
 
 func queen_move(board_state: Dictionary):
-	print("works!")
+	print("queen move works!")
 
 func king_move(board_state: Dictionary):
-	print("works!")
+	print("king move works!")
 	
 func get_starting_pos(top_type):
 	var starting = []

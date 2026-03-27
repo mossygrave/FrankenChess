@@ -270,7 +270,7 @@ func move_piece(piece, pos):
 		print(marker.global_position)
 		piece.global_position = marker.global_position
 		print(piece.global_position)
-		print(marker.global_position)
+		print(marker.global_position) 
 		
 		highlight_moves([])
 		return
@@ -416,15 +416,18 @@ func move_is_legal(piece, target_pos: Vector2i) -> bool:
 
 
 func _on_add_piece_pressed() -> void:
-	var full_piece = RigidBody3D.new()
-	var piece = Global.assembled_piece
-	full_piece.name = piece.name
-	
-	full_piece.add_child(piece)
-	
-	for part in piece.get_children():
-		var collider = add_collider(part)
-		full_piece.add_child(collider)
+	var full_piece = StaticBody3D.new()
+	var main = get_parent()
+	var piece
+	var piece_name = Global.global_top.capitalize() + Global.global_mid.capitalize() + Global.global_base.capitalize()
+	for child in main.get_children(): 
+		if child.name == "AssembledPiece":
+			piece = child
+			piece.reparent(self)
+		else:
+			print("cound not find current parts node")
+
+	full_piece.name = piece_name
 	
 	full_piece.set_script(load("res://scripts/piece.gd"))
 	
@@ -433,16 +436,27 @@ func _on_add_piece_pressed() -> void:
 	else:
 		$Black.add_child(full_piece)
 	
+	#full_piece needs to have the same position as rock bottom
+	full_piece.global_position = piece.global_position
+	
+	piece.reparent(full_piece)
+	
+	for part in piece.get_children():
+		var collider = add_collider(part)
+		collider.reparent(full_piece)
+	
 	full_piece._top = Global.global_top
 	full_piece._mid = Global.global_mid
 	full_piece._base = Global.global_base
 	
 	Global.assembled_piece = null
 	
-	print(full_piece._top)
+	#print(full_piece._top)
 	select_piece(full_piece)
 
 func add_collider(part): #this is also broken
+	print("=======")
+	print("Adding Colliders")
 	for item in part.get_children():
 		if item is MeshInstance3D:
 			var mesh = item.mesh
@@ -450,7 +464,9 @@ func add_collider(part): #this is also broken
 
 			var collider = CollisionShape3D.new()
 			collider.shape = shape
-
+			collider.transform = item.transform
+			
+			part.add_child(collider)
 			return collider
 		if item is Node3D:
 			print(item)
@@ -462,9 +478,10 @@ func add_collider(part): #this is also broken
 
 					var collider = CollisionShape3D.new()
 					collider.shape = shape
-
+					collider.transform = child.transform
+					
+					part.add_child(collider)
 					return collider
-	print("adding the colliders didnt work")
 	print(part)
 	print("===")
 	return 

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qym44hdntq4h"]
+
+[ext_resource type="PackedScene" uid="uid://cl7k5g00k5nw5" path="res://assets/Chess Pieces/Queen Piece/Queen-Bottom.glb" id="1_uopm3"]
+
+[node name="QueenBase" type="Node3D"]
+
+[node name="Queen-Bottom" parent="." instance=ExtResource("1_uopm3")]
+
+[node name="RockBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48468357, 0)

@@ -78,18 +78,29 @@ func _confirm_pieces():
 	var top_type = current_dictionaries["top"]["type"]
 	var mid_type = current_dictionaries["mid"]["type"]
 	var base_type = current_dictionaries["base"]["type"]
-	var piece_name = top_type.capitalize() + mid_type.capitalize() + base_type.capitalize()
 	
-	var assembled_piece = $CurrentParts
+	var what_we_have = $CurrentParts
+
 	for part in current_parts:
 		if part == null:
 			return #cancels the function if the player doesnt have all the parts
 	
+	var assembled_piece = Marker3D.new()
+	assembled_piece.name = "AssembledPiece"
+	add_child(assembled_piece)
+	
+	for child in what_we_have.get_children(): 
+		for baby in child.get_children():
+			if baby.name == "RockBottom":
+				assembled_piece.global_position = baby.global_position
+	
+	for child in what_we_have.get_children():
+		child.reparent(assembled_piece)
 	
 	
-	assembled_piece.get_parent().remove_child(assembled_piece)
-	Global.assembled_piece = assembled_piece #this adds the piece to the global script
-	Global.assembled_piece.name = piece_name 
+	
+	var main = get_parent()
+	assembled_piece.reparent(main)
 	
 	Global.global_top = top_type
 	Global.global_mid = mid_type
@@ -99,10 +110,6 @@ func _confirm_pieces():
 	var ui = $Control
 	visible = false
 
-	
-	var node = Node.new()
-	node.name = "CurrentParts"
-	add_child(node)
 	_clear_pieces()
 	Global.change_scene(cam, ui)
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")

@@ -106,35 +106,35 @@ var base_parts = {
 		"slot" : "base",
 		"type" : "rook",
 		"script" : "res://scenes/Rook.gd",
-		"model" : "res://assets/Chess Pieces/Castle Piece/Castle-Bottom.glb",
+		"model" : "res://scenes/Base Parts/rook_base.tscn",
 		"white" : true
 	},
 	"Knight Base": {
 		"slot" : "base",
 		"type" : "knight",
 		"script" : "res://scenes/Knight.gd",
-		"model" : "res://assets/Chess Pieces/Knight Piece/Knight-Bottom.glb",
+		"model" : "res://scenes/Base Parts/knight_base.tscn",
 		"white" : true
 	},
 	"Bishop Base": {
 		"slot" : "base",
 		"type" : "bishop",
 		"script" : "res://scenes/Bishop.gd",
-		"model" : "res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb",
+		"model" : "res://scenes/Base Parts/bishop_base.tscn",
 		"white" : true
 	},
 	"Queen Base": {
 		"slot" : "base",
 		"type" : "queen",
 		"script" : "res://scenes/Queen.gd",
-		"model" : "res://assets/Chess Pieces/Queen Piece/Queen-Bottom.glb",
+		"model" : "res://scenes/Base Parts/queen_base.tscn",
 		"white" : true
 	},
 	"King Base": {
 		"slot" : "base",
 		"type" : "king",
 		"script" : "res://scenes/King.gd",
-		"model" : "res://assets/Chess Pieces/King Piece/King-Bottom.glb",
+		"model" : "res://scenes/Base Parts/king_base.tscn",
 		"white" : true
 	}
 }

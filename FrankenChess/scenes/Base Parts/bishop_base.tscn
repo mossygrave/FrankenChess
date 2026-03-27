@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg5l3umetbg37"]
+
+[ext_resource type="PackedScene" uid="uid://dl50df27potq2" path="res://assets/Chess Pieces/Bishop Piece/Bishop-Bottom.glb" id="1_0gnj0"]
+
+[node name="BishopBase" type="Node3D"]
+
+[node name="Bishop-Bottom" parent="." instance=ExtResource("1_0gnj0")]
+
+[node name="RockBottom" type="Marker3D" parent="."]

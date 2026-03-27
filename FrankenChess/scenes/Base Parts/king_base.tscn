@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmhxhmfb5p6a6"]
+
+[ext_resource type="PackedScene" uid="uid://dyo86d76jlb2j" path="res://assets/Chess Pieces/King Piece/King-Bottom.glb" id="1_o6lxb"]
+
+[node name="KingBase" type="Node3D"]
+
+[node name="King-Bottom" parent="." instance=ExtResource("1_o6lxb")]
+
+[node name="RockBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44762614, 0)
