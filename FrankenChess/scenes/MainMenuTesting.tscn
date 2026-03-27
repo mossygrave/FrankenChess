@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dbbii5sc3jcym"]
+[gd_scene load_steps=26 format=3 uid="uid://dbbii5sc3jcym"]
 
 [ext_resource type="Script" uid="uid://b1bjcwngu1a7w" path="res://scenes/Menus/main_menu_testing.gd" id="1_5td3f"]
 [ext_resource type="Texture2D" uid="uid://b6u5l74in6xco" path="res://assets/FrankenMenu.png" id="2_2wfy3"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cu5w4y7tlpqr7" path="res://assets/kindpng_722362 (2).png" id="6_0twbl"]
 [ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="6_kvhlf"]
 [ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="7_pa0ng"]
+[ext_resource type="PackedScene" uid="uid://bv6n5a65rcnca" path="res://poster_shot.tscn" id="11_k3576"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gborv"]
 font = ExtResource("3_qtx5f")
@@ -87,6 +88,7 @@ grow_vertical = 2
 script = ExtResource("1_5td3f")
 
 [node name="HauntedHouseBackground" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(460, 260)
 scale = Vector2(0.5742599, 0.57425994)
 texture = ExtResource("2_2wfy3")
@@ -391,6 +393,9 @@ stream = ExtResource("7_pa0ng")
 volume_db = -16.124
 autoplay = true
 parameters/looping = true
+
+[node name="Node3D" parent="." instance=ExtResource("11_k3576")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0074710846, -2.3841858e-07, -0.004081726)
 
 [connection signal="pressed" from="MainButtons/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

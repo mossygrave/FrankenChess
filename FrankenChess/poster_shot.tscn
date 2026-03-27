@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv6n5a65rcnca"]
+[gd_scene load_steps=9 format=3 uid="uid://bv6n5a65rcnca"]
 
 [ext_resource type="PackedScene" uid="uid://dlc467ofa2ss0" path="res://scenes/VFX/rain_particle_effect.tscn" id="1_xod4d"]
 [ext_resource type="Material" uid="uid://br4rhr4oc1wl4" path="res://scenes/test_mat.tres" id="1_yruvn"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="5_hnucn"]
 [ext_resource type="PackedScene" uid="uid://k3obyih15fxg" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb" id="6_8i70r"]
 [ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="7_pfq0k"]
-[ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="8_8sr3y"]
-[ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="9_8catp"]
 
 [sub_resource type="Environment" id="Environment_yruvn"]
 background_mode = 1
@@ -18,7 +16,7 @@ background_mode = 1
 [node name="RainParticleEffects" parent="." instance=ExtResource("1_xod4d")]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 2.9245362, -0.230896, -0.22374654)
+transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 4.769089, -0.26522708, -1.3297131)
 material_override = ExtResource("1_yruvn")
 size = Vector3(1, 0.538208, 2.029663)
 
@@ -59,7 +57,7 @@ spot_range = 30.915
 spot_angle = 33.15792
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.4172327, 0.13580355, 0.89859575, 0, 0.9887721, -0.14943178, -0.9087997, 0.062347822, 0.41254804, 7.6220503, 0.20774317, 2.7906337)
+transform = Transform3D(0.65408105, 0.113033816, 0.7479315, -1.0071952e-09, 0.98877203, -0.14943175, -0.75642467, 0.09774047, 0.6467371, 4.8189154, 0.20774317, 1.0300364)
 
 [node name="Node2" type="Node" parent="."]
 
@@ -80,17 +78,3 @@ spot_angle = 18.82951
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yruvn")
-
-[node name="MenuMusic" type="Node" parent="."]
-
-[node name="Music" type="AudioStreamPlayer" parent="MenuMusic"]
-stream = ExtResource("8_8sr3y")
-volume_db = -20.02
-autoplay = true
-parameters/looping = true
-
-[node name="RainSFX" type="AudioStreamPlayer" parent="MenuMusic"]
-stream = ExtResource("9_8catp")
-volume_db = -16.124
-autoplay = true
-parameters/looping = true
