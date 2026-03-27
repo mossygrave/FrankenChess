@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbbii5sc3jcym"]
+[gd_scene load_steps=48 format=3 uid="uid://dbbii5sc3jcym"]
 
 [ext_resource type="Script" uid="uid://b1bjcwngu1a7w" path="res://scenes/Menus/main_menu_testing.gd" id="1_5td3f"]
 [ext_resource type="Texture2D" uid="uid://b6u5l74in6xco" path="res://assets/FrankenMenu.png" id="2_2wfy3"]
@@ -9,8 +9,29 @@
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="5_kvhlf"]
 [ext_resource type="Texture2D" uid="uid://cu5w4y7tlpqr7" path="res://assets/kindpng_722362 (2).png" id="6_0twbl"]
 [ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="6_kvhlf"]
+[ext_resource type="Texture2D" uid="uid://0085xenfos05" path="res://Pictures/ChadMorgan.jpeg" id="6_onyvc"]
+[ext_resource type="Texture2D" uid="uid://btwo82sjpmwbm" path="res://Pictures/Image.jpeg" id="7_6afij"]
 [ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="7_pa0ng"]
+[ext_resource type="Texture2D" uid="uid://be6ck4fnggg76" path="res://Pictures/shared image (1).jpeg" id="8_wxecf"]
+[ext_resource type="Texture2D" uid="uid://cyad1quvt113y" path="res://Pictures/shared image.jpeg" id="9_15tvp"]
+[ext_resource type="Texture2D" uid="uid://dkfvf7vjxmbqs" path="res://Pictures/shared image copy.jpeg" id="10_wd4nr"]
 [ext_resource type="PackedScene" uid="uid://bv6n5a65rcnca" path="res://poster_shot.tscn" id="11_k3576"]
+[ext_resource type="Texture2D" uid="uid://c8xflgwrhwa36" path="res://Pictures/メディア.jpeg" id="11_xjjoo"]
+[ext_resource type="Texture2D" uid="uid://cwj2weukakve8" path="res://Pictures/Ethan&Joey.jpeg" id="12_xjjoo"]
+[ext_resource type="Texture2D" uid="uid://bu67s60un3thq" path="res://Pictures/Image copy.jpeg" id="13_ts3kr"]
+[ext_resource type="Texture2D" uid="uid://bs8kqgvchydfb" path="res://Pictures/Cinder/Image (1).jpeg" id="14_h0rmr"]
+[ext_resource type="Texture2D" uid="uid://ddwwrxh5lsmoy" path="res://Pictures/pngwing.com.png" id="14_o6avi"]
+[ext_resource type="Texture2D" uid="uid://wa1isxtxrhqs" path="res://Pictures/shared image copy 2.jpeg" id="14_o6qo4"]
+[ext_resource type="Texture2D" uid="uid://cbcr26877uo76" path="res://Pictures/shared image (1) copy.jpeg" id="15_3qm0f"]
+[ext_resource type="Texture2D" uid="uid://b7dkihptxxov" path="res://Pictures/Cinder/Image (2).jpeg" id="15_o6avi"]
+[ext_resource type="Texture2D" uid="uid://o3036gtqp741" path="res://Pictures/Cinder/Image (3).jpeg" id="16_mmc8a"]
+[ext_resource type="Texture2D" uid="uid://b5dlcpsks22kl" path="res://Pictures/Cinder/Image (4).jpeg" id="17_o6qo4"]
+[ext_resource type="Texture2D" uid="uid://bv6p1j3la3nho" path="res://Pictures/Cinder/Image (5).jpeg" id="18_3qm0f"]
+[ext_resource type="Texture2D" uid="uid://c1ydibtauyml8" path="res://Pictures/Cinder/Image (6).jpeg" id="19_mfaxc"]
+[ext_resource type="Texture2D" uid="uid://ctp6m5n14b0kq" path="res://Pictures/Cinder/Image (7).jpeg" id="20_oh3cb"]
+[ext_resource type="Texture2D" uid="uid://ducpx01hvyn4k" path="res://Pictures/Cinder/Image (8).jpeg" id="21_jki0i"]
+[ext_resource type="Texture2D" uid="uid://b7cu43vlfrwvr" path="res://Pictures/Cinder/Image (9).jpeg" id="22_u7vke"]
+[ext_resource type="Texture2D" uid="uid://bq5m2462pf81a" path="res://Pictures/Cinder/Image (10).jpeg" id="23_r3x24"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gborv"]
 font = ExtResource("3_qtx5f")
@@ -63,6 +84,8 @@ font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_wd4nr"]
 font_size = 33
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_o6avi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xjjoo"]
 
@@ -229,7 +252,7 @@ label_settings = SubResource("LabelSettings_k3576")
 horizontal_alignment = 1
 
 [node name="Morgan" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 0.5
 offset_top = 91.0
@@ -246,11 +269,31 @@ She is also the proud owner of Cinder the cat.
 label_settings = SubResource("LabelSettings_onyvc")
 horizontal_alignment = 1
 
-[node name="Byron" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="ChadMorganPic" type="TextureRect" parent="Credits/Morgan"]
 layout_mode = 0
+offset_left = 565.9999
+offset_top = -94.00001
+offset_right = 1807.9999
+offset_bottom = 2114.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_onyvc")
+
+[node name="TextureRect" type="TextureRect" parent="Credits/Morgan"]
+layout_mode = 0
+offset_left = -16.000008
+offset_top = -57.000008
+offset_right = 3608.8057
+offset_bottom = 2661.6042
+rotation = 1.5707964
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_6afij")
+
+[node name="Byron" type="Label" parent="Credits"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 0.5
 offset_top = 99.0
-offset_right = 541.5
+offset_right = 542.0
 offset_bottom = 330.0
 text = "Byron is like the Sous/Prep Chef of the project. 
 He was down in the trenches working on the logistics of the project. 
@@ -264,8 +307,26 @@ He’s just so humble.
 label_settings = SubResource("LabelSettings_6afij")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Credits/Byron"]
+layout_mode = 0
+offset_left = 571.99994
+offset_top = -41.999996
+offset_right = 2780.0
+offset_bottom = 2902.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_wxecf")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Byron"]
+layout_mode = 0
+offset_left = -271.0
+offset_top = -32.000004
+offset_right = 809.0
+offset_bottom = 1408.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_15tvp")
+
 [node name="Smedley" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 76.0
 offset_right = 538.5
@@ -285,8 +346,26 @@ he is easily the most hated member of the team.
 label_settings = SubResource("LabelSettings_tclov")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Credits/Smedley"]
+layout_mode = 0
+offset_left = -276.5
+offset_top = -27.999998
+offset_right = 286.5
+offset_bottom = 772.0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("10_wd4nr")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Smedley"]
+layout_mode = 0
+offset_left = 557.5
+offset_top = -58.0
+offset_right = 1072.5
+offset_bottom = 742.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_xjjoo")
+
 [node name="Joey" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 0.5
 offset_top = 89.0
@@ -302,8 +381,26 @@ Get to know Joey, he will change your life."
 label_settings = SubResource("LabelSettings_wxecf")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Credits/Joey"]
+layout_mode = 0
+offset_left = -272.0
+offset_top = -8.0
+offset_right = 230.0
+offset_bottom = 541.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_xjjoo")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Joey"]
+layout_mode = 0
+offset_left = 538.0
+offset_top = -86.0
+offset_right = 1245.0
+offset_bottom = 807.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("13_ts3kr")
+
 [node name="Jonathan" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 150.0
 offset_right = 538.5
@@ -316,8 +413,26 @@ The pieces are pretty dope.
 label_settings = SubResource("LabelSettings_15tvp")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Credits/Jonathan"]
+layout_mode = 0
+offset_left = 588.5
+offset_top = -130.0
+offset_right = 967.5
+offset_bottom = 670.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_o6qo4")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Jonathan"]
+layout_mode = 0
+offset_left = -271.5
+offset_top = -74.00002
+offset_right = 75.5
+offset_bottom = 345.99997
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("15_3qm0f")
+
 [node name="Corben" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_top = 150.0
 offset_right = 538.5
@@ -326,11 +441,31 @@ text = "Corben was there I think?"
 label_settings = SubResource("LabelSettings_wd4nr")
 horizontal_alignment = 1
 
-[node name="Cinder" type="Label" parent="Credits"]
-self_modulate = Color(1, 1, 1, 0)
+[node name="TextureRect" type="TextureRect" parent="Credits/Corben"]
 layout_mode = 0
+offset_left = -248.5
+offset_top = -6.000002
+offset_right = 451.49695
+offset_bottom = 753.37787
+scale = Vector2(0.28000122, 0.3199988)
+texture = ExtResource("14_o6avi")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Corben"]
+material = SubResource("CanvasItemMaterial_o6avi")
+layout_mode = 0
+offset_left = 590.50006
+offset_top = 4.0
+offset_right = 1279.7827
+offset_bottom = 694.6275
+scale = Vector2(0.28000122, 0.3199988)
+texture = ExtResource("14_o6avi")
+
+[node name="Cinder" type="Label" parent="Credits"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 0.5
 offset_top = 68.0
-offset_right = 538.5
+offset_right = 539.0
 offset_bottom = 351.0
 text = "Cinder! I can’t say enough about Cinder. 
 Cinder was the true driving force of our team. 
@@ -346,12 +481,107 @@ God bless Cinder. O7
 label_settings = SubResource("LabelSettings_xjjoo")
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -134.99998
+offset_top = 27.999996
+offset_right = 1109.0
+offset_bottom = 2236.0
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("14_h0rmr")
+
+[node name="TextureRect2" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = 681.0
+offset_top = 118.0
+offset_right = 1925.0
+offset_bottom = 2326.0
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("15_o6avi")
+
+[node name="TextureRect3" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -114.999985
+offset_top = 308.99994
+offset_right = 1129.0
+offset_bottom = 2517.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("16_mmc8a")
+
+[node name="TextureRect4" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -116.999985
+offset_top = -73.00001
+offset_right = 1127.0
+offset_bottom = 2135.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("17_o6qo4")
+
+[node name="TextureRect5" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 90.000015
+offset_right = 1814.0
+offset_bottom = 2298.0
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("18_3qm0f")
+
+[node name="TextureRect6" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -121.000015
+offset_top = 82.99999
+offset_right = 3911.0
+offset_bottom = 3107.0
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("19_mfaxc")
+
+[node name="TextureRect7" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = 709.0
+offset_top = 233.0
+offset_right = 4741.0
+offset_bottom = 3257.0
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("20_oh3cb")
+
+[node name="TextureRect8" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -150.99998
+offset_top = -165.0
+offset_right = 3881.0
+offset_bottom = 2859.0
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("21_jki0i")
+
+[node name="TextureRect9" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = -138.00002
+offset_top = 243.00003
+offset_right = 3894.0
+offset_bottom = 3267.0005
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("22_u7vke")
+
+[node name="TextureRect10" type="TextureRect" parent="Credits/Cinder"]
+layout_mode = 0
+offset_left = 784.0
+offset_top = -101.99999
+offset_right = 4816.001
+offset_bottom = 2922.0
+rotation = 1.5707964
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("23_r3x24")
+
 [node name="RightButton" type="Button" parent="Credits"]
 layout_mode = 0
-offset_left = 392.0
+offset_left = 392.5
 offset_top = 330.0
-offset_right = 1103.0
-offset_bottom = 796.0
+offset_right = 1095.5
+offset_bottom = 788.0
 scale = Vector2(0.15, 0.15)
 theme_override_styles/normal = SubResource("StyleBoxFlat_ts3kr")
 icon = ExtResource("5_2wfy3")

@@ -1,6 +1,8 @@
+TextureRect
+Node
+AnimationPlayer
 GPUParticlesCollisionBox3D
 AudioStreamPlayer
-Node
 Node3D
 Marker3D
 RigidBody3D
@@ -10,6 +12,3 @@ SpotLight3D
 Camera3D
 CSGBox3D
 CSGMesh3D
-VBoxContainer
-CanvasLayer
-Button

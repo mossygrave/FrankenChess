@@ -26,10 +26,10 @@ func show_credit(i: int):
 		var tween = create_tween()
 
 		if j == i:
-			tween.tween_property(label, "self_modulate:a", 1.0, 0.4)\
+			tween.tween_property(label, "modulate:a", 1.0, 0.4)\
 				.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 		else:
-			tween.tween_property(label, "self_modulate:a", 0.0, 0.3)\
+			tween.tween_property(label, "modulate:a", 0.0, 0.3)\
 				.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	print("Showing credit index:", i)
 
