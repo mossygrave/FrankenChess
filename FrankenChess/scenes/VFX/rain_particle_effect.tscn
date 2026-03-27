@@ -1,27 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlc467ofa2ss0"]
+[gd_scene load_steps=13 format=3 uid="uid://dlc467ofa2ss0"]
 
 [ext_resource type="Texture2D" uid="uid://y0wc5e1kdsfm" path="res://assets/particles/trace_02_a.png" id="1_g2sq8"]
 [ext_resource type="Texture2D" uid="uid://boyyn5trtdrnn" path="res://assets/particles/circle_05_a.png" id="2_iujif"]
-[ext_resource type="PackedScene" uid="uid://k3obyih15fxg" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb" id="3_7mo6y"]
-[ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="4_1y01m"]
-[ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="5_qthcr"]
-
-[sub_resource type="Environment" id="Environment_g2sq8"]
-background_mode = 2
-background_color = Color(0.4594196, 0.65034586, 0.9570046, 1)
-background_energy_multiplier = 0.35
-volumetric_fog_density = 0.01
-volumetric_fog_emission = Color(0.40069774, 0.40069774, 0.40069768, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iujif"]
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.25021347, 0.25021344, 0.25021344, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_0rc17"]
-material = SubResource("StandardMaterial3D_iujif")
-size = Vector3(20, 1, 20)
-
-[sub_resource type="SphereMesh" id="SphereMesh_17u66"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g2sq8"]
 emission_shape = 3
@@ -54,7 +34,6 @@ stencil_outline_thickness = 0.0
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_iujif"]
 material = SubResource("StandardMaterial3D_0rc17")
-size = 2.0
 curve = SubResource("Curve_0rc17")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_t4uso"]
@@ -81,6 +60,22 @@ albedo_texture = ExtResource("2_iujif")
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_7mo6y"]
 material = SubResource("StandardMaterial3D_g4lhg")
+size = 0.12
+section_length = 0.02
+
+[sub_resource type="Animation" id="Animation_1y01m"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rain:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_7mo6y"]
 resource_name = "play"
@@ -98,72 +93,15 @@ tracks/0/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_1y01m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Rain:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qthcr"]
 _data = {
 &"RESET": SubResource("Animation_1y01m"),
 &"play": SubResource("Animation_7mo6y")
 }
 
-[node name="ParticleTesting" type="Node3D"]
+[node name="RainParticleEffects" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_g2sq8")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.77545935, -0.19109099, 0.6017866, 0.0077315066, 0.9501572, 0.31167522, -0.6313502, 0.24634415, -0.7353309, 8.366594, 7.7461185, -9.680249)
-fov = 61.2
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, 0, -0.5, 0)
-mesh = SubResource("BoxMesh_0rc17")
-
-[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="MeshInstance3D"]
-transform = Transform3D(0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0, 0.99999964, 0, 0, 0)
-size = Vector3(22.191406, 1, 21.75586)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 4.3592887, 0)
-visible = false
-mesh = SubResource("SphereMesh_17u66")
-
-[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="MeshInstance3D2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-
-[node name="Pawn" type="Node3D" parent="."]
-
-[node name="Pawn-Top" parent="Pawn" instance=ExtResource("3_7mo6y")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 4.199271, 0)
-
-[node name="Pawn-Middle" parent="Pawn" instance=ExtResource("4_1y01m")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 2.0246212, 0)
-
-[node name="Pawn-BottomFlip" parent="Pawn" instance=ExtResource("5_qthcr")]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 2.080745, 0)
-
-[node name="CollisionShape3D" type="GPUParticlesCollisionSphere3D" parent="Pawn"]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 5.5777392, 0)
-
-[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="Pawn"]
-transform = Transform3D(2.079457, 0, 0, 0, 1.7193787, 0, 0, 0, 2.175623, 0, 0, 0)
-
-[node name="RainParticleEffects" type="Node3D" parent="."]
-
-[node name="Rain" type="GPUParticles3D" parent="RainParticleEffects"]
+[node name="Rain" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.22366, 0)
 amount = 1000
 sub_emitter = NodePath("Impact")
@@ -177,17 +115,17 @@ trail_lifetime = 0.15000000000000002
 process_material = SubResource("ParticleProcessMaterial_g2sq8")
 draw_pass_1 = SubResource("RibbonTrailMesh_iujif")
 
-[node name="Impact" type="GPUParticles3D" parent="RainParticleEffects/Rain"]
+[node name="Impact" type="GPUParticles3D" parent="Rain"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.212114, 0)
 amount = 1000
 lifetime = 0.4
 speed_scale = 2.0
 fixed_fps = 0
+collision_base_size = 0.0
 process_material = SubResource("ParticleProcessMaterial_t4uso")
 draw_pass_1 = SubResource("RibbonTrailMesh_7mo6y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RainParticleEffects"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_qthcr")
 }
-autoplay = "play"

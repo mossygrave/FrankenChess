@@ -1,8 +1,10 @@
+GPUParticlesCollisionBox3D
+AudioStreamPlayer
 Node
+Node3D
 Marker3D
 RigidBody3D
 StaticBody3D
-Node3D
 WorldEnvironment
 SpotLight3D
 Camera3D
@@ -11,4 +13,3 @@ CSGMesh3D
 VBoxContainer
 CanvasLayer
 Button
-CenterContainer

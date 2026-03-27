@@ -1,3 +1,3 @@
-res://scenes/assembly.tscn
-res://scripts/piece.gd
-res://scenes/chess.gd
+res://scenes/main.tscn
+res://scenes/VFX/rain_particle_effect.tscn
+res://poster_shot.tscn

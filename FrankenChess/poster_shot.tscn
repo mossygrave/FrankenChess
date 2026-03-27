@@ -1,26 +1,29 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv6n5a65rcnca"]
+[gd_scene load_steps=11 format=3 uid="uid://bv6n5a65rcnca"]
 
+[ext_resource type="PackedScene" uid="uid://dlc467ofa2ss0" path="res://scenes/VFX/rain_particle_effect.tscn" id="1_xod4d"]
 [ext_resource type="Material" uid="uid://br4rhr4oc1wl4" path="res://scenes/test_mat.tres" id="1_yruvn"]
 [ext_resource type="PackedScene" uid="uid://bqnu7husrqcg5" path="res://assets/Chess Pieces/Castle Piece/Castle-Bottom.glb" id="2_xod4d"]
 [ext_resource type="PackedScene" uid="uid://buwtcw30wsv71" path="res://assets/Chess Pieces/King Piece/King-Top.glb" id="4_8catp"]
 [ext_resource type="PackedScene" uid="uid://klwg2a7a35k2" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Middle.glb" id="5_hnucn"]
 [ext_resource type="PackedScene" uid="uid://k3obyih15fxg" path="res://assets/Chess Pieces/Pawn Piece/Pawn-Top.glb" id="6_8i70r"]
 [ext_resource type="PackedScene" uid="uid://ddto1q8755ho" path="res://assets/Chess Pieces/Pawn Piece/Pawn-BottomFlip.glb" id="7_pfq0k"]
+[ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="8_8sr3y"]
+[ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="9_8catp"]
 
 [sub_resource type="Environment" id="Environment_yruvn"]
 background_mode = 1
 
 [node name="Node3D" type="Node3D"]
 
+[node name="RainParticleEffects" parent="." instance=ExtResource("1_xod4d")]
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 2.9245362, -0.230896, -0.22374654)
 material_override = ExtResource("1_yruvn")
 size = Vector3(1, 0.538208, 2.029663)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="."]
-transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 0.07174492, 8.833287, -2.5987704)
-material_override = ExtResource("1_yruvn")
-size = Vector3(1, 0.538208, 1.4306641)
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7320138, -0.0015748087)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(9.373241, 0, 0, 0, 1, 0, 0, 0, 11.863637, 0.5241976, 4.20141, 9.184092)
@@ -48,19 +51,6 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 8.28
 [node name="King-Top" parent="Node" instance=ExtResource("4_8catp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.283744, 1.1075207, 0.2586838)
 
-[node name="middle" parent="Node"]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.332285, 0.8322319, -5.0071197)
-script = null
-
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(0.022163808, 0, 0.99975437, 0, 1, 0, -0.99975437, 0, 0.022163808, 12.599952, 0.8153361, 0.23240781)
 light_energy = 7.398
@@ -69,7 +59,7 @@ spot_range = 30.915
 spot_angle = 33.15792
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.60368896, -0.14423496, 0.7840637, 0.016212732, 0.98551524, 0.16881059, -0.79705507, -0.08919729, 0.59728307, 7.6220503, 2.0493789, 4.495532)
+transform = Transform3D(0.4172327, 0.13580355, 0.89859575, 0, 0.9887721, -0.14943178, -0.9087997, 0.062347822, 0.41254804, 7.6220503, 0.20774317, 2.7906337)
 
 [node name="Node2" type="Node" parent="."]
 
@@ -90,3 +80,17 @@ spot_angle = 18.82951
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_yruvn")
+
+[node name="MenuMusic" type="Node" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="MenuMusic"]
+stream = ExtResource("8_8sr3y")
+volume_db = -20.02
+autoplay = true
+parameters/looping = true
+
+[node name="RainSFX" type="AudioStreamPlayer" parent="MenuMusic"]
+stream = ExtResource("9_8catp")
+volume_db = -16.124
+autoplay = true
+parameters/looping = true

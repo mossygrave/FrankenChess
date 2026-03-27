@@ -1,8 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhli85w3uxecj"]
+[gd_scene load_steps=13 format=3 uid="uid://bhli85w3uxecj"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://ufu8dg3wmwws" path="res://WhiteCircle.png" id="3_kx1m2"]
+[ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://b5me6i02kffpk" path="res://assets/SFX/chess-pieces-one-tap.mp3" id="7_tipki"]
+[ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="8_85g3d"]
+[ext_resource type="AudioStream" uid="uid://b7n1dl8sctq8x" path="res://assets/SFX/Less Warbles.mp3" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://ca285mg3ojj4i" path="res://scenes/assembly.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bpfkwx1lcqno0" path="res://assets/TABLE.glb" id="12_eb6dy"]
 
@@ -865,6 +869,32 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.288925, 0)
 
 [node name="TABLE" parent="." instance=ExtResource("12_eb6dy")]
 transform = Transform3D(0.0022084378, 0, 1.0527292, 0, 1, 0, -1.0122745, 0, 0.0022966973, -0.0141785145, -0.78968567, -0.53327036)
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="SelectPiece" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_tefeu")
+volume_db = -1.3
+
+[node name="MovePiece" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("7_tipki")
+volume_db = -5.239
+
+[node name="CapturePiece" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("8_85g3d")
+
+[node name="PlacePiece" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("6_tefeu")
+volume_db = -1.68
+pitch_scale = 0.78
+parameters/looping = false
+
+[node name="Music" type="Node" parent="."]
+
+[node name="GameplayMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("9_85g3d")
+volume_db = -26.634
+autoplay = true
 
 [connection signal="pressed" from="UI/CanvasLayer/Button" to="Board" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/AddPiece" to="Board" method="_on_add_piece_pressed"]
