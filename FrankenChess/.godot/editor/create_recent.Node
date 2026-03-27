@@ -1,12 +1,15 @@
+AnimationPlayer
+Node3D
+Camera3D
+GPUParticlesCollisionSphere3D
+CollisionShape3D
+MeshInstance3D
+GPUParticlesAttractorSphere3D
+GPUParticles3D
+WorldEnvironment      - Matches the "sky" keyword.
+CSGBox3D
+GPUParticlesCollisionBox3D
 AudioStreamPlayer
 AudioStreamPlayer3D
 Node
 AudioStreamPlayer2D
-Node3D
-Button
-CenterContainer
-VBoxContainer
-Label
-MarginContainer
-PanelContainer
-CanvasLayer

@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbbii5sc3jcym"]
+[gd_scene load_steps=12 format=3 uid="uid://dbbii5sc3jcym"]
 
 [ext_resource type="Script" uid="uid://b1bjcwngu1a7w" path="res://scenes/Menus/main_menu_testing.gd" id="1_5td3f"]
 [ext_resource type="Texture2D" uid="uid://bjdaow24byopx" path="res://scenes/Menus/Haunted House Background.jpg" id="3_1x30l"]
 [ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="3_qtx5f"]
 [ext_resource type="Script" uid="uid://d012t8uenyip4" path="res://scenes/Menus/exit_button.gd" id="4_gborv"]
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="5_kvhlf"]
-[ext_resource type="AudioStream" uid="uid://cymer8fmcvedt" path="res://assets/SFX/spoopy_music.mp3" id="7_pa0ng"]
+[ext_resource type="AudioStream" uid="uid://b2qiq126r4mwf" path="res://assets/SFX/FrankenChess Menu Theme.mp3" id="6_kvhlf"]
+[ext_resource type="AudioStream" uid="uid://cmv0baxtfed0n" path="res://assets/SFX/Rain SFX.mp3" id="7_pa0ng"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gborv"]
 font = ExtResource("3_qtx5f")
@@ -190,8 +191,14 @@ pitch_scale = 0.77
 [node name="MenuMusic" type="Node" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="MenuMusic"]
+stream = ExtResource("6_kvhlf")
+volume_db = -20.02
+autoplay = true
+parameters/looping = true
+
+[node name="RainSFX" type="AudioStreamPlayer" parent="MenuMusic"]
 stream = ExtResource("7_pa0ng")
-volume_db = -22.005
+volume_db = -16.124
 autoplay = true
 parameters/looping = true
 

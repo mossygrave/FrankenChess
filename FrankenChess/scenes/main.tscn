@@ -13,7 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b5me6i02kffpk" path="res://assets/SFX/chess-pieces-one-tap.mp3" id="11_eb6dy"]
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="11_trceg"]
 [ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="13_trceg"]
-[ext_resource type="AudioStream" uid="uid://cauh00a34ov80" path="res://assets/SFX/indoor_ambience.mp3" id="14_a8y0u"]
+[ext_resource type="AudioStream" uid="uid://b7n1dl8sctq8x" path="res://assets/SFX/Less Warbles.mp3" id="14_a8y0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pyhd"]
 size = Vector3(1, 0.48779297, 1)
@@ -1010,9 +1010,9 @@ volume_db = -5.725
 
 [node name="Music" type="Node" parent="."]
 
-[node name="Ambience" type="AudioStreamPlayer" parent="Music"]
+[node name="Gameplay" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("14_a8y0u")
-volume_db = -5.475
+volume_db = -26.024
 autoplay = true
 parameters/looping = true
 

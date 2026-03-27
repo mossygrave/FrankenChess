@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2qiq126r4mwf"
+path="res://.godot/imported/FrankenChess Menu Theme.mp3-e95dae4a79977e47b7df256d74bf72db.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX/FrankenChess Menu Theme.mp3"
+dest_files=["res://.godot/imported/FrankenChess Menu Theme.mp3-e95dae4a79977e47b7df256d74bf72db.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

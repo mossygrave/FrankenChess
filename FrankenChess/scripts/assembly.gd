@@ -19,7 +19,7 @@ func _ready():
 		parts = Global.white_parts
 	else:
 		parts = Global.black_parts
-		
+
 	for part in parts:
 		var button = Button.new()
 		button.text = part
