@@ -6,6 +6,9 @@ func _ready() -> void:
 	main_buttons.visible = true
 	options.visible = false
 	credits.visible = false
+	flash_thunder_light()
+	start_lightning_loop()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -45,3 +48,41 @@ func _on_back_credits_pressed() -> void:
 	main_buttons.visible = true
 	options.visible = false
 	credits.visible = false
+
+func start_lightning_loop():
+	while true:
+		# Wait 5–10 seconds randomly
+		var wait_time = randf_range(5.0, 10.0)
+		await get_tree().create_timer(wait_time).timeout
+
+		# Do the lightning sequence
+		await flash_thunder_light()
+
+func flash_thunder_light():
+	var light := $Node3D/KingFlashLight
+
+	# --- BIG FLASH ---
+	light.visible = true
+	light.light_energy = 0.0
+
+	var tween := create_tween()
+	tween.tween_property(light, "light_energy", 20.0, 0.15)  # fade in
+	tween.tween_property(light, "light_energy", 0.0, 0.20)   # fade out
+	await tween.finished
+
+	light.visible = false
+	await get_tree().create_timer(0.1).timeout
+
+	# --- SHORT FLASH ---
+	light.visible = true
+	light.light_energy = 0.0
+
+	var tween2 := create_tween()
+	tween2.tween_property(light, "light_energy", 12.0, 0.05)  # quick fade in
+	tween2.tween_property(light, "light_energy", 0.0, 0.10)   # quick fade out
+	await tween2.finished
+	
+	light.visible = false
+
+	# Thunder sound
+	$Node3D/ThunderSound.play()
