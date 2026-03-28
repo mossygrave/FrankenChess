@@ -20,21 +20,60 @@ extends Node3D
 @onready var parts = {}
 
 func _process(delta: float) -> void:
-	if $Camera3D.current == true:
-		$Control.visible = true
-
-func _ready():
 	
-	if Global.turn:
+	if Global.turn == "black" and Global.black_king == false and Global.white_king == true:
+		for part in parts:
+			if part == "King Top":
+				var scene = load(parts[part]["model"])
+				var instance = scene.instantiate()
+	
+				$CurrentParts.add_child(instance)
+				instance.global_transform = spawn_point.global_transform
+				instance.name = "KingTop"
+				current_parts["top"] = instance
+				current_dictionaries["top"] = parts[part]
+				print(current_parts["top"])
+				
+				var mesh = get_mesh3d(instance)
+				if mesh:
+					var mat = preload("res://assets/Chess Pieces/Pawn Piece/black-piece.tres")
+					mesh.set_surface_override_material(0, mat)
+				
+				Global.black_king = true
+	
+	if Global.turn == "white":
 		parts = Global.white_parts
 	else:
 		parts = Global.black_parts
-
+		
 	for part in parts:
 		var button = Button.new()
 		button.text = part
 		button.pressed.connect(_on_part_selected.bind(parts[part]))
 		v_box_container.add_child(button)
+		
+	if $Camera3D.current == true:
+		$Control.visible = true
+	else:
+		for child in v_box_container.get_children():
+			child.queue_free()
+
+func _ready():
+
+	parts = Global.white_parts
+	
+	if Global.turn == "white" and Global.white_king == false:
+		for part in parts:
+			if part == "King Top":
+				var scene = load(parts[part]["model"])
+				var instance = scene.instantiate()
+	
+				$CurrentParts.add_child(instance)
+				instance.global_transform = spawn_point.global_transform
+				instance.name = "KingTop"
+				current_parts["top"] = instance
+				current_dictionaries["top"] = parts[part]
+				print(current_parts["top"])
 	
 	var clear = Button.new()
 	clear.text = "Clear"
@@ -75,15 +114,22 @@ func _change_to_board():
 	Global.change_scene(cam, ui)
 	
 func _confirm_pieces():
+	
+	for part in current_parts:
+		if part == null:
+			return #cancels the function if the player doesnt have all the parts
+	
+	if current_dictionaries["top"]["type"] == "king" and Global.turn == "white":
+		Global.white_king = true
+	elif current_dictionaries["top"]["type"] == "king" and Global.turn == "black":
+		Global.black_king = true
+	
+	
 	var top_type = current_dictionaries["top"]["type"]
 	var mid_type = current_dictionaries["mid"]["type"]
 	var base_type = current_dictionaries["base"]["type"]
 	
 	var what_we_have = $CurrentParts
-
-	for part in current_parts:
-		if part == null:
-			return #cancels the function if the player doesnt have all the parts
 	
 	var assembled_piece = Marker3D.new()
 	assembled_piece.name = "AssembledPiece"
@@ -96,8 +142,6 @@ func _confirm_pieces():
 	
 	for child in what_we_have.get_children():
 		child.reparent(assembled_piece)
-	
-	
 	
 	var main = get_parent()
 	assembled_piece.reparent(main)
@@ -115,13 +159,17 @@ func _confirm_pieces():
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
 # adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
-	#print(part)
+	
+	if part["slot"] == "top":
+		if current_dictionaries["top"] != null and current_dictionaries["top"]["type"] == "king":
+			return
+		
 	var scene = load(part["model"])
 	var instance = scene.instantiate()
 	
 	$CurrentParts.add_child(instance)
 	
-	if Global.turn == false:
+	if Global.turn == "black":
 		var mesh = get_mesh3d(instance)
 		if mesh:
 			var mat = preload("res://assets/Chess Pieces/Pawn Piece/black-piece.tres")

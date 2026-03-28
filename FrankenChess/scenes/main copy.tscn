@@ -1,15 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhli85w3uxecj"]
+[gd_scene load_steps=15 format=3 uid="uid://ctsafqbkmchlh"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_choun"]
+[ext_resource type="PackedScene" uid="uid://bq6jc7hmtodf8" path="res://scenes/piece.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://wddh3a6ql6jt" path="res://scenes/Pawn.gd" id="3_fbxpr"]
 [ext_resource type="Texture2D" uid="uid://ufu8dg3wmwws" path="res://WhiteCircle.png" id="3_kx1m2"]
-[ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="6_tefeu"]
-[ext_resource type="AudioStream" uid="uid://b5me6i02kffpk" path="res://assets/SFX/chess-pieces-one-tap.mp3" id="7_tipki"]
-[ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="8_85g3d"]
-[ext_resource type="AudioStream" uid="uid://b7n1dl8sctq8x" path="res://assets/SFX/Less Warbles.mp3" id="9_85g3d"]
-[ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="10_choun"]
-[ext_resource type="PackedScene" uid="uid://ca285mg3ojj4i" path="res://scenes/assembly.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://bpfkwx1lcqno0" path="res://assets/TABLE.glb" id="12_eb6dy"]
+[ext_resource type="Script" uid="uid://degp1pf6n581a" path="res://scenes/Rook.gd" id="4_b4d1p"]
+[ext_resource type="Script" uid="uid://r3isls2es1bc" path="res://scenes/Knight.gd" id="5_gp5wo"]
+[ext_resource type="Script" uid="uid://5tl0kgfsj2p" path="res://scenes/Bishop.gd" id="6_8o23u"]
+[ext_resource type="Script" uid="uid://c6swbfoidngsw" path="res://scenes/King.gd" id="7_or1s8"]
+[ext_resource type="Script" uid="uid://dusenpjywpfjv" path="res://scenes/Queen.gd" id="8_f6pdq"]
+[ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="11_ya4ey"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pyhd"]
 size = Vector3(1, 0.48779297, 1)
@@ -17,7 +18,7 @@ size = Vector3(1, 0.48779297, 1)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xm02c"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0wfyh"]
-viewport_path = NodePath("UI/CanvasLayer/SubViewport")
+viewport_path = NodePath("UI/SubViewport")
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_choun")
@@ -28,8 +29,136 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="White" type="Node3D" parent="Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
 
+[node name="WPawn1" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46177387, -0.022751894, -1.5326139)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn2" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4415421, -0.022751894, -1.5326138)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn3" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5304017, -0.022751894, -1.532614)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn4" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5101702, -0.022751894, -1.5326138)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn5" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5388646, -0.022751894, -1.5649142)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn6" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.518633, -0.022751894, -1.5326135)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn7" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.607177, -0.022751894, -1.5326138)
+script = ExtResource("3_fbxpr")
+
+[node name="WPawn8" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5869455, -0.022751894, -1.532614)
+script = ExtResource("3_fbxpr")
+
+[node name="WRook1" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46257937, -0.022751898, -0.51726604)
+script = ExtResource("4_b4d1p")
+
+[node name="WKnight1" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4423478, -0.022751898, -0.51726604)
+script = ExtResource("5_gp5wo")
+
+[node name="WBishop1" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5312076, -0.022751898, -0.51726604)
+script = ExtResource("6_8o23u")
+
+[node name="WKing" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5109758, -0.022751898, -0.51726604)
+script = ExtResource("7_or1s8")
+
+[node name="WQueen" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53967, -0.022751898, -0.51726604)
+script = ExtResource("8_f6pdq")
+
+[node name="WBishop2" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5194383, -0.022751898, -0.51726604)
+script = ExtResource("6_8o23u")
+
+[node name="WKnight2" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6079826, -0.022751898, -0.51726604)
+script = ExtResource("5_gp5wo")
+
+[node name="WRook2" parent="Board/White" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.587751, -0.022751898, -0.51726604)
+script = ExtResource("4_b4d1p")
+
 [node name="Black" type="Node3D" parent="Board"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="BPawn1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.587751, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6079826, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn3" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5194383, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn4" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.53967, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn5" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5109758, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn6" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5312076, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn7" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4423478, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BPawn8" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46257925, -0.022751898, -6.4919367)
+script = ExtResource("3_fbxpr")
+
+[node name="BRook1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5869455, -0.022751894, -7.507284)
+script = ExtResource("4_b4d1p")
+
+[node name="BKnight1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.607177, -0.022751894, -7.507284)
+script = ExtResource("5_gp5wo")
+
+[node name="BBishop1" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.518633, -0.022751894, -7.507284)
+script = ExtResource("6_8o23u")
+
+[node name="BQueen" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.538864, -0.022751894, -7.507284)
+script = ExtResource("8_f6pdq")
+
+[node name="BKing" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5101702, -0.022751894, -7.507284)
+script = ExtResource("7_or1s8")
+
+[node name="BBishop2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5304017, -0.022751894, -7.507284)
+script = ExtResource("6_8o23u")
+
+[node name="BKnight2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4415417, -0.022751894, -7.507284)
+script = ExtResource("5_gp5wo")
+
+[node name="BRook2" parent="Board/Black" instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46177363, -0.022751894, -7.507284)
+script = ExtResource("4_b4d1p")
 
 [node name="Dots" type="Node" parent="Board"]
 
@@ -810,20 +939,11 @@ light_color = Color(1, 0.9529412, 0.8666667, 1)
 light_volumetric_fog_energy = 5.8
 light_size = 1.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.43628365, 0.8998092, 0, -0.8998092, 0.43628365, 0, 5.355, 3.2882295)
-light_energy = 8.32
-shadow_enabled = true
-spot_range = 13.402287
-spot_angle = 47.360477
-
 [node name="UI" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.6733352, 0.7393374, 0, -0.7393374, 0.6733352, 0, 0.7656381, 4.7257214)
 texture = SubResource("ViewportTexture_0wfyh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
-
-[node name="Button" type="Button" parent="UI/CanvasLayer"]
+[node name="Button" type="Button" parent="UI"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -838,10 +958,10 @@ grow_vertical = 2
 action_mode = 0
 text = "Change Scene"
 
-[node name="SubViewport" type="SubViewport" parent="UI/CanvasLayer"]
+[node name="SubViewport" type="SubViewport" parent="UI"]
 transparent_bg = true
 
-[node name="AddPiece" type="Button" parent="UI/CanvasLayer"]
+[node name="AddPiece" type="Button" parent="UI"]
 offset_left = 3.9999998
 offset_top = 26.0
 offset_right = 88.0
@@ -849,7 +969,7 @@ offset_bottom = 57.0
 scale = Vector2(1.3173745, 1.3173745)
 text = "Add Piece"
 
-[node name="Assembly" type="Button" parent="UI/CanvasLayer"]
+[node name="Assembly" type="Button" parent="UI"]
 offset_left = 3.9999998
 offset_top = 71.0
 offset_right = 86.0
@@ -862,41 +982,15 @@ text = "Assembly"
 [node name="Camera3D" type="Camera3D" parent="CameraPivot"]
 transform = Transform3D(1, 0, 0, 0, 0.68490326, 0.72863406, 0, -0.72863406, 0.68490326, 0, 7.023198, 5.58967)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9544438, 0.29839113, 0, -0.29839113, 0.9544438, 0, 0.53435373, -2.79177)
+light_energy = 8.32
+shadow_enabled = true
+spot_range = 13.402287
+spot_angle = 47.360477
+
 [node name="ClickRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
 target_position = Vector3(0, -20, -200)
-
-[node name="Assembly" parent="." instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.288925, 0)
-
-[node name="TABLE" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(0.0022084378, 0, 1.0527292, 0, 1, 0, -1.0122745, 0, 0.0022966973, -0.0141785145, -0.78968567, -0.53327036)
-
-[node name="SFX" type="Node" parent="."]
-
-[node name="SelectPiece" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("6_tefeu")
-volume_db = -1.3
-
-[node name="MovePiece" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("7_tipki")
-volume_db = -5.239
-
-[node name="CapturePiece" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("8_85g3d")
-
-[node name="PlacePiece" type="AudioStreamPlayer" parent="SFX"]
-stream = ExtResource("6_tefeu")
-volume_db = -1.68
-pitch_scale = 0.78
-parameters/looping = false
-
-[node name="Music" type="Node" parent="."]
-
-[node name="GameplayMusic" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("9_85g3d")
-volume_db = -26.634
-autoplay = true
-parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -907,13 +1001,13 @@ offset_bottom = 100.0
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.4392157)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_choun")
+theme_override_fonts/font = ExtResource("11_ya4ey")
 theme_override_font_sizes/font_size = 50
 text = "Check!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[connection signal="pressed" from="UI/CanvasLayer/Button" to="Board" method="_on_button_pressed"]
-[connection signal="pressed" from="UI/CanvasLayer/AddPiece" to="Board" method="_on_add_piece_pressed"]
-[connection signal="pressed" from="UI/CanvasLayer/Assembly" to="." method="_on_assembly_pressed"]
+[connection signal="pressed" from="UI/Button" to="Board" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/AddPiece" to="." method="_on_add_piece_pressed"]
+[connection signal="pressed" from="UI/Assembly" to="." method="_on_assembly_pressed"]

@@ -1,1 +1,6 @@
+res://poster_shot.tscn
 res://scenes/chess.gd
+res://scripts/piece.gd
+res://scenes/main.tscn
+res://scripts/global.gd
+res://scripts/assembly.gd
