@@ -122,9 +122,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_8sr3y")
 }
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.654081, 0.11303383, 0.7479315, -1.0071951e-09, 0.98877203, -0.14943174, -0.75642455, 0.09774045, 0.646737, 4.8189154, 0.20774317, 1.0300364)
-
 [node name="ThunderSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_xod4d")
 volume_db = -6.0
+
+[node name="CameraRig" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(0.654081, 0.11303382, 0.7479314, -1.0071951e-09, 0.98877203, -0.14943174, -0.75642455, 0.09774046, 0.64673704, 4.8189154, 0.20774317, 1.0300364)

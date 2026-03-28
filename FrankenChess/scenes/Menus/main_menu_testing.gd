@@ -51,8 +51,8 @@ func _on_back_credits_pressed() -> void:
 
 func start_lightning_loop():
 	while true:
-		# Wait 5–10 seconds randomly
-		var wait_time = randf_range(5.0, 10.0)
+		# Waits 5–15 seconds randomly
+		var wait_time = randf_range(5.0, 15.0)
 		await get_tree().create_timer(wait_time).timeout
 
 		# Do the lightning sequence
@@ -61,7 +61,7 @@ func start_lightning_loop():
 func flash_thunder_light():
 	var light := $Node3D/KingFlashLight
 
-	# --- BIG FLASH ---
+	# Big Flash
 	light.visible = true
 	light.light_energy = 0.0
 
@@ -69,11 +69,12 @@ func flash_thunder_light():
 	tween.tween_property(light, "light_energy", 20.0, 0.15)  # fade in
 	tween.tween_property(light, "light_energy", 0.0, 0.20)   # fade out
 	await tween.finished
+	shake_camera(0.25, 0.22)
 
 	light.visible = false
 	await get_tree().create_timer(0.1).timeout
 
-	# --- SHORT FLASH ---
+	# short flaash
 	light.visible = true
 	light.light_energy = 0.0
 
@@ -86,3 +87,32 @@ func flash_thunder_light():
 
 	# Thunder sound
 	$Node3D/ThunderSound.play()
+	
+func shake_camera(intensity := 0.2, duration := 0.25):
+	var rig = $Node3D/CameraRig
+	var original_pos = rig.position
+	
+	var tween = create_tween()
+
+	# Number of micro-shakes
+	var shakes = 3
+
+	for i in range(shakes):
+		# Move to a random offset
+		tween.tween_property(
+			rig,
+			"position",
+			original_pos + Vector3(
+				randf_range(-intensity, intensity),
+				randf_range(-intensity, intensity),
+				randf_range(-intensity, intensity)
+			),
+				duration / (shakes * 2.0)
+		)
+		# Snap back toward original
+		tween.tween_property(
+			rig,
+			"position",
+			original_pos,
+			duration / (shakes * 2.0)
+		)
