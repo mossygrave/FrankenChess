@@ -13,7 +13,7 @@ extends Control
 var index := 0
 
 func _ready():
-	# Make sure only the first label is visible
+	# Makes sure only the first label is visible
 	show_credit(index)
 	print("Credits array:", credits)
 	print("Morgan modulate:", $Morgan.modulate)
@@ -34,6 +34,7 @@ func show_credit(i: int):
 	print("Showing credit index:", i)
 
 
+#Super secret easter eggs for later lol
 func check_for_easter_egg(i: int):
 	match i:
 		0:

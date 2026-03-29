@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame. delta is the amount of time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
@@ -94,11 +94,11 @@ func shake_camera(intensity := 0.2, duration := 0.25):
 	
 	var tween = create_tween()
 
-	# Number of micro-shakes
-	var shakes = 3
+	# Number of shakes. 10 seems like a good amount. 3 is what I had before but it seemed to be too unnatural? IDK it looked weird.
+	var shakes = 10
 
 	for i in range(shakes):
-		# Move to a random offset
+		# Moved to a random offset
 		tween.tween_property(
 			rig,
 			"position",
