@@ -810,13 +810,6 @@ light_color = Color(1, 0.9529412, 0.8666667, 1)
 light_volumetric_fog_energy = 5.8
 light_size = 1.0
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.43628365, 0.8998092, 0, -0.8998092, 0.43628365, 0, 5.355, 3.2882295)
-light_energy = 8.32
-shadow_enabled = true
-spot_range = 13.402287
-spot_angle = 47.360477
-
 [node name="UI" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.6733352, 0.7393374, 0, -0.7393374, 0.6733352, 0, 0.7656381, 4.7257214)
 texture = SubResource("ViewportTexture_0wfyh")
@@ -847,7 +840,7 @@ offset_top = 26.0
 offset_right = 88.0
 offset_bottom = 57.0
 scale = Vector2(1.3173745, 1.3173745)
-text = "Add Piece"
+text = "Add Piece to Board"
 
 [node name="Assembly" type="Button" parent="UI/CanvasLayer"]
 offset_left = 3.9999998
@@ -855,7 +848,7 @@ offset_top = 71.0
 offset_right = 86.0
 offset_bottom = 102.0
 scale = Vector2(1.3312278, 1.3312278)
-text = "Assembly"
+text = "Build a New Piece"
 
 [node name="CameraPivot" type="Node3D" parent="."]
 
@@ -864,6 +857,13 @@ transform = Transform3D(1, 0, 0, 0, 0.68490326, 0.72863406, 0, -0.72863406, 0.68
 
 [node name="ClickRay" type="RayCast3D" parent="CameraPivot/Camera3D"]
 target_position = Vector3(0, -20, -200)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.9544437, 0.2983911, 0, -0.2983911, 0.9544437, 0, 0.53435373, -2.79177)
+light_energy = 8.32
+shadow_enabled = true
+spot_range = 15.008205
+spot_angle = 52.293053
 
 [node name="Assembly" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.288925, 0)

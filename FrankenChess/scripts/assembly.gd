@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	
 				$CurrentParts.add_child(instance)
 				instance.global_transform = spawn_point.global_transform
+				instance.rotation.y += PI/2
 				instance.name = "KingTop"
 				current_parts["top"] = instance
 				current_dictionaries["top"] = parts[part]
@@ -41,19 +42,20 @@ func _process(delta: float) -> void:
 				
 				Global.black_king = true
 	
-	if Global.turn == "white":
-		parts = Global.white_parts
-	else:
-		parts = Global.black_parts
-		
-	for part in parts:
-		var button = Button.new()
-		button.text = part
-		button.pressed.connect(_on_part_selected.bind(parts[part]))
-		v_box_container.add_child(button)
-		
 	if $Camera3D.current == true:
 		$Control.visible = true
+		if v_box_container.get_children() == []:
+			if Global.turn == "white":
+				parts = Global.white_parts
+			else:
+				parts = Global.black_parts
+				
+			for part in parts:
+				var button = Button.new()
+				button.text = part
+				button.pressed.connect(_on_part_selected.bind(parts[part]))
+				v_box_container.add_child(button)
+				
 	else:
 		for child in v_box_container.get_children():
 			child.queue_free()
@@ -70,6 +72,7 @@ func _ready():
 	
 				$CurrentParts.add_child(instance)
 				instance.global_transform = spawn_point.global_transform
+				instance.rotation.y += PI/2
 				instance.name = "KingTop"
 				current_parts["top"] = instance
 				current_dictionaries["top"] = parts[part]
@@ -154,6 +157,17 @@ func _confirm_pieces():
 	var ui = $Control
 	visible = false
 
+	print(parts.keys())
+	for item in current_dictionaries:
+		print(item)
+		for part in parts:
+			print(part)
+			if current_dictionaries[item] == parts[part]:
+				parts.erase(part)
+				current_dictionaries[item] = null
+				break
+	print(parts.keys())
+	
 	_clear_pieces()
 	Global.change_scene(cam, ui)
 	#get_tree().change_scene_to_file("res://scenes/main.tscn")
@@ -199,7 +213,7 @@ func _on_part_selected(part : Dictionary):
 		
 		if top:
 			var socket = instance.top_socket
-			top.global_transform = socket.global_transform
+			top.global_position = socket.global_position
 		if base:
 			var socket = instance.base_socket
 			base.global_transform = socket.global_transform

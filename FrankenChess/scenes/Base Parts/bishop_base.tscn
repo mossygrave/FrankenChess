@@ -7,3 +7,4 @@
 [node name="Bishop-Bottom" parent="." instance=ExtResource("1_0gnj0")]
 
 [node name="RockBottom" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.370263, 0)
