@@ -119,9 +119,9 @@ texture = ExtResource("2_2wfy3")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 289.0
-offset_top = 549.0
+offset_top = 495.0
 offset_right = 850.0
-offset_bottom = 649.0
+offset_bottom = 595.0
 text = "FrankenChess"
 label_settings = SubResource("LabelSettings_gborv")
 
@@ -179,10 +179,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -269.5
-offset_top = -214.0
-offset_right = 269.5
-offset_bottom = 214.0
+offset_left = -269.0
+offset_top = -283.0
+offset_right = 270.0
+offset_bottom = 145.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -213,10 +213,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -269.5
-offset_top = -214.0
-offset_right = 269.5
-offset_bottom = 214.0
+offset_left = -269.0
+offset_top = -286.0
+offset_right = 270.0
+offset_bottom = 142.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("5_0twbl")
@@ -463,9 +463,9 @@ texture = ExtResource("14_o6avi")
 [node name="Cinder" type="Label" parent="Credits"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 0.5
+offset_left = 1.0
 offset_top = 68.0
-offset_right = 539.0
+offset_right = 539.5
 offset_bottom = 351.0
 text = "Cinder! I can’t say enough about Cinder. 
 Cinder was the true driving force of our team. 
@@ -548,10 +548,10 @@ texture = ExtResource("20_oh3cb")
 
 [node name="TextureRect8" type="TextureRect" parent="Credits/Cinder"]
 layout_mode = 0
-offset_left = -150.99998
-offset_top = -165.0
-offset_right = 3881.0
-offset_bottom = 2859.0
+offset_left = -133.00002
+offset_top = -98.00001
+offset_right = 3899.0
+offset_bottom = 2926.0
 rotation = 1.5707964
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("21_jki0i")
