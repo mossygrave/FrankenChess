@@ -143,9 +143,11 @@ var base_parts = {
 func get_random_top():
 	var key = top_parts.keys().pick_random()
 	
+	
 	while key == "King Top":
 		key = top_parts.keys().pick_random()
 
+	print(key)
 	return key
 	
 func get_random_mid():

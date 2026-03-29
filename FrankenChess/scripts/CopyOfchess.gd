@@ -9,22 +9,16 @@ var spaces = {}
 @onready var cam_pivot: Node3D = get_node("../CameraPivot")
 var camera_flipped := false
 var is_flipping := false #Stops the user from pressing f while already flipping
-@onready var turn = "black"
+var white_check_popup_shown := false
+var black_check_popup_shown := false
+
 
 # use the f key to flip the camera 180 degrees
-func _process(_delta: float) -> void:
-	if turn != Global.turn:
-		turn = Global.turn
-		#flip_camera_smooth()
+func _process(delta: float) -> void:
 	if Input.is_action_just_released("Flip") and not is_flipping:
 		flip_camera_smooth()
-		
-	if $"../CameraPivot/Camera3D".current and Global.assembled_piece != null:
-		print("Assembled piece going to the board")
-		_on_add_piece_pressed()
 
 func flip_camera_smooth():
-	await get_tree().create_timer(.15).timeout
 	is_flipping=true
 	
 	var tween = create_tween()
@@ -32,7 +26,7 @@ func flip_camera_smooth():
 		cam_pivot,
 		"rotation:y",
 		cam_pivot.rotation.y + PI,
-		0.85
+		0.5
 	).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.finished.connect(func():
 		is_flipping=false
@@ -44,7 +38,6 @@ func _on_button_pressed() -> void:
 
 #  Ready builds the board grid, debugs and auto-places pieces
 func _ready():
-	flip_camera_smooth()
 	var markers = dots.get_children()
 
 	# Sort markers by Z then X
@@ -63,21 +56,28 @@ func _ready():
 	var index = 0
 	for marker in markers:
 		var x = index % 8
-		@warning_ignore("integer_division")
 		var y = index / 8
 		marker.set_meta("board_pos", Vector2i(x, y))
 		spaces[Vector2i(x, y)] = null
 		index += 1
-		
-	#print("Markers in running scene:")
-	#for m in dots.get_children():
-		#print(m.name, " type:", m.get_class(), " has collision:", m.get_child_count())
-#
-	#print(" Marker Coordinates ")
-	#for marker in markers:
-		#print(marker.name, " -> ", marker.get_meta("board_pos"))
+	print("Markers in running scene:")
+	for m in dots.get_children():
+		print(m.name, " type:", m.get_class(), " has collision:", m.get_child_count())
 
-@warning_ignore("shadowed_variable_base_class")
+	print(" Marker Coordinates ")
+	for marker in markers:
+		print(marker.name, " -> ", marker.get_meta("board_pos"))
+
+	# Place all pieces automatically
+	auto_place_pieces()
+	
+	print("=== Piece Debug ===")
+	for piece in $White.get_children():
+		print(piece.name, " | pos:", piece.board_pos, " | color:", piece.color, " | type:", piece.piece_type)
+
+	for piece in $Black.get_children():
+		print(piece.name, " | pos:", piece.board_pos, " | color:", piece.color, " | type:", piece.piece_type)
+
 func get_type_from_name(name: String) -> String:
 	var raw = name.substr(1).to_lower()  # remove W/B
 	raw = raw.rstrip("0123456789")       # remove trailing numbers
@@ -90,13 +90,55 @@ func place_piece(piece: Node3D, pos: Vector2i):
 	var marker = get_marker_at(pos)
 	if marker:
 		piece.global_transform.origin = marker.global_transform.origin
-		
 
 func get_marker_at(pos: Vector2i):
 	for marker in dots.get_children():
 		if marker.get_meta("board_pos") == pos:
 			return marker
 	return null
+
+#  Automatically place all 32 pieces
+func auto_place_pieces():
+	var back_rank = {
+		"rook":   [0, 7],
+		"knight": [1, 6],
+		"bishop": [2, 5],
+		"queen":  [3],
+		"king":   [4]
+	}
+
+	#  Place the white pieces
+	for piece in $White.get_children():
+		piece.color = "white"
+		piece.piece_type = String(get_type_from_name(piece.name))
+
+		if piece.piece_type == "pawn":
+			var file = int(piece.name.substr(piece.name.length() - 1)) - 1
+			place_piece(piece, Vector2i(file, 1))
+		else:
+			var type = String(piece.piece_type)
+			var name_str = String(piece.name)
+			var last_char = name_str[name_str.length() - 1]
+			var index = int(last_char) - 1 if last_char.is_valid_int() else 0
+			var file = back_rank[type][index]
+			place_piece(piece, Vector2i(file, 0))
+
+	# Black pieces
+	for piece in $Black.get_children():
+		piece.color = "black"
+		piece.piece_type = String(get_type_from_name(piece.name))
+
+		if piece.piece_type == "pawn":
+			var file = int(piece.name.substr(piece.name.length() - 1)) - 1
+			place_piece(piece, Vector2i(file, 6))
+		else:
+			var name_str = String(piece.name)
+			var last_char = name_str[name_str.length() - 1]
+			var index = int(last_char) - 1 if last_char.is_valid_int() else 0
+
+			var type = String(piece.piece_type)
+			var file = back_rank[type][index]
+			place_piece(piece, Vector2i(file, 7))
 
 func _input(event):
 	#print("INPUT FIRED")
@@ -117,7 +159,7 @@ func _input(event):
 		
 		#query.collision_mask = 1 << 1   # Only hit layer 2
 		var result = space_state.intersect_ray(query)
-		#print("Ray result raw:", result)
+		print("Ray result raw:", result)
 
 		if result and result.collider:
 			var hit = result.collider
@@ -126,16 +168,11 @@ func _input(event):
 			if hit.has_method("is_piece"):
 				var clicked_piece = hit
 
-				if clicked_piece.color != Global.turn:
-					print("That is not your piece")
-					return
-					
 				# If a piece is already selected...
 				if selected_piece:
 
 				# 1. Clicking the SAME piece → deselect
 					if clicked_piece == selected_piece:
-						highlight_moves([])
 						deselect_piece()
 						return
 
@@ -159,16 +196,13 @@ func _input(event):
 				handle_square_click(pos)
 				return
 
+
 func handle_square_click(pos: Vector2i):
-	#print("Clicked square:", pos)
+	print("Clicked square:", pos)
 
 	# If no piece is selected, do nothing
 	if selected_piece == null:
-		print("selected piece is null (chess, line:201)")
 		return
-		
-	if pos == Vector2i(-1,-1):
-		move_piece(selected_piece, pos)
 
 	# If a piece IS selected, check if this square is a valid move
 	var raw_moves = selected_piece.get_moves(spaces)
@@ -186,31 +220,25 @@ func handle_square_click(pos: Vector2i):
 
 
 	# Otherwise just print info
-	#var piece = spaces.get(pos)
-	#if piece:
-		#print("You clicked:", piece.name, "at", pos)
-	#else:
-		#print("Square is empty.")
+	var piece = spaces.get(pos)
+	if piece:
+		print("You clicked:", piece.name, "at", pos)
+	else:
+		print("Square is empty.")
 
 func select_piece(piece):
-	$"../SFX/SelectPiece".play()
 	if selected_piece:
 		deselect_piece()
 
 	selected_piece = piece
-	#print("Selected piece:", piece.name, " at ", piece.board_pos)
+	print("Selected piece:", piece.name, "at", piece.board_pos)
 
-	var legal_moves
-	
-	if piece.board_pos == Vector2i(-1, -1):
-		legal_moves = piece.get_moves(spaces)
-	else:
-		var raw_moves = piece.get_moves(spaces)
-		legal_moves = []
+	var raw_moves = piece.get_moves(spaces)
+	var legal_moves = []
 
-		for pos in raw_moves:
-			if move_is_legal(piece, pos):
-				legal_moves.append(pos)
+	for pos in raw_moves:
+		if move_is_legal(piece, pos):
+			legal_moves.append(pos)
 
 	highlight_moves(legal_moves)
 
@@ -224,47 +252,17 @@ func deselect_piece():
 	selected_piece = null
 
 func move_piece(piece, pos):
-	$"../SFX/PlacePiece".play()
-	
 	var marker = get_marker_at(pos)
 	if marker == null:
 		return
 
-	var target_piece = spaces.get(pos)
-	
-	if piece.board_pos == Vector2i(-1, -1):
-		
-		if target_piece and target_piece.color != piece.color:
-			capture_piece(target_piece)
-			$"../SFX/CapturePiece".play()
-		
-		piece.board_pos = pos
-		spaces[pos] = piece
-		
-		piece.global_position = marker.global_position
-		
-		if piece.color == "black":
-			piece.rotation.y += PI
-		
-		print(Global.turn)
-		if Global.turn == "white":
-			Global.turn = "black"
-			print(Global.turn)
-		else:
-			Global.turn = "white"
-			print(Global.turn)
-		highlight_moves([])
-		
-		flip_camera_smooth()
-		return
-	
 	# Remove from old position in board state
 	spaces[piece.board_pos] = null
 
 	# Capture if needed
+	var target_piece = spaces.get(pos)
 	if target_piece and target_piece.color != piece.color:
 		capture_piece(target_piece)
-		$"../SFX/CapturePiece".play()
 
 	# Update internal board position
 	piece.board_pos = pos
@@ -299,19 +297,8 @@ func move_piece(piece, pos):
 		# After the move finishes, check the OTHER player's state
 		var next_color = "black" if piece.color == "white" else "white"
 		evaluate_game_state(next_color)
-		
-		#flip the camera
-		flip_camera_smooth()
 	)
-	
-	if Global.turn == "white":
-		Global.turn = "black"
-		print(Global.turn)
-	else:
-		Global.turn = "white"
-		print(Global.turn)
-	
-	
+
 	
 func capture_piece(piece):
 	# Remove from board state
@@ -373,18 +360,16 @@ Three King safety checks: (Prevents the king from entering check)
 func find_king(color: String) -> Vector2i:
 	for pos in spaces.keys():
 		var piece = spaces[pos]
-		if piece and piece._top == "king" and piece.color == color:
+		if piece and piece.piece_type == "king" and piece.color == color:
 			return pos
-	return Vector2i(-2, -1)
+	return Vector2i(-1, -1)
 
 func square_is_attacked(pos: Vector2i, by_color: String) -> bool:
 	for other_pos in spaces.keys():
 		var piece = spaces[other_pos]
 		if piece and piece.color == by_color:
-			var moves = piece.get_attacks(spaces) 
-			print(pos)
-			print(moves)
-			if pos in moves or pos == Vector2i(-2, -1):
+			var moves = piece.get_moves(spaces)
+			if pos in moves:
 				return true
 	return false
 
@@ -392,23 +377,22 @@ func move_is_legal(piece, target_pos: Vector2i) -> bool:
 	var original_pos = piece.board_pos
 	var captured_piece = spaces[target_pos]
 
-	# Simulate move
+	# Simulates the move
 	spaces[original_pos] = null
 	spaces[target_pos] = piece
 	piece.board_pos = target_pos
 
-	# Find king position after move
+	# Finds the kings position after its move
 	var king_pos = find_king(piece.color)
 
-	var in_check
-	# Check if king is attacked
-	if piece._top == "king":
-		in_check = square_is_attacked(
-		king_pos,
-		"black" if piece.color == "white" else "white"
-		)
+	# Checks to see if the king is in danger (attacked)
+	var in_check = square_is_attacked(
+	king_pos,
+	"black" if piece.color == "white" else "white"
+	)
 
-	# Undo move
+
+	# Undoes the simulated move
 	spaces[target_pos] = captured_piece
 	spaces[original_pos] = piece
 	piece.board_pos = original_pos
@@ -417,12 +401,12 @@ func move_is_legal(piece, target_pos: Vector2i) -> bool:
 	
 func is_in_check(color: String) -> bool:
 	var king_pos = find_king(color)
-	if king_pos == Vector2i(-2, -1):
+	if king_pos == Vector2i(-1, -1):
 		return false  # king not found (should never happen)
 	
 	var enemy_color = "white" if color == "black" else "black"
 	return square_is_attacked(king_pos, enemy_color)
-
+	
 # This function loops through every single piece, then loops through every single move they can make.
 # If there is any move that is legal they are not in checkmate or in a stalemate
 func player_has_legal_moves(color: String) -> bool:
@@ -439,9 +423,7 @@ func player_has_legal_moves(color: String) -> bool:
 
 func evaluate_game_state(color: String):
 	var in_check = is_in_check(color)
-	print(in_check)
 	var has_moves = player_has_legal_moves(color)
-	print(has_moves)
 
 	if in_check and not has_moves:
 		print(color, " is checkmated!")
@@ -515,81 +497,3 @@ func show_check_popup(text: String):
 		black_check_popup_shown = true
 		show_check_popup("Black is in check!")
 """
-
-
-func _on_add_piece_pressed() -> void:
-	if Global.global_top == null:
-		return
-	var full_piece = StaticBody3D.new()
-	var main = get_parent()
-	var piece
-	var piece_name = Global.global_top.capitalize() + Global.global_mid.capitalize() + Global.global_base.capitalize()
-	for child in main.get_children(): 
-		if child.name == "AssembledPiece":
-			piece = child
-			piece.reparent(self)
-		else:
-			print("cound not find current parts node")
-
-	full_piece.name = piece_name
-	
-	full_piece.set_script(load("res://scripts/piece.gd"))
-	
-	if Global.turn == "white":
-		$White.add_child(full_piece)
-		full_piece.color = "white"
-	else:
-		$Black.add_child(full_piece)
-		full_piece.color = "black"
-	
-	#full_piece needs to have the same position as rock bottom
-	full_piece.global_position = piece.global_position
-	
-	piece.reparent(full_piece)
-	
-	for part in piece.get_children():
-		var collider = add_collider(part)
-		collider.reparent(full_piece)
-	
-	full_piece._top = Global.global_top
-	full_piece._mid = Global.global_mid
-	full_piece._base = Global.global_base
-	
-	Global.assembled_piece = null
-	Global.global_top = null
-	Global.global_mid = null
-	Global.global_base = null
-
-	select_piece(full_piece)
-
-func add_collider(part): #this is also broken
-	print("=======")
-	print("Adding Colliders")
-	for item in part.get_children():
-		if item is MeshInstance3D:
-			var mesh = item.mesh
-			var shape = mesh.create_trimesh_shape()
-
-			var collider = CollisionShape3D.new()
-			collider.shape = shape
-			collider.transform = item.transform
-			
-			part.add_child(collider)
-			return collider
-		if item is Node3D:
-			print(item)
-			for child in item.get_children():
-				print(child)
-				if child is MeshInstance3D:
-					var mesh = child.mesh
-					var shape = mesh.create_trimesh_shape()
-
-					var collider = CollisionShape3D.new()
-					collider.shape = shape
-					collider.transform = child.transform
-					
-					part.add_child(collider)
-					return collider
-	print(part)
-	print("===")
-	return 
