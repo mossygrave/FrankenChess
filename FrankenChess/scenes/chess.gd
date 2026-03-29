@@ -19,9 +19,10 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_released("Flip") and not is_flipping:
 		flip_camera_smooth()
 		
-	if $"../CameraPivot/Camera3D".current and Global.assembled_piece != null:
-		print("Assembled piece going to the board")
-		_on_add_piece_pressed()
+	#this is broken and i'll fix it later
+	#if $"../CameraPivot/Camera3D".current and Global.assembled_piece != null:
+		#print("Assembled piece going to the board")
+		#_on_add_piece_pressed()
 
 func flip_camera_smooth():
 	await get_tree().create_timer(.15).timeout
@@ -164,7 +165,7 @@ func handle_square_click(pos: Vector2i):
 
 	# If no piece is selected, do nothing
 	if selected_piece == null:
-		print("selected piece is null (chess, line:201)")
+		#print("selected piece is null (chess, line:201)")
 		return
 		
 	if pos == Vector2i(-1,-1):
@@ -246,13 +247,11 @@ func move_piece(piece, pos):
 		if piece.color == "black":
 			piece.rotation.y += PI
 		
-		print(Global.turn)
 		if Global.turn == "white":
 			Global.turn = "black"
-			print(Global.turn)
 		else:
 			Global.turn = "white"
-			print(Global.turn)
+			
 		highlight_moves([])
 		
 		flip_camera_smooth()
@@ -306,12 +305,9 @@ func move_piece(piece, pos):
 	
 	if Global.turn == "white":
 		Global.turn = "black"
-		print(Global.turn)
+
 	else:
 		Global.turn = "white"
-		print(Global.turn)
-	
-	
 	
 func capture_piece(piece):
 	# Remove from board state
@@ -382,8 +378,8 @@ func square_is_attacked(pos: Vector2i, by_color: String) -> bool:
 		var piece = spaces[other_pos]
 		if piece and piece.color == by_color:
 			var moves = piece.get_attacks(spaces) 
-			print(pos)
-			print(moves)
+			#print(pos)
+			#print(moves)
 			if pos in moves or pos == Vector2i(-2, -1):
 				return true
 	return false
@@ -563,8 +559,8 @@ func _on_add_piece_pressed() -> void:
 	select_piece(full_piece)
 
 func add_collider(part): #this is also broken
-	print("=======")
-	print("Adding Colliders")
+	#print("=======")
+	#print("Adding Colliders")
 	for item in part.get_children():
 		if item is MeshInstance3D:
 			var mesh = item.mesh
@@ -577,9 +573,9 @@ func add_collider(part): #this is also broken
 			part.add_child(collider)
 			return collider
 		if item is Node3D:
-			print(item)
+			#print(item)
 			for child in item.get_children():
-				print(child)
+				#print(child)
 				if child is MeshInstance3D:
 					var mesh = child.mesh
 					var shape = mesh.create_trimesh_shape()
@@ -590,6 +586,6 @@ func add_collider(part): #this is also broken
 					
 					part.add_child(collider)
 					return collider
-	print(part)
-	print("===")
+	#print(part)
+	#print("===")
 	return 

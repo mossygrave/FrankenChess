@@ -1,1 +1,5 @@
+res://scenes/main.tscn
 res://scenes/chess.gd
+res://scripts/assembly.gd
+res://scripts/global.gd
+res://scripts/part_database.gd

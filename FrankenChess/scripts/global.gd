@@ -24,7 +24,6 @@ var global_base = null
 @export var white_parts = {}
 
 func _ready() -> void:
-	print("Global instance ID:", get_instance_id())
 	
 	var top
 	var mid

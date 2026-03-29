@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 				instance.name = "KingTop"
 				current_parts["top"] = instance
 				current_dictionaries["top"] = parts[part]
-				print(current_parts["top"])
 				
 				var mesh = get_mesh3d(instance)
 				if mesh:
@@ -76,7 +75,6 @@ func _ready():
 				instance.name = "KingTop"
 				current_parts["top"] = instance
 				current_dictionaries["top"] = parts[part]
-				print(current_parts["top"])
 	
 	var clear = Button.new()
 	clear.text = "Clear"
@@ -157,16 +155,12 @@ func _confirm_pieces():
 	var ui = $Control
 	visible = false
 
-	print(parts.keys())
 	for item in current_dictionaries:
-		print(item)
 		for part in parts:
-			print(part)
 			if current_dictionaries[item] == parts[part]:
 				parts.erase(part)
 				current_dictionaries[item] = null
 				break
-	print(parts.keys())
 	
 	_clear_pieces()
 	Global.change_scene(cam, ui)
