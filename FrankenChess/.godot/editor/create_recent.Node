@@ -1,9 +1,10 @@
+Node3D
+AudioStreamPlayer2D
 TextureRect
 Node
 AnimationPlayer
 GPUParticlesCollisionBox3D
 AudioStreamPlayer
-Node3D
 Marker3D
 RigidBody3D
 StaticBody3D
@@ -11,4 +12,3 @@ WorldEnvironment
 SpotLight3D
 Camera3D
 CSGBox3D
-CSGMesh3D
