@@ -251,7 +251,12 @@ func move_piece(piece, pos):
 			Global.turn = "black"
 		else:
 			Global.turn = "white"
-			
+		
+		if Global.black_king and Global.white_king:
+			evaluate_game_state(Global.turn)
+			if Global.game_result:
+				return
+		
 		highlight_moves([])
 		
 		flip_camera_smooth()
@@ -294,13 +299,14 @@ func move_piece(piece, pos):
 	# When animation finishes → clear highlights
 	tween.finished.connect(func():
 		highlight_moves([])
-
+		
+		#flip the camera
+		flip_camera_smooth()
+		
 		# After the move finishes, check the OTHER player's state
 		var next_color = "black" if piece.color == "white" else "white"
 		evaluate_game_state(next_color)
 		
-		#flip the camera
-		flip_camera_smooth()
 	)
 	
 	if Global.turn == "white":
@@ -421,15 +427,19 @@ func is_in_check(color: String) -> bool:
 
 # This function loops through every single piece, then loops through every single move they can make.
 # If there is any move that is legal they are not in checkmate or in a stalemate
+
+# this needs to change to it only checks the king's moves
+# maybe attacks to get the king out of check but that sounds complicated
 func player_has_legal_moves(color: String) -> bool:
 	for pos in spaces.keys():
 		var piece = spaces[pos]
 		if piece and piece.color == color:
-			var raw_moves = piece.get_moves(spaces)
+			if piece._top == "king":
+				var raw_moves = piece.get_moves(spaces)
 
-			for move in raw_moves:
-				if move_is_legal(piece, move):
-					return true  # Found at least one legal move
+				for move in raw_moves:
+					if move_is_legal(piece, move):
+						return true  # Found at least one legal move
 
 	return false  # No legal moves exist
 
