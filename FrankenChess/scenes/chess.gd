@@ -11,6 +11,8 @@ var camera_flipped := false
 var is_flipping := false #Stops the user from pressing f while already flipping
 @onready var turn = "black"
 
+signal delete_parts
+
 @onready var piece_info: Node2D = $"../UI/CanvasLayer/PieceInfo"
 @onready var piece_info_active: Marker2D = $"../UI/CanvasLayer/PieceInfoActive"
 @onready var piece_info_inactive: Marker2D = $"../UI/CanvasLayer/PieceInfoInactive"
@@ -189,7 +191,6 @@ func handle_square_click(pos: Vector2i):
 		deselect_piece()
 		return
 
-
 	# Otherwise just print info
 	#var piece = spaces.get(pos)
 	#if piece:
@@ -200,14 +201,25 @@ func handle_square_click(pos: Vector2i):
 func select_piece(piece):
 	$"../SFX/SelectPiece".play()
 	if selected_piece:
+		
+		if Global.assembled_piece:
+			selected_piece.queue_free()
+			selected_piece = null
+			Global.global_top = null
+			Global.global_mid = null
+			Global.global_base = null
+	
+			Global.assembled_piece = null
 		deselect_piece()
 
 	selected_piece = piece
 	#print("Selected piece:", piece.name, " at ", piece.board_pos)
-
+	
 	piece_info.change_sprites(piece._top, piece._mid, piece._base)
-	piece_info.global_position = piece_info_active.global_position
-
+	var active = piece_info_active.global_position
+	var tween = create_tween()
+	tween.tween_property(piece_info, "global_position", active, .35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	
 	var legal_moves
 	
 	if piece.board_pos == Vector2i(-1, -1):
@@ -230,8 +242,10 @@ func deselect_piece():
 		selected_piece.scale = Vector3.ONE
 	selected_piece = null
 	
-	piece_info.global_position = piece_info_inactive.global_position
-
+	var inactive = piece_info_inactive.global_position
+	var tween = create_tween()
+	tween.tween_property(piece_info, "global_position", inactive, .8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN_OUT)
+	
 func move_piece(piece, pos):
 	$"../SFX/PlacePiece".play()
 	
@@ -268,11 +282,14 @@ func move_piece(piece, pos):
 		highlight_moves([])
 		
 		flip_camera_smooth()
+		
+		#send a signal to delete the pieces from the assembly lists
+		delete_parts.emit()
 		return
 	
 	# Remove from old position in board state
 	spaces[piece.board_pos] = null
-
+	
 	# Capture if needed
 	if target_piece and target_piece.color != piece.color:
 		capture_piece(target_piece)
@@ -530,8 +547,7 @@ func show_check_popup(text: String):
 		show_check_popup("Black is in check!")
 """
 
-
-func _on_add_piece_pressed() -> void:
+func _on_assembly_confirm_pieces() -> void:
 	if Global.global_top == null:
 		return
 	var full_piece = StaticBody3D.new()
@@ -569,10 +585,7 @@ func _on_add_piece_pressed() -> void:
 	full_piece._mid = Global.global_mid
 	full_piece._base = Global.global_base
 	
-	Global.assembled_piece = null
-	Global.global_top = null
-	Global.global_mid = null
-	Global.global_base = null
+	Global.assembled_piece = full_piece
 
 	select_piece(full_piece)
 

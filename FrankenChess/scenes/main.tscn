@@ -821,10 +821,10 @@ texture = SubResource("ViewportTexture_0wfyh")
 position = Vector2(1023, 1)
 
 [node name="PieceInfoInactive" type="Marker2D" parent="UI/CanvasLayer"]
-position = Vector2(1161, 0)
+position = Vector2(1154, 0)
 
 [node name="PieceInfo" parent="UI/CanvasLayer" instance=ExtResource("4_ya4ey")]
-position = Vector2(1161, 0)
+position = Vector2(1154, 0)
 
 [node name="ForfeitButton" type="Button" parent="UI/CanvasLayer"]
 anchors_preset = 8
@@ -847,6 +847,7 @@ text = "FORFEIT"
 transparent_bg = true
 
 [node name="AddPiece" type="Button" parent="UI/CanvasLayer"]
+visible = false
 offset_left = 473.99997
 offset_top = 590.0
 offset_right = 629.0
@@ -926,6 +927,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[connection signal="delete_parts" from="Board" to="Assembly" method="_on_board_delete_parts"]
 [connection signal="pressed" from="UI/CanvasLayer/ForfeitButton" to="Board" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/AddPiece" to="Board" method="_on_add_piece_pressed"]
 [connection signal="pressed" from="UI/CanvasLayer/Assembly" to="." method="_on_assembly_pressed"]
+[connection signal="confirm_pieces" from="Assembly" to="Board" method="_on_assembly_confirm_pieces"]

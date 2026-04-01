@@ -15,7 +15,7 @@ func get_moves(board_state: Dictionary) -> Array:
 	# determine what moves to add
 	# return moves
 	if board_pos == Vector2i(-1, -1):
-		var starting_pos = get_starting_pos(_top)
+		var starting_pos = get_starting_pos(_top, board_state)
 		return starting_pos
 	
 	var attack = []
@@ -312,8 +312,9 @@ func king_move(board_state: Dictionary):
 
 	return moves
 	
-func get_starting_pos(top_type):
+func get_starting_pos(top_type, board_state):
 	var starting = []
+	var final = []
 	if Global.turn == "white":
 		match(top_type):
 			"pawn":
@@ -366,7 +367,13 @@ func get_starting_pos(top_type):
 				starting.append(Vector2i(3, 7))
 			"":
 				print("Broken starting positions") 
-	return starting
+				
+	for pos in starting:
+		if board_state.has(pos):
+			var piece = board_state.get(pos)
+			if piece == null:
+				final.append(pos)
+	return final
 
 
 func get_attacks(board_state):

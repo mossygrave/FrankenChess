@@ -17,7 +17,7 @@ var global_base = null
 @onready var black_king: bool = false
 @onready var game_result: String
 
-@onready var turn: String = "white" #true for white's turn, false for black's turn
+@onready var turn: String = "white"
 #on ready this should fill with a bunch of random parts
 #pulls part options from the db
 @export var black_parts = {}

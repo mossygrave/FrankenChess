@@ -1,5 +1,7 @@
 extends Node3D
 
+signal confirm_pieces
+
 @onready var base_location: Marker3D = $BaseLocation
 @onready var v_box_container: VBoxContainer = $Control/VBoxContainer
 @onready var constant: VBoxContainer = $Control/Constant
@@ -154,17 +156,10 @@ func _confirm_pieces():
 	var cam = $Camera3D
 	var ui = $Control
 	visible = false
-
-	for item in current_dictionaries:
-		for part in parts:
-			if current_dictionaries[item] == parts[part]:
-				parts.erase(part)
-				current_dictionaries[item] = null
-				break
 	
-	_clear_pieces()
+	confirm_pieces.emit()
 	Global.change_scene(cam, ui)
-	#get_tree().change_scene_to_file("res://scenes/main.tscn")
+	
 # adds part to scene and moves it to the right position
 func _on_part_selected(part : Dictionary):
 	
@@ -228,3 +223,21 @@ func get_mesh3d(node: Node) -> MeshInstance3D:
 				if baby is MeshInstance3D:
 					return baby
 	return null
+
+
+func _on_board_delete_parts() -> void:
+	
+	for item in current_dictionaries:
+		for part in parts:
+			if current_dictionaries[item] == parts[part]:
+				parts.erase(part)
+				current_dictionaries[item] = null
+				break
+				
+	Global.global_top = null
+	Global.global_mid = null
+	Global.global_base = null
+	
+	Global.assembled_piece = null
+	
+	_clear_pieces()
