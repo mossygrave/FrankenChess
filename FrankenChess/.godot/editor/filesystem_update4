@@ -1,2 +1,3 @@
-res://scenes/main.tscn
+res://piece_info.tscn
+res://piece_info.gd
 res://scenes/chess.gd

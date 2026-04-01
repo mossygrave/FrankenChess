@@ -25,6 +25,13 @@ var global_base = null
 
 func _ready() -> void:
 	
+	add_random_parts()
+
+func change_scene(cam : Camera3D, ui):
+	cam.current = false
+	ui.visible = false
+	
+func add_random_parts():
 	var top
 	var mid
 	var base
@@ -170,7 +177,3 @@ func _ready() -> void:
 	top = PartDatabase.get_king_top()
 	black_parts["King Top"] = top
 	black_parts["King Top"]["white"] = false
-
-func change_scene(cam : Camera3D, ui):
-	cam.current = false
-	ui.visible = false

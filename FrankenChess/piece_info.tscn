@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0nbikgiqek6q"]
+
+[ext_resource type="Script" uid="uid://ce211b3hb145w" path="res://piece_info.gd" id="1_7nqqx"]
+[ext_resource type="Texture2D" uid="uid://dp54hxu3kor62" path="res://assets/2d pieces/black-bishop.png" id="1_fcjgb"]
+[ext_resource type="Texture2D" uid="uid://7ewver6gs3fa" path="res://assets/2d pieces/black-king.png" id="2_7nqqx"]
+
+[node name="PieceInfo" type="Node2D"]
+script = ExtResource("1_7nqqx")
+
+[node name="Top" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 7.0
+offset_right = 56.0
+offset_bottom = 30.0
+scale = Vector2(1.5003194, 1.5003194)
+text = "Top:"
+horizontal_alignment = 2
+
+[node name="Mid" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 48.0
+offset_right = 48.0
+offset_bottom = 71.0
+scale = Vector2(1.7004657, 1.7004657)
+text = "Mid:"
+horizontal_alignment = 2
+
+[node name="Base" type="Label" parent="."]
+offset_top = 91.0
+offset_right = 42.0
+offset_bottom = 114.0
+scale = Vector2(1.8634082, 1.8634082)
+text = "Base:"
+horizontal_alignment = 2
+
+[node name="TopSprite" type="Sprite2D" parent="."]
+position = Vector2(101.11991, 22.119911)
+scale = Vector2(0.39249855, 0.39249855)
+texture = ExtResource("2_7nqqx")
+
+[node name="MidSprite" type="Sprite2D" parent="."]
+position = Vector2(102.1199, 67.1199)
+scale = Vector2(0.39249855, 0.39249855)
+texture = ExtResource("1_fcjgb")
+
+[node name="BaseSprite" type="Sprite2D" parent="."]
+position = Vector2(103, 111)
+scale = Vector2(0.39249855, 0.39249855)
+texture = ExtResource("1_fcjgb")

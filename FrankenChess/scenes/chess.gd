@@ -201,6 +201,10 @@ func select_piece(piece):
 	selected_piece = piece
 	#print("Selected piece:", piece.name, " at ", piece.board_pos)
 
+	#add UI that shows what parts the piece has 
+	#get the parts of the piece 
+	#based on the parts add icon to piece view page 
+
 	var legal_moves
 	
 	if piece.board_pos == Vector2i(-1, -1):
@@ -214,7 +218,6 @@ func select_piece(piece):
 				legal_moves.append(pos)
 
 	highlight_moves(legal_moves)
-
 
 	# Visual feedback
 	piece.scale = Vector3(1.1, 1.1, 1.1)
