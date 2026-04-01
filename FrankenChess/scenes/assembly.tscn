@@ -73,3 +73,126 @@ grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="CurrentParts" type="Node" parent="."]
+
+[node name="How it Rect" type="ColorRect" parent="."]
+offset_left = 860.0
+offset_top = 183.0
+offset_right = 1149.0
+offset_bottom = 364.0
+color = Color(0.13501206, 0.13501206, 0.135012, 0.4862745)
+
+[node name="Assembly Rect" type="ColorRect" parent="."]
+offset_left = 890.0
+offset_top = 379.0
+offset_right = 1127.0
+offset_bottom = 627.0
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.4862745)
+
+[node name="How It Do" type="Node" parent="."]
+
+[node name="Title" type="Label" parent="How It Do"]
+offset_left = 928.0
+offset_top = 185.0
+offset_right = 1089.0
+offset_bottom = 220.0
+theme_override_font_sizes/font_size = 25
+text = "How It Works"
+
+[node name="Underline" type="Label" parent="How It Do/Title"]
+layout_mode = 0
+offset_left = -12.0
+offset_top = 4.0
+offset_right = 170.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 25
+text = "_________________"
+
+[node name="Description" type="Label" parent="How It Do/Title"]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 48.0
+offset_right = 213.0
+offset_bottom = 185.0
+theme_override_constants/paragraph_spacing = -4
+theme_override_font_sizes/font_size = 12
+text = "Create custom chess pieces from a pool of
+randomized parts. Duplicates are differentiated by integars after the part.
+
+Each turn, you can choose to PLAY or BUILD.
+
+Remember, this isn't chess. It's FrankenChess!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Assembly" type="Node" parent="How It Do/Title"]
+
+[node name="AssemblyWord" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 941.0
+offset_top = 386.0
+offset_right = 1075.0
+offset_bottom = 409.0
+theme_override_font_sizes/font_size = 16
+text = "ASSEMBLY GUIDE"
+
+[node name="TOP3" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 940.0
+offset_top = 391.0
+offset_right = 1078.0
+offset_bottom = 414.0
+theme_override_font_sizes/font_size = 16
+text = "____________________"
+
+[node name="TOP" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 971.0
+offset_top = 421.0
+offset_right = 1050.0
+offset_bottom = 444.0
+theme_override_font_sizes/font_size = 13
+text = "- TOP PIECE -"
+
+[node name="TopDescription" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 896.0
+offset_top = 442.0
+offset_right = 1125.0
+offset_bottom = 466.0
+theme_override_font_sizes/font_size = 11
+text = "Where you start on the board."
+horizontal_alignment = 1
+
+[node name="MID" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 959.0
+offset_top = 477.0
+offset_right = 1062.0
+offset_bottom = 500.0
+theme_override_font_sizes/font_size = 13
+text = "- MIDDLE PIECE -"
+horizontal_alignment = 1
+
+[node name="MidDescription" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 896.0
+offset_top = 498.0
+offset_right = 1125.0
+offset_bottom = 535.0
+theme_override_font_sizes/font_size = 11
+text = "How the piece ATTACKS.
+Check or take pieces LIKE this piece."
+horizontal_alignment = 1
+
+[node name="BASE" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 967.0
+offset_top = 549.0
+offset_right = 1052.0
+offset_bottom = 572.0
+theme_override_font_sizes/font_size = 13
+text = "- BASE PIECE -"
+horizontal_alignment = 1
+
+[node name="BaseDescription" type="Label" parent="How It Do/Title/Assembly"]
+offset_left = 896.0
+offset_top = 570.0
+offset_right = 1125.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 11
+text = "How the piece moves normally.
+Move around the board LIKE this piece."
+horizontal_alignment = 1
