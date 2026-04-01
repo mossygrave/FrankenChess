@@ -1,7 +1,11 @@
+ColorRect
+Node2D
+Node
+Label
+Label      - Matches the "text" keyword.
 Node3D
 AudioStreamPlayer2D
 TextureRect
-Node
 AnimationPlayer
 GPUParticlesCollisionBox3D
 AudioStreamPlayer
@@ -9,6 +13,3 @@ Marker3D
 RigidBody3D
 StaticBody3D
 WorldEnvironment
-SpotLight3D
-Camera3D
-CSGBox3D
