@@ -11,6 +11,10 @@ var camera_flipped := false
 var is_flipping := false #Stops the user from pressing f while already flipping
 @onready var turn = "black"
 
+@onready var piece_info: Node2D = $"../UI/CanvasLayer/PieceInfo"
+@onready var piece_info_active: Marker2D = $"../UI/CanvasLayer/PieceInfoActive"
+@onready var piece_info_inactive: Marker2D = $"../UI/CanvasLayer/PieceInfoInactive"
+
 # use the f key to flip the camera 180 degrees
 func _process(_delta: float) -> void:
 	if turn != Global.turn:
@@ -201,9 +205,8 @@ func select_piece(piece):
 	selected_piece = piece
 	#print("Selected piece:", piece.name, " at ", piece.board_pos)
 
-	#add UI that shows what parts the piece has 
-	#get the parts of the piece 
-	#based on the parts add icon to piece view page 
+	piece_info.change_sprites(piece._top, piece._mid, piece._base)
+	piece_info.global_position = piece_info_active.global_position
 
 	var legal_moves
 	
@@ -226,6 +229,8 @@ func deselect_piece():
 	if selected_piece:
 		selected_piece.scale = Vector3.ONE
 	selected_piece = null
+	
+	piece_info.global_position = piece_info_inactive.global_position
 
 func move_piece(piece, pos):
 	$"../SFX/PlacePiece".play()

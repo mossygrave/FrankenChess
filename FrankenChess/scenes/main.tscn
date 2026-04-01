@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bhli85w3uxecj"]
+[gd_scene load_steps=15 format=3 uid="uid://bhli85w3uxecj"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://ufu8dg3wmwws" path="res://WhiteCircle.png" id="3_kx1m2"]
+[ext_resource type="PackedScene" uid="uid://c0nbikgiqek6q" path="res://piece_info.tscn" id="4_ya4ey"]
 [ext_resource type="AudioStream" uid="uid://k8x5gxix2ftb" path="res://assets/SFX/ai-tap-sound.mp3" id="6_tefeu"]
 [ext_resource type="AudioStream" uid="uid://b5me6i02kffpk" path="res://assets/SFX/chess-pieces-one-tap.mp3" id="7_tipki"]
 [ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="8_85g3d"]
@@ -815,6 +816,15 @@ transform = Transform3D(1, 0, 0, 0, 0.6733352, 0.7393374, 0, -0.7393374, 0.67333
 texture = SubResource("ViewportTexture_0wfyh")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="PieceInfoActive" type="Marker2D" parent="UI/CanvasLayer"]
+position = Vector2(1023, 1)
+
+[node name="PieceInfoInactive" type="Marker2D" parent="UI/CanvasLayer"]
+position = Vector2(1161, 0)
+
+[node name="PieceInfo" parent="UI/CanvasLayer" instance=ExtResource("4_ya4ey")]
+position = Vector2(1161, 0)
 
 [node name="ForfeitButton" type="Button" parent="UI/CanvasLayer"]
 anchors_preset = 8
