@@ -9,40 +9,40 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func change_sprites(top, mid, base):
-	set_sprite(top, top_sprite)
-	set_sprite(mid, mid_sprite)
-	set_sprite(base, base_sprite)
+func change_sprites(top, mid, base, color):
+	set_sprite(top, top_sprite, color)
+	set_sprite(mid, mid_sprite, color)
+	set_sprite(base, base_sprite, color)
 
-func set_sprite(part, sprite: Sprite2D):
+func set_sprite(part, sprite: Sprite2D, color):
 	match(part):
 		"pawn":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-pawn.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-pawn.png")
 		"rook":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-rook.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-rook.png")
 		"knight":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-knight.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-knight.png")
 		"bishop":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-bishop.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-bishop.png")
 		"queen":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-queen.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-queen.png")
 		"king":
-			if Global.turn == "white":
+			if color == "white":
 				sprite.texture = load("res://assets/2d pieces/white-king.png")
 			else:
 				sprite.texture = load("res://assets/2d pieces/black-king.png")

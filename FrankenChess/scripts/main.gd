@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 		$UI/CanvasLayer.visible = true
 	
 func _on_assembly_pressed() -> void:
-	#get_tree().change_scene_to_file("res://scenes/assembly.tscn")
+	board.deselect_piece()
 	var cam = $CameraPivot/Camera3D
 	var ui = $UI/CanvasLayer
 	$Assembly.visible = true

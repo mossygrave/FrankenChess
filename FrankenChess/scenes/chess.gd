@@ -133,10 +133,9 @@ func _input(event):
 			if hit.has_method("is_piece"):
 				var clicked_piece = hit
 
-				if clicked_piece.color != Global.turn:
-					print("That is not your piece")
-					return
-					
+				#if clicked_piece.color != Global.turn and !selected_piece:
+					#print("That is not your piece")
+					#select_piece(clicked_piece)
 				# If a piece is already selected...
 				if selected_piece:
 
@@ -146,11 +145,11 @@ func _input(event):
 						deselect_piece()
 						return
 
-				# 2. Clicking your OWN piece → switch selection
-					if clicked_piece.color == selected_piece.color:
-						select_piece(clicked_piece)
-						return
-
+				# 2. Clicking someone else's piece → switch selection
+					if clicked_piece.color != selected_piece.color:
+						highlight_moves([])
+					# Switches selection for your piece or opponent's piece
+					select_piece(clicked_piece)
 				# 3. Clicking an ENEMY piece → attempt capture
 					handle_square_click(clicked_piece.board_pos)
 					return
@@ -208,31 +207,33 @@ func select_piece(piece):
 			Global.global_top = null
 			Global.global_mid = null
 			Global.global_base = null
-	
+	 
 			Global.assembled_piece = null
 		deselect_piece()
+		await get_tree().create_timer(.47).timeout
 
 	selected_piece = piece
 	#print("Selected piece:", piece.name, " at ", piece.board_pos)
 	
-	piece_info.change_sprites(piece._top, piece._mid, piece._base)
+	piece_info.change_sprites(piece._top, piece._mid, piece._base, piece.color)
 	var active = piece_info_active.global_position
 	var tween = create_tween()
 	tween.tween_property(piece_info, "global_position", active, .35).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	
-	var legal_moves
-	
-	if piece.board_pos == Vector2i(-1, -1):
-		legal_moves = piece.get_moves(spaces)
-	else:
-		var raw_moves = piece.get_moves(spaces)
-		legal_moves = []
+	if selected_piece.color == Global.turn:
+		var legal_moves
+		
+		if piece.board_pos == Vector2i(-1, -1):
+			legal_moves = piece.get_moves(spaces)
+		else:
+			var raw_moves = piece.get_moves(spaces)
+			legal_moves = []
 
-		for pos in raw_moves:
-			if move_is_legal(piece, pos):
-				legal_moves.append(pos)
+			for pos in raw_moves:
+				if move_is_legal(piece, pos):
+					legal_moves.append(pos)
 
-	highlight_moves(legal_moves)
+		highlight_moves(legal_moves)
 
 	# Visual feedback
 	piece.scale = Vector3(1.1, 1.1, 1.1)
@@ -245,6 +246,7 @@ func deselect_piece():
 	var inactive = piece_info_inactive.global_position
 	var tween = create_tween()
 	tween.tween_property(piece_info, "global_position", inactive, .8).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_IN_OUT)
+
 	
 func move_piece(piece, pos):
 	$"../SFX/PlacePiece".play()
@@ -348,6 +350,7 @@ func capture_piece(piece):
 	piece.queue_free()
 
 func highlight_moves(moves: Array):
+	print(spaces)
 	# Clear old highlights
 	for marker in dots.get_children():
 		var sprite = marker.get_node("Sprite3D")
