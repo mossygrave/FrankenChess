@@ -1,5 +1,9 @@
 63f7b34db8d8cdea90c76aacccf841ec
+<<<<<<< Updated upstream
 ::res://::1775082481
+=======
+::res://::1775248900
+>>>>>>> Stashed changes
 assembled_result.tscn::PackedScene::-1::1773759159::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::6750483687177341372::1773759159::1775015424::1::::<><><>0<>0<>792d10401a5f89d25a72ba9a8b64e01c<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 new_script.gd::GDScript::1459514196885081353::1773759159::0::1::::<>Node<><>0<>0<><>::
@@ -143,11 +147,19 @@ Image (9).jpeg::CompressedTexture2D::4637860067098690603::1774759568::1774759568
 Image (10).jpeg::CompressedTexture2D::3572151907185170352::1774759568::1774759568::1::::<><><>0<>0<>4e1861a32a115c5ffbedc0a6abfc2b3d<>res://.godot/imported/Image (10).jpeg-0a5e97c375ab5f81a3c09bd0bd41ca60.ctex::
 Image (11).jpeg::CompressedTexture2D::8142994301277147806::1774759568::1774759568::1::::<><><>0<>0<>657443512251d9d20e711944092cc883<>res://.godot/imported/Image (11).jpeg-ff0479f887ee45f64b5635d546afc3eb.ctex::
 Image.jpeg::CompressedTexture2D::1418634605444391121::1774759568::1774759568::1::::<><><>0<>0<>91603911535e89b0fc04c43d6be25b27<>res://.godot/imported/Image.jpeg-446ac5a3ef830e1f4f4e56eaf23d8f4a.ctex::
+<<<<<<< Updated upstream
 ::res://scenes/::1775082338
 assembly.tscn::PackedScene::4830637442164550190::1775015341::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd
 Bishop.gd::GDScript::63105928029120745::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
 board.tscn::PackedScene::1011947757416667246::1773935526::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://bjbsruv8bl50g::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
 chess.gd::GDScript::3824173889552152558::1775082338::0::1::::<>Sprite3D<><>0<>0<><>::
+=======
+::res://scenes/::1775245258
+assembly.tscn::PackedScene::4830637442164550190::1775015341::0::1::::<><><>0<>0<><>::uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres<>uid://bfvlhed26v30g::::res://scripts/assembly.gd
+Bishop.gd::GDScript::63105928029120745::1773935526::0::1::::<>StaticBody3D<><>0<>0<><>::
+board.tscn::PackedScene::1011947757416667246::1773935526::0::1::::<><><>0<>0<><>::uid://buqpt5smeff07::::res://scenes/chess.gd<>uid://bjbsruv8bl50g::::res://assets/KayKit_Holiday_Bits_1.0_FREE/KayKit_Holiday_Bits_1.0_FREE/Chess_board.png<>uid://br4rhr4oc1wl4::::res://scenes/test_mat.tres
+chess.gd::GDScript::3824173889552152558::1775245258::0::1::::<>Sprite3D<><>0<>0<><>::
+>>>>>>> Stashed changes
 CopyOfchess.gd::GDScript::4241263055341817674::1774759588::0::1::::<>Sprite3D<><>0<>0<><>::
 game_over.gd::GDScript::8529604675353427686::1775016164::0::1::::<>CanvasLayer<><>0<>0<><>::
 game_over.tscn::PackedScene::5246631391523414497::1774970179::0::1::::<><><>0<>0<><>::uid://dtr2lwj5ldsru::::res://scenes/game_over.gd<>uid://cl2ulon2y5j7a::::res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf
@@ -193,8 +205,13 @@ queen_mid.tscn::PackedScene::6834730125035343807::1774583455::0::1::::<><><>0<>0
 rook_mid.tscn::PackedScene::7645499027348441566::1773759159::0::1::::<><><>0<>0<><>::uid://dm1rc005odn6s::::res://scripts/part.gd<>uid://brln41s8tvccm::::res://assets/Chess Pieces/Castle Piece/Castle-Middle.glb
 ::res://scenes/VFX/::1774620291
 rain_particle_effect.tscn::PackedScene::7937285941609784381::1774620291::0::1::::<><><>0<>0<><>::uid://y0wc5e1kdsfm::::res://assets/particles/trace_02_a.png<>uid://boyyn5trtdrnn::::res://assets/particles/circle_05_a.png
+<<<<<<< Updated upstream
 ::res://scripts/::1775081189
 assembly.gd::GDScript::2781397438193138944::1775081189::0::1::::<>Node3D<><>0<>0<><>::
+=======
+::res://scripts/::1775248716
+assembly.gd::GDScript::2781397438193138944::1775247490::0::1::::<>Node3D<><>0<>0<><>::
+>>>>>>> Stashed changes
 CopyOfchess.gd::GDScript::1719505046138029532::1774759588::0::1::::<>Sprite3D<><>0<>0<><>::
 credits.gd::GDScript::4621359921484412380::1774762542::0::1::::<>Control<><>0<>0<><>::
 global.gd::GDScript::2793304751498608475::1775080442::0::1::::<>Node<><>0<>0<><>::

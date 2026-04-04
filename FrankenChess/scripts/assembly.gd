@@ -40,7 +40,12 @@ func _process(delta: float) -> void:
 				if mesh:
 					var mat = preload("res://assets/Chess Pieces/Pawn Piece/black-piece.tres")
 					mesh.set_surface_override_material(0, mat)
+<<<<<<< Updated upstream
 				
+=======
+					
+					
+>>>>>>> Stashed changes
 				Global.black_king = true
 	
 	if $Camera3D.current == true:
@@ -93,6 +98,7 @@ func _ready():
 	confirm.pressed.connect(_confirm_pieces.bind())
 	constant.add_child(confirm)
 	
+
 
 func _clear_pieces():
 	var active: Node = $CurrentParts
