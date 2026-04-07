@@ -40,6 +40,13 @@ func _process(delta: float) -> void:
 				if mesh:
 					var mat = preload("res://assets/Chess Pieces/Pawn Piece/black-piece.tres")
 					mesh.set_surface_override_material(0, mat)
+<<<<<<< Updated upstream
+				
+=======
+					
+					
+>>>>>>> Stashed changes
+				Global.black_king = true
 	
 	if $Camera3D.current == true:
 		$Control.visible = true
@@ -92,10 +99,8 @@ func _ready():
 	constant.add_child(confirm)
 	
 
+
 func _clear_pieces():
-	if !Global.white_king or !Global.black_king:
-		print("clear button is disabled because you dont have a king")
-		return
 	var active: Node = $CurrentParts
 	for child in active.get_children():
 		child.queue_free()
@@ -120,7 +125,7 @@ func _change_to_board():
 func _confirm_pieces():
 	
 	for part in current_parts:
-		if current_parts[part] == null:
+		if part == null:
 			return #cancels the function if the player doesnt have all the parts
 	
 	if current_dictionaries["top"]["type"] == "king" and Global.turn == "white":
