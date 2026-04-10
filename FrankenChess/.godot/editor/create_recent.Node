@@ -1,3 +1,4 @@
+CSGBox3D
 WorldEnvironment
 Marker2D
 ColorRect
@@ -12,4 +13,3 @@ AnimationPlayer
 GPUParticlesCollisionBox3D
 AudioStreamPlayer
 Marker3D
-RigidBody3D

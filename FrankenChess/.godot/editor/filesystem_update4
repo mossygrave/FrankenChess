@@ -1,1 +1,2 @@
-res://scripts/assembly.gd
+res://scripts/AIModels/basic.gd
+res://scripts/AIModels/easy.gd

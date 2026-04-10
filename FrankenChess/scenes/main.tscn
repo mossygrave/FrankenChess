@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhli85w3uxecj"]
+[gd_scene load_steps=17 format=3 uid="uid://bhli85w3uxecj"]
 
 [ext_resource type="PackedScene" uid="uid://oogvqjaqobq1" path="res://scenes/board.tscn" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://d03qreo0q8keq" path="res://scripts/main.gd" id="1_choun"]
@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://0i1adatc2c6k" path="res://assets/SFX/lego-break-fall-apart.mp3" id="8_85g3d"]
 [ext_resource type="AudioStream" uid="uid://b7n1dl8sctq8x" path="res://assets/SFX/Less Warbles.mp3" id="9_85g3d"]
 [ext_resource type="FontFile" uid="uid://cl2ulon2y5j7a" path="res://scenes/Menus/frankentype-font/Frankentypepersonaluseonly-pj7v.otf" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://bjvhp0v77s6g1" path="res://assets/Bark/Bark2-B.png" id="11_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://ca285mg3ojj4i" path="res://scenes/assembly.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://bpfkwx1lcqno0" path="res://assets/TABLE.glb" id="12_eb6dy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pyhd"]
 size = Vector3(1, 0.48779297, 1)
@@ -19,6 +19,11 @@ size = Vector3(1, 0.48779297, 1)
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0wfyh"]
 viewport_path = NodePath("UI/CanvasLayer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trceg"]
+albedo_texture = ExtResource("11_eb6dy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8y0u"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_choun")
@@ -881,9 +886,6 @@ spot_angle = 52.293053
 [node name="Assembly" parent="." instance=ExtResource("11_ya4ey")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -16.288925, 0)
 
-[node name="TABLE" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(0.0022084378, 0, 1.0527292, 0, 1, 0, -1.0122745, 0, 0.0022966973, -0.0141785145, -0.78968567, -0.53327036)
-
 [node name="SFX" type="Node" parent="."]
 
 [node name="SelectPiece" type="AudioStreamPlayer" parent="SFX"]
@@ -926,6 +928,12 @@ text = "Check!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(-2.6152549, 0, 2.4981152e-06, 0, 1, 0, -2.2863284e-07, 0, -28.57511, 0.09286499, -0.65667915, 0)
+material_override = SubResource("StandardMaterial3D_trceg")
+size = Vector3(23.981506, 1, 1)
+material = SubResource("StandardMaterial3D_a8y0u")
 
 [connection signal="delete_parts" from="Board" to="Assembly" method="_on_board_delete_parts"]
 [connection signal="pressed" from="UI/CanvasLayer/ForfeitButton" to="Board" method="_on_button_pressed"]
